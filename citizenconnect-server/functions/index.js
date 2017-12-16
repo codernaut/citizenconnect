@@ -7,7 +7,15 @@ var FCM = require('fcm-push');
 var serverKey = 'AAAAb6tZ1_Y:APA91bGU7sDMrtgMF1y_OIOWqVqMPMc_0RT25UmvUkq-RHdz9LWrd6nX4Lbjpn4RKKefu1cqO_2Cb8l9a-U5x5DMMsu6WQZ7IdYj6Mb9y8h0DsOTzUILSckywWlCFfHanESLq_rnIe0H';
 var fcm = new FCM(serverKey);
 const admin = require('firebase-admin')
-admin.initializeApp(functions.config().firebase)
+
+  admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    databaseURL: "https://citizenconnect-ed5fa.firebaseio.com"
+  });
+  var datetime = require('node-datetime');
+
+var databaseRef = admin.database();
+
 exports.generateThumbnail = functions.storage.object()
 .onChange(event=>{
     const object = event.data
@@ -38,16 +46,6 @@ exports.generateThumbnail = functions.storage.object()
         destination: tempFilePath
     })
     .then(()=>{
-        console.log('Image Download locally to',tempFilePath)
-        return spawn('convert',[tempFilePath,'-thumbnail','200x200',
-        tempFilePath])
-    })
-    .then(()=>{
-        console.log('Thumbnail created')
-        return bucket.upload(tempFilePath,{
-            destination: thumbFilePath
-        })
-    }).then(()=>{
         const thumbFile = bucket.file(thumbFilePath)
         const config = {
             action: 'read',
@@ -63,6 +61,10 @@ exports.generateThumbnail = functions.storage.object()
         const thumbFileUrl = thumbResult[0]
         const fileUrl  = originalResult[0]
         console.log('Downloadable link:'+fileUrl)
+        //Save Download link to real Time Database
+        saveFileURL(fileUrl,fileName)
+    
+
         sendNotification(fileUrl);
         return;
     })
@@ -70,30 +72,23 @@ exports.generateThumbnail = functions.storage.object()
         destination: thumbFilePath
     })
 })
-exports.sanitizePost = functions.database
-.ref('/posts/{pushId}')
-.onWrite(event => {
-    const post = event.data.val()
-    if (post.sanitized) {
-            return
-    }
-    console.log("Sanitizing new post "+ event.params.pushId)
-    console.log(post)
-    
-    post.body = "Notification Sent to Mobile"
-    sendNotification(post.body)
-     return event.data.ref.set(post)
-})
+
+function saveFileURL(fileUrl,fileName) {
+    databaseRef.ref('Files').push({
+      url: fileUrl,
+      FileName: fileName,
+      time: "2017-12-13",
+      title: "Notification"
+    });
+  }
+
 function sendNotification(msg){
     var message = {
-        to: '/topics/news', // required fill with device token or topics
+        to: '/topics/notification', // required fill with device token or topics
+        priority: "high",
         data: {
             serveMessage: msg
         },
-        notification: {
-            title: 'Firebase',
-            body: 'Database Change Alert'
-        }
     };
 
     fcm.send(message, function(err, response){

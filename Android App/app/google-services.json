@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "479616161782-g047vtlsdc7au21gnm4cdlthdqvet7ml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.cfp.citizenconnect",
+            "certificate_hash": "5dd76ab6f4af1f4780c136b5b339b67eb198a07e"
+          }
+        },
+        {
+          "client_id": "479616161782-l1e6ifol1q6i9lcu27qnlb4abvvgtn3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.cfp.citizenconnect",
+            "certificate_hash": "e0c2ff5549f57725cdce06c7491a006808b9c28a"
+          }
+        },
+        {
           "client_id": "479616161782-kp568jgma4oauo1176ar1bghf1r7n5k8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -1,14 +1,19 @@
 package org.cfp.citizenconnect.Notification;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import org.cfp.citizenconnect.MainActivity;
+import org.cfp.citizenconnect.R;
 
 /**
  * Created by root on 05/12/2017.
@@ -19,13 +24,23 @@ public class FCMService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         Log.d("FirebaseData", "Message data payload: " + remoteMessage.getData());
         if (remoteMessage.getData().size() > 0) {
-            Log.d("FirebaseData", "Message data payload: " + remoteMessage.getData());
+            Intent i = new Intent("android.intent.action.MAIN").putExtra("newUpdate", true);
+            this.sendBroadcast(i);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
+                    new Intent(this,MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+            Notification noti = new Notification.Builder(this)
+                    .setContentIntent(pendingIntent)
+                    .setContentTitle("ICT Citizen Connect")
+                    .setContentText("New update added click to view")
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setPriority(Notification.PRIORITY_MAX)
+                    .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                    .build();
 
-            SharedPreferences myPreferences =  getSharedPreferences("MyPrefference", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = myPreferences.edit();
-            editor.putString("imageLink",remoteMessage.getData().values().toArray()[0].toString());
-            editor.commit();
-            startActivity(new Intent(this, MainActivity.class));
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.notify(0, noti);
+
         }
     }
 }

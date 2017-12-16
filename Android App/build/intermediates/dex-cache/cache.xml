@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/drawee-0.6.1.aar/2738f640917ccc99692e71581a86298b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="af0fe468c884e2d153cf564326b23b54ff0040ce">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/945ec67c9fb34504439f9fcc5a9adb01/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/457d3aa9c555d2d63da520dbcbebe8b7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/26536cf5372c6604d094f9b5721b8d93/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/5adae5d6ab8bb9d72c3d920af27c923b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.0.4.aar/2d896fb2c600e19440f6e5033094fd4c/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/3148be70e1cd3bd6b0419f6280e01f11/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.0.4.aar/84a1033f9bd8ae2dccc357b17ec2847e/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e5b429c146094a612134910688d169ec08deeefb">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/e4f57a63a25abca37a297bda95af87a6/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/ceb14543fc92b0c73ce6e295296d0966/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/fbcore-0.6.1.aar/6e8d8e8c0c8bc2d0d18d1e770a838be2/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c10091a128e47ed4ef804bd753c0f45745699756">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/50be15b9456ea283b9b94937e5408612/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-config-11.0.4.aar/371b328e52a701a8bfbc6784b7996de7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="eea424e61a0c85b93a0e477565314a58136abaea">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.6.1.aar/dfa733ea1f02dc0aede7c96f1b9c12ec/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="eb9817e26186e1a267cdd14211742ecc793de32e">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/9e6c49a2b2b7b1c0a95670d846b696d9/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-database-11.0.4.aar/c39c4ea3562f5e21d2dace7eb94ad579/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7c24e2e9773fb498e390ce973db382c3ddcf748e">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/acdae2616badedfdc806bbab75c00cfd/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-storage-11.0.4.aar/89cbe9f665281801c92e2ac13b022ded/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3ac08c35419ab7cf9146969de471768dbe502f0f">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/2eb867859a9c70ccbb55a39bd54c49ad/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b12cd9c87c3dfb012a911b6e38d2444ed0a65e1f">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/61695b93ef17914ed3d0f148323d7568/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.0.4.aar/84067cb27727794abe63f5dee9df6d47/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/7c15bae1cb47f150d74ecb4865cb8282/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-11.0.4.aar/9c3ec84e3438ac1706e9048e7ac72917/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b685077cdb08cf7ae8b61afd1fe910e47d91b9a">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/24ddf6a6f6dd76181efec0da3edb13ff/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-common-11.0.4.aar/0e0ce901ef3430e7fdc9881290118949/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/fresco-0.6.1.aar/710b3c0c95f8c4de4b86404a3f9b75c9/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dd4c42401d36342901ac4280fb92a831f8007f3d">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-11.0.4.aar/fce38113d1d50374be5f3f538aabb7fd/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1b12397bc9f342b29d9e9108978828f99a6da579">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7e27213be120eea1ca659284e79a181d/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.0.4.aar/ed60971928ec074ebfa141b834486f7f/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f47f4d5bdfd7d7bf330945b8a7ccce4ab437a710">
+        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+
+</items>
