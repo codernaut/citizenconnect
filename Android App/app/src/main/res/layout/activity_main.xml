@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context="org.cfp.citizenconnect.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
         android:id="@+id/snapViewer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
