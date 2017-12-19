@@ -4,16 +4,19 @@
         "created_by" : "...",
         "creation_date" : "...",
         "last_update" : "...", <!-- = creation_date -->        
-    }  
+    } ,
+    "remarks" : "hi"
     "datasets" :
     [
         {
             "project_name"  : "ICT",
-            "dataset_url"   : "..."
+            "dataset_url"   : "...",
+            "remarks" : "hi"
         }
         {
             "project_name"  : "RCCI",
-            "dataset_url"   : "..."
+            "dataset_url"   : "...",
+            "remarks" : "hi"
         }
     ]
 }
@@ -24,6 +27,7 @@
         "created_by" : "...",
         "creation_date" : "...",
         "last_update" : "...", <!-- = creation_date -->        
+        "remarks" : "hi"
     }  
     "project name" : "ICT",
     "changes" : {
@@ -31,7 +35,8 @@
         "change op" : "add",
         "change dataset" : "fruitprices",
         "change data" : "price",
-        "change by" : "gul"
+        "change by" : "gul",
+        "remarks" : "hi"
     }
 
 }
@@ -40,7 +45,7 @@
     "project_code" : "ICT",
     "project_name" : "ICT",
     "project_long_name" : "Islamabad Capital Territory App",
-
+    "remarks" : "hi",
     "version_data" : {
         "version" : "0.1",
         "created_by" : "...",
@@ -51,7 +56,8 @@
     
 
     "data_sets" : {
-        name: 
+        "type": "files" ,
+        "remarks" : "hi"
         "data_attributes" : [
             {
                 "name" : [
@@ -74,7 +80,10 @@
 }
 
 "dataset" : {
-    "set_name" : "ICT_data_201712010001",
+    "set_ID" : "ICT_data_201712010001",
+    "project_code": "ICT",
+    "type" : "files",
+    "remarks" : "hi"
     "data" : [
                 ... <data>
             ]
