@@ -14,10 +14,9 @@ android {
         maven { url "https://jitpack.io" }
 
     }
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    android{
+        dataBinding {
+            enabled = true
         }
     }
 }

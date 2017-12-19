@@ -19,7 +19,7 @@
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="8dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title:"
+            android:layout_gravity="center_vertical"
             android:textStyle="bold" />
 
         <TextView
@@ -37,7 +38,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
             android:text=" tile" />
+        <Button
+            android:id="@+id/BtnShare"
+            android:textAllCaps="false"
+            android:text="Share"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
