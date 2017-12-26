@@ -29,7 +29,7 @@ public class CitizenConnectApplciation extends Application {
         Fresco.initialize(this);
 
         database = FirebaseDatabase.getInstance();
-        FilesRef = database.getReference("Files");
+        FilesRef = database.getReference("Notifications");
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseMessaging.getInstance().subscribeToTopic("notification");

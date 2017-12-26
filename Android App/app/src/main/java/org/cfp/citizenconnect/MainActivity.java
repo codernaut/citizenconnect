@@ -6,43 +6,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import org.cfp.citizenconnect.Adapters.SnapsNotificationAdapter;
-import org.cfp.citizenconnect.Model.Files;
+import org.cfp.citizenconnect.Adapters.NotificationListAdapter;
+import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.cfp.citizenconnect.CitizenConnectApplciation.FilesRef;
-import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
-public class MainActivity extends AppCompatActivity implements SnapsNotificationAdapter.OnItemInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
-    List <Files> filesModel = new ArrayList<>();
-    SnapsNotificationAdapter notificationAdapter;
-    ProgressDialog progress ;
+    List<Notifications> notificationsModel = new ArrayList<>();
+    NotificationListAdapter notificationListAdapter;
+    ProgressDialog progress;
     ActivityMainBinding binding;
+
+
     private BroadcastReceiver mNotificationReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         progress = new ProgressDialog(this);
         progress.setTitle("Please wait");
         progress.show();
@@ -50,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements SnapsNotification
     }
 
     @Override
-    public  void onResume() {
+    public void onResume() {
 
         super.onResume();
         IntentFilter intentFilter = new IntentFilter(
@@ -60,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements SnapsNotification
 
             @Override
             public void onReceive(Context context, Intent intent) {
-                boolean update = intent.getBooleanExtra("newUpdate",false);
-                if(update){
+                boolean update = intent.getBooleanExtra("newUpdate", false);
+                if (update) {
                     loadFromFirebase();
                     progress.show();
 
@@ -79,22 +75,21 @@ public class MainActivity extends AppCompatActivity implements SnapsNotification
         this.unregisterReceiver(this.mNotificationReceiver);
     }
 
-    private  void loadFromFirebase(){
-        filesModel.clear();
+    private void loadFromFirebase() {
+        notificationsModel.clear();
         FilesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot data: dataSnapshot.getChildren()){
-                    Files files = data.getValue(Files.class);
-                    filesModel.add(files);
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Notifications notifications = data.getValue(Notifications.class);
+                    notificationsModel.add(notifications);
                 }
-                notificationAdapter = new SnapsNotificationAdapter(MainActivity.this,filesModel,MainActivity.this);
-                LinearLayoutManager eventProgramLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                binding.snapViewer.setLayoutManager(eventProgramLayoutManager);
-                binding.snapViewer.addItemDecoration(new DividerItemDecoration(binding.snapViewer.getContext(),
-                        eventProgramLayoutManager.getOrientation()));
-                binding.snapViewer.setAdapter(notificationAdapter);
+                Collections.reverse(notificationsModel);
+                LinearLayoutManager notificationList = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
+                notificationListAdapter = new NotificationListAdapter(extractDate(notificationsModel), notificationsModel, MainActivity.this);
+                binding.notificationList.setLayoutManager(notificationList);
+                binding.notificationList.setAdapter(notificationListAdapter);
                 progress.dismiss();
             }
 
@@ -106,19 +101,16 @@ public class MainActivity extends AppCompatActivity implements SnapsNotification
         });
     }
 
-    @Override
-    public void ShareImageClickListener(int position, Drawable Image) {
-        try {
-            Uri bmpUri = getBitmapUri(Uri.parse(filesModel.get(position).getUrl()),MainActivity.this);
-            if (bmpUri!=null){
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-                shareIntent.setType("image/*");
-                startActivity(Intent.createChooser(shareIntent, "Share Image"));
+
+    private List<String> extractDate(List<Notifications> fileModel) {
+        List<String> notificationDates = new ArrayList<>();
+
+        for (Notifications notifications : fileModel) {
+            if (!notificationDates.contains(notifications.getDate())) {
+                notificationDates.add(notifications.getDate());
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        Collections.reverse(notificationDates);
+        return notificationDates;
     }
 }

@@ -3,63 +3,393 @@
 
     <item
         is-multidex="false"
-        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c1ec33c79eac7e1cc103c6243e3c93b0/jars/classes.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/21.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/9.jar" />
+        sha1="a05ca9ac41f6d413bb53bcfada619575ec52fc6f">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/21.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/library-1.3.1.aar/54dc3e1024ea0a3ad4c4864b98f48ef8/jars/classes.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/35.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/2.jar" />
+        sha1="1daec1a24a913057311b77127ce1969c724767ed">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/35.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/shahzaibshahid/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/8.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/35.jar" />
+        sha1="02ab3c842f30f7e0907ed422a1279d4426ec4203">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/8.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/com/android/databinding/baseLibrary/3.0.1/baseLibrary-3.0.1.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/5.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="915f7f0c560968a3d7bfac7456ad7a0d3a974b39">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/3.jar" />
+        sha1="ff57ec1f125a32dba59dd9b4cee883bc7cbf4838">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/lib-v1.1.2.aar/1ae1f68c08e0d382048b8198615379b5/jars/classes.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/4.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="883cf3955d9a25b3a983e63c24930d325e431e4f">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/7.jar" />
+        sha1="3a7e6ea9f771616a52625b2c90a7f292d371d65c">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/4.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/shahzaibshahid/.gradle/caches/transforms-1/files-1.1/adapters-1.3.1.aar/b7e1a1130e50733605bb9284cbf64619/jars/classes.jar"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/1.jar"
         jumboMode="false"
-        min-sdk-version="21"
+        min-sdk-version="24"
         optimize="true"
         revision="26.0.2"
-        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
-        <dex dex="/Users/shahzaibshahid/Downloads/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/1.jar" />
+        sha1="c14d41aeb366ab6fb069d9341815601a69722589">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/27.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d1253897d3456f7fda5fe06800dd9331af8e6792">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/10.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5bd5f2d4450fcde97919bb0f8df4545785dd294a">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/19.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e5ac050f56284370c5814839e3b63df777fadafc">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/33.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="581f740328e8f80438d9af31a2abee6e64437508">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/36.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ae17152c2ffa4781580df96448a881fe83b75456">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/23.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9742e7e903498bac9c869e4efcdadf0c647574de">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/28.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f1eb52ab39a98c946ac6939b258f07962a4ce1b3">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/15.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="057e41f3f752c8291b8dbe88815c7db5f328aabb">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/39.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="445108ef35183b37885d5ca832eaff840c95d757">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/17.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="75c87f1ff5e6e6f0e4a9a33629396f981770f721">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/26.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b63cdfb3f63afcf5d2c3b7ac60c24828d6e6df9">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/18.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="760199ec4a6efde3dd6f74a2c5848f3f287eea7f">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/12.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="28b255956521a37cd2c02f8e17293277d080a374">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/11.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e1bad47968fd51b0e5682f1799d558d2f2b26db2">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/25.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e70bb91d0f2a6a210603265f464de009433b2818">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/7.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9cf7c12325223ae6ca5dc8ed958f1c025a1d6c17">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/38.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2cce1edf674299569566f6961bca5352bd512ea7">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/3.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="059dc75501d3271b14715ea24a3dbce0356b84de">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/9.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="89cafc58e40b6c6bf4f30620e48a5499c30532c1">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/37.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="12485805b6b1f08e7f24303969aa64f1b5b037cc">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/29.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8894eaf3ad90c58cc8a1b32f447656194d559453">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/32.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cd1ac7bb8c5b8308671b34328fe141e7b3973d8d">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/6.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4aca07c749afa56a68ccf05e83570f464bbc10b4">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/14.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="59dc887671be5be6e900d3ff90a8cd3f8f176559">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/34.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="92d788b658c80b21f1c838b1003e0af6bd70a1c1">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/30.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b27a7a34791cd90b536255baf816ab3559823ba7">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/2.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="eb5fbd17c163763e9afafe58ef1eff467777442a">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/16.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="216e70f86470e8cc70726985531993f028912b9e">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/22.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="62c220f46f1871ec3e7f9e8993ec2f397540785e">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/20.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ee36df8c231af10afacbd79510db9ef3fee13a12">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/40.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="aad1abcaf53411a19b3c538656771ab3797106a1">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/31.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="646a3ccb19c4c4a65234e723024eb156d8c95cc3">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/desugar/release/24.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dc7778645c1b89e4970cc6839f0fc9f03ed6df4d">
+        <dex dex="/Development/Code for Pakistan/citizenconnect/Android App/app/build/intermediates/transforms/preDex/release/24.jar" />
     </item>
 
 </items>
