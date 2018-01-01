@@ -4,9 +4,10 @@ const functions = require('firebase-functions');
 var gcs = require('@google-cloud/storage')({keyFilename:'citizenconnect-ed5fa-firebase-adminsdk-op53u-069b5c7148.json'})
 const spawn = require('child-process-promise').spawn
 var FCM = require('fcm-push');
-var serverKey = 'AAAAb6tZ1_Y:APA91bGU7sDMrtgMF1y_OIOWqVqMPMc_0RT25UmvUkq-RHdz9LWrd6nX4Lbjpn4RKKefu1cqO_2Cb8l9a-U5x5DMMsu6WQZ7IdYj6Mb9y8h0DsOTzUILSckywWlCFfHanESLq_rnIe0H';
 var fcm = new FCM(serverKey);
 const admin = require('firebase-admin')
+var dateFormat = require('dateformat');
+var now = new Date();
 
   admin.initializeApp({
     credential: admin.credential.applicationDefault(),
@@ -63,8 +64,6 @@ exports.generateThumbnail = functions.storage.object()
         console.log('Downloadable link:'+fileUrl)
         //Save Download link to real Time Database
         saveFileURL(fileUrl,fileName)
-    
-
         sendNotification(fileUrl);
         return;
     })
@@ -74,17 +73,17 @@ exports.generateThumbnail = functions.storage.object()
 })
 
 function saveFileURL(fileUrl,fileName) {
-    databaseRef.ref('Files').push({
-      url: fileUrl,
-      FileName: fileName,
-      time: "2017-12-13",
-      title: "Notification"
+    databaseRef.ref('Notifications').push({
+        filePath: fileUrl,
+        date: dateFormat(now, "dd-mm-yyyy"),
+        description: "Notification Description on "+dateFormat(now, "dd-mm-yyyy"),
+        tag: "Notification"
     });
   }
 
 function sendNotification(msg){
     var message = {
-        to: '/topics/notification', // required fill with device token or topics
+        to: '/topics/notification',
         priority: "high",
         data: {
             serveMessage: msg

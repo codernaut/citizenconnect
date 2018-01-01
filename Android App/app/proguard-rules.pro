@@ -1,5 +1,5 @@
 # Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
+# You can control the set of applied configuration notifications using the
 # proguardFiles setting in build.gradle.
 #
 # For more details, see
@@ -11,7 +11,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable

@@ -21,13 +21,15 @@ public class CitizenConnectApplciation extends Application {
     public  static  FirebaseDatabase database;
     public  static DatabaseReference FilesRef;
 
+    public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
+
     @Override
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
 
         database = FirebaseDatabase.getInstance();
-        FilesRef = database.getReference("Files");
+        FilesRef = database.getReference("Notifications");
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseMessaging.getInstance().subscribeToTopic("notification");
