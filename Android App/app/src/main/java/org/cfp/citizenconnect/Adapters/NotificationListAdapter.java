@@ -11,24 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.gms.actions.NoteIntents;
-
 import org.cfp.citizenconnect.Model.Notifications;
+import org.cfp.citizenconnect.Model.NotificationsTemplate;
 import org.cfp.citizenconnect.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
 /**
  * Created by shahzaibshahid on 24/12/2017.
+ * This Class is to Enable Horizontal Scroll View
  */
 
 public class NotificationListAdapter extends RecyclerView.Adapter<NotificationListAdapter.ViewHolder> implements NotificationLayoutAdapter.OnItemInteractionListener {
@@ -43,7 +40,13 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         this.notificationDate = notificationDate;
         this.NotificationList = NotificationList;
         this.mContext = mContext;
-        this.map = createHashMap(NotificationList, notificationDate);
+        // this.map = createHashMap(NotificationList, notificationDate);
+    }
+
+    public NotificationListAdapter(List<Notifications> NotificationList, Context mContext) {
+        this.NotificationList = NotificationList;
+        this.mContext = mContext;
+        // this.map = createHashMap(NotificationList, notificationDate);
     }
 
     @Override
@@ -57,22 +60,24 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         NotificationLayoutAdapter notificationAdapter;
-        notificationAdapter = new NotificationLayoutAdapter(mContext, filterNotification(this.NotificationList, notificationDate.get(position)), this);
+        notificationAdapter = new NotificationLayoutAdapter(mContext, NotificationList, this);
         LinearLayoutManager notificationLayout = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         holder.notificationLayout.setLayoutManager(notificationLayout);
         holder.notificationLayout.setAdapter(notificationAdapter);
-        holder.notificationLayout.setOnScrollChangeListener(
+
+
+       /* holder.notificationLayout.setOnScrollChangeListener(
                 (view, i, i1, i2, i3) -> {
                    List<Notifications> V = map.get(notificationDate.get(position));
                    holder.description.setText(V.get(holder.notificationLayout.getCurrentPosition()).getDescription());
                     return;
-                });
+                }); */
 
     }
 
     @Override
     public int getItemCount() {
-        return notificationDate.size();
+        return NotificationList.size();
     }
 
     @Override
@@ -102,6 +107,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager notificationLayout;
         TextView description;
 
@@ -124,7 +130,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
                     V_list.add(V);
                 }
             }
-            map.put(K,V_list);
+            map.put(K, V_list);
         }
         return map;
     }

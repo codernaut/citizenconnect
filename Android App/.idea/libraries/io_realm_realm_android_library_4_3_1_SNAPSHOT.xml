@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="io.realm:realm-android-library-4.3.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/realm-android-library-4.3.1-SNAPSHOT.aar/4d7ef59a853483080c52e3cb4b3962af/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/realm-android-library-4.3.1-SNAPSHOT.aar/4d7ef59a853483080c52e3cb4b3962af/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.realm/realm-android-library/4.3.1-SNAPSHOT/71ad746286d0fe934d4431131a81cc1b8c7a930b/realm-android-library-4.3.1-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

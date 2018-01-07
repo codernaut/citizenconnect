@@ -2,6 +2,8 @@ package org.cfp.citizenconnect;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -62,5 +64,10 @@ public class MyUtils {
             bmpUri = FileProvider.getUriForFile(mContext, FILE_PROVIDER_AUTHORITY, file);
         }
         return bmpUri;
+    }
+    public  static Bitmap getBitmap(int drawable,Context mContext){
+        Bitmap icon = BitmapFactory.decodeResource(mContext.getResources(),
+                drawable);
+        return icon;
     }
 }
