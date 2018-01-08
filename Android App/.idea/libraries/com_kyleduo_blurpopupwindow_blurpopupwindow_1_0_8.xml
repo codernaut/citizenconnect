@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.kyleduo.blurpopupwindow:blurpopupwindow-1.0.8">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/blurpopupwindow-1.0.8.aar/33f6a5adeaf67bd0230ff682a87ad2a7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/blurpopupwindow-1.0.8.aar/33f6a5adeaf67bd0230ff682a87ad2a7/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kyleduo.blurpopupwindow/blurpopupwindow/1.0.8/d87b37a538e3bc68d492da19e3ff2cfb33198d86/blurpopupwindow-1.0.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

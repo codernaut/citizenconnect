@@ -73,9 +73,11 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
             DateTime = itemView.findViewById(R.id.DateTime);
 
             BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(),snapHolder.getDrawable()));
+            snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
         }
     }
     public  interface  OnItemInteractionListener{
          void ShareImageClickListener(int position, Drawable image);
+         void  FullSizeImageClickListener(String imagePath);
     }
 }

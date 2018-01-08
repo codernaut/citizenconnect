@@ -10,21 +10,31 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageButton;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
@@ -56,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
     String phoneNo;
     TextView countNotification;
     private BroadcastReceiver mNotificationReceiver;
+    ConstraintLayout mLayout;
+    private PopupWindow mPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
         progress.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         loadFromRealm();
-
+        mLayout = findViewById(R.id.mainLayout);
 
     }
 
@@ -127,8 +139,7 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
                     startActivity(intent);
                 }
@@ -138,8 +149,7 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
                     startActivity(intent);
                 }
@@ -149,8 +159,7 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
                     startActivity(intent);
                 }
@@ -176,12 +185,13 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
     }
 
     private void loadFromFirebase() {
-        notificationsModel.clear();
-        realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
+
+
         FilesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                notificationsModel.clear();
+                realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Notifications notifications = data.getValue(Notifications.class);
                     Notifications.setNotifications(notifications, realm);
@@ -190,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
                 Collections.reverse(notificationsModel);
                 LinearLayoutManager notificationList = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
                 notificationListAdapter = new NotificationLayoutAdapter(MainActivity.this, notificationsModel, MainActivity.this);
+                binding.notificationList.destroyDrawingCache();
                 binding.notificationList.setLayoutManager(notificationList);
                 binding.notificationList.setAdapter(notificationListAdapter);
                 progress.dismiss();
@@ -254,6 +265,26 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void FullSizeImageClickListener(String imagePath) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        View customView = inflater.inflate(R.layout.full_image_size_popup, null);
+        customView.setLayoutParams(params);
+         new BlurPopupWindow.Builder(MainActivity.this)
+                .setContentView(customView)
+                .setGravity(Gravity.CENTER)
+                .setScaleRatio(0.2f)
+                .setBlurRadius(10)
+                .setTintColor(0x30000000)
+                .build()
+                .show();
+
+        SimpleDraweeView imageHolder = customView.findViewById(R.id.imageHolder);
+        imageHolder.setImageURI(Uri.parse(imagePath));
+
     }
 
     @Override

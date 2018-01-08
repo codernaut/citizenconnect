@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="io.realm:realm-annotations:4.3.1-SNAPSHOT@jar">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/4.3.1-SNAPSHOT/baad7e9f35860fc3eb8decd948aa114ee3104ffe/realm-annotations-4.3.1-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

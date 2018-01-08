@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="32dp"
+    android:paddingTop="32dp"
+    android:id="@+id/popUpLayout">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:layout_gravity="center_vertical"
+        app:cardElevation="3dp"
+        android:layout_marginTop="50dp"
+        app:cardUseCompatPadding="true">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                fresco:actualImageScaleType="focusCrop"
+                android:scaleType="centerInside"
+                fresco:layout_constraintBottom_toBottomOf="parent"
+                fresco:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toTopOf="parent"
+                fresco:viewAspectRatio="1.33" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

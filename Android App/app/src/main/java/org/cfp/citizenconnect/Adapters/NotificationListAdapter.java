@@ -96,6 +96,11 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         }
     }
 
+    @Override
+    public void FullSizeImageClickListener(String imagePath) {
+
+    }
+
     private List<Notifications> filterNotification(List<Notifications> notificationList, String currentDate) {
         List<Notifications> filteredNotificationList = new ArrayList<>();
         for (Notifications notification : notificationList) {
