@@ -6,6 +6,6 @@
         android:color="@color/transparentBlack"/>
 
     <size
-        android:width="50dp"
-        android:height="50dp"/>
+        android:width="35dp"
+        android:height="35dp"/>
 </shape>
