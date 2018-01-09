@@ -44,6 +44,7 @@ dependencies {
     compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.kyleduo.blurpopupwindow:blurpopupwindow:1.0.8'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'realm-android'

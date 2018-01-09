@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Raabta</string>
-    <string name="about_us"> Raabta an app to serve the citizens of Islamabad developed for Islamabad capital territory administration with support from </string>
+    <string name="app_name">Zero Point</string>
+    <string name="about_us"> Zero Point an app to serve the citizens of Islamabad developed for Islamabad capital territory administration with support from </string>
     <string name="menu_notification">New Notification</string>
     <string name="police">"051-15"</string>
     <string name="ambulance">051-115</string>
     <string name="fireBrigade">051-16</string>
+    <string name="playStoreUrl">https://play.google.com/store/apps/details?id=org.cfp.citizenconnect</string>
     
 </resources>

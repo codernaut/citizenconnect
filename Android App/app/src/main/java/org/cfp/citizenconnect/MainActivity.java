@@ -8,16 +8,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,11 +29,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.core.ImagePipeline;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -259,7 +271,8 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-                shareIntent.setType("image/*");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playStoreUrl));
+                shareIntent.setType("*/*");
                 getApplicationContext().startActivity(Intent.createChooser(shareIntent, "Share Image"));
             }
         } catch (IOException e) {
@@ -269,22 +282,52 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
 
     @Override
     public void FullSizeImageClickListener(String imagePath) {
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        View customView = inflater.inflate(R.layout.full_image_size_popup, null);
-        customView.setLayoutParams(params);
-         new BlurPopupWindow.Builder(MainActivity.this)
-                .setContentView(customView)
-                .setGravity(Gravity.CENTER)
-                .setScaleRatio(0.2f)
-                .setBlurRadius(10)
-                .setTintColor(0x30000000)
-                .build()
-                .show();
+        ImageRequest imageRequest = ImageRequestBuilder
+                .newBuilderWithSource(Uri.parse(imagePath))
+                .setAutoRotateEnabled(true)
+                .build();
 
-        SimpleDraweeView imageHolder = customView.findViewById(R.id.imageHolder);
-        imageHolder.setImageURI(Uri.parse(imagePath));
+        ImagePipeline imagePipeline = Fresco.getImagePipeline();
+        final DataSource<CloseableReference<CloseableImage>>
+                dataSource = imagePipeline.fetchDecodedImage(imageRequest, this);
 
+        dataSource.subscribe(new BaseBitmapDataSubscriber() {
+
+            @Override
+            public void onNewResultImpl(@Nullable Bitmap bitmap) {
+                if (dataSource.isFinished() && bitmap != null) {
+                    LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                    View customView = inflater.inflate(R.layout.full_image_size_popup, null);
+                    customView.setLayoutParams(params);
+                    SimpleDraweeView imageHolder = customView.findViewById(R.id.imageHolder);
+                    final LayoutParams layoutParams = imageHolder.getLayoutParams();
+                    layoutParams.height = bitmap.getHeight() + bitmap.getHeight()/3;
+
+                    layoutParams.width = bitmap.getWidth() + bitmap.getWidth()/3;
+                    imageHolder.requestLayout();
+                    imageHolder.setLayoutParams(layoutParams);
+                    imageHolder.setScaleType(ImageView.ScaleType.MATRIX);
+                    imageHolder.setImageURI(Uri.parse(imagePath));
+                    new BlurPopupWindow.Builder(MainActivity.this)
+                            .setContentView(customView)
+                            .setGravity(Gravity.CENTER)
+                            .setBlurRadius(10)
+                            .setTintColor(0x30000000)
+                            .build()
+                            .show();
+
+                    dataSource.close();
+                }
+            }
+
+            @Override
+            public void onFailureImpl(DataSource dataSource) {
+                if (dataSource != null) {
+                    dataSource.close();
+                }
+            }
+        }, UiThreadImmediateExecutorService.getInstance());
     }
 
     @Override
