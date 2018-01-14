@@ -32,6 +32,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
@@ -47,6 +48,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
+import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
@@ -79,7 +81,8 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
     TextView countNotification;
     private BroadcastReceiver mNotificationReceiver;
     ConstraintLayout mLayout;
-    private PopupWindow mPopupWindow;
+    BlurPopupWindow.Builder mBuilder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -266,14 +269,19 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
     @Override
     public void ShareImageClickListener(int position, Drawable Image) {
         try {
-            Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), MainActivity.this);
-            if (bmpUri != null) {
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playStoreUrl));
-                shareIntent.setType("*/*");
-                getApplicationContext().startActivity(Intent.createChooser(shareIntent, "Share Image"));
+            if(notificationsModel.get(position).getFilePath()!=null){
+                Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), MainActivity.this);
+                if (bmpUri != null) {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playStoreUrl));
+                    shareIntent.setType("*/*");
+                    startActivity(Intent.createChooser(shareIntent, "Share Image"));
+                }
+            }
+            else {
+                Toast.makeText(MainActivity.this,"Failed to Share. Please try again",Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -297,26 +305,22 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
             public void onNewResultImpl(@Nullable Bitmap bitmap) {
                 if (dataSource.isFinished() && bitmap != null) {
                     LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                     View customView = inflater.inflate(R.layout.full_image_size_popup, null);
                     customView.setLayoutParams(params);
-                    SimpleDraweeView imageHolder = customView.findViewById(R.id.imageHolder);
-                    final LayoutParams layoutParams = imageHolder.getLayoutParams();
-                    layoutParams.height = bitmap.getHeight() + bitmap.getHeight()/3;
+                    com.github.chrisbanes.photoview.PhotoView imageHolder = customView.findViewById(R.id.imageHolder);
 
-                    layoutParams.width = bitmap.getWidth() + bitmap.getWidth()/3;
-                    imageHolder.requestLayout();
-                    imageHolder.setLayoutParams(layoutParams);
-                    imageHolder.setScaleType(ImageView.ScaleType.MATRIX);
-                    imageHolder.setImageURI(Uri.parse(imagePath));
-                    new BlurPopupWindow.Builder(MainActivity.this)
-                            .setContentView(customView)
+                    Picasso.with(MainActivity.this).load(imagePath).into(imageHolder);
+
+                    mBuilder = new BlurPopupWindow.Builder(MainActivity.this);
+
+                            mBuilder.setContentView(customView)
                             .setGravity(Gravity.CENTER)
+                            .setDismissOnClickBack(true)
+                            .setDismissOnTouchBackground(false)
                             .setBlurRadius(10)
                             .setTintColor(0x30000000)
-                            .build()
-                            .show();
-
+                            .build().show();
                     dataSource.close();
                 }
             }
@@ -346,17 +350,5 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
             default:
                 break;
         }
-    }
-
-    private List<String> extractDate(List<Notifications> fileModel) {
-        List<String> notificationDates = new ArrayList<>();
-
-        for (Notifications notifications : fileModel) {
-            if (!notificationDates.contains(notifications.getDate())) {
-                notificationDates.add(notifications.getDate());
-            }
-        }
-        Collections.reverse(notificationDates);
-        return notificationDates;
     }
 }
