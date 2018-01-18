@@ -1,6 +1,5 @@
 package org.cfp.citizenconnect;
 
-import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,81 +7,42 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.MenuItemCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
-import com.squareup.picasso.Picasso;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
-import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
+import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
-import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
+import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
 
-import io.realm.RealmResults;
 
-import static org.cfp.citizenconnect.CitizenConnectApplciation.FilesRef;
-import static org.cfp.citizenconnect.CitizenConnectApplciation.realm;
-import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity implements NotificationLayoutAdapter.OnItemInteractionListener {
-    public static final int CALL_PERMISSION_REQUEST = 1;
 
-    List<Notifications> notificationsModel = new ArrayList<>();
-    NotificationLayoutAdapter notificationListAdapter;
     NotificationUpdate notificationUpdate;
     ProgressDialog progress;
     ActivityMainBinding binding;
     boolean clearNotificationCount;
-    MenuItem menuItem;
-    View actionView;
     String phoneNo;
-    TextView countNotification;
-    private BroadcastReceiver mNotificationReceiver;
     ConstraintLayout mLayout;
-    BlurPopupWindow.Builder mBuilder;
-
+    AHBottomNavigation bottomNavigation;
+    private BroadcastReceiver mNotificationReceiver;
+    MyPagerAdapter mPageAdapter;
+    ViewPager mViewPager;
+    int currentItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,11 +54,54 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
 
         progress = new ProgressDialog(this);
         progress.setTitle("Please wait");
-        progress.show();
+        //progress.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
-        loadFromRealm();
         mLayout = findViewById(R.id.mainLayout);
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        mViewPager = findViewById(R.id.viewpager);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.ic_notifications_white_24dp, R.color.colorPrimary);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_data_usage_white_24dp, R.color.colorPrimary);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_feedback_white_24dp, R.color.colorPrimary);
 
+        bottomNavigation.addItem(item1);
+        bottomNavigation.addItem(item2);
+        bottomNavigation.addItem(item3);
+        bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
+        bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+        bottomNavigation.setInactiveColor(ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
+        bottomNavigation.setForceTint(true);
+        bottomNavigation.setTranslucentNavigationEnabled(true);
+        bottomNavigation.setNotificationBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.red));
+        bottomNavigation.setNotification("3", 0);
+        mPageAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mPageAdapter);
+        currentItem = bottomNavigation.getCurrentItem();
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                bottomNavigation.setCurrentItem(position);
+                if (position == 0) {
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+            @Override
+            public boolean onTabSelected(int position, boolean wasSelected) {
+                mViewPager.setCurrentItem(position);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -125,27 +128,12 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.notification_menu, menu);
-        menuItem = menu.findItem(R.id.newNotification);
-        actionView = MenuItemCompat.getActionView(menuItem);
-        actionView.setOnClickListener(v -> onOptionsItemSelected(menuItem));
-        countNotification = actionView.findViewById(R.id.notificationCount);
-        updateNotificationCount();
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
-            case R.id.newNotification:
-                loadFromFirebase();
-                clearNotificationCount = true;
-                updateNotificationCount();
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.cancel(0);
-                progress.show();
-                return true;
             case R.id.aboutUS:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 return true;
@@ -199,139 +187,9 @@ public class MainActivity extends AppCompatActivity implements NotificationLayou
 
     }
 
-    private void loadFromFirebase() {
-
-
-        FilesRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                notificationsModel.clear();
-                realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Notifications notifications = data.getValue(Notifications.class);
-                    Notifications.setNotifications(notifications, realm);
-                    notificationsModel.add(notifications);
-                }
-                Collections.reverse(notificationsModel);
-                LinearLayoutManager notificationList = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
-                notificationListAdapter = new NotificationLayoutAdapter(MainActivity.this, notificationsModel, MainActivity.this);
-                binding.notificationList.destroyDrawingCache();
-                binding.notificationList.setLayoutManager(notificationList);
-                binding.notificationList.setAdapter(notificationListAdapter);
-                progress.dismiss();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("Error", "Failed to read value.", error.toException());
-                progress.dismiss();
-            }
-        });
-    }
-
-    private void loadFromRealm() {
-        notificationsModel.clear();
-        RealmResults<Notifications> realmResults = realm.where(Notifications.class).findAll();
-        if (realmResults.size() != 0) {
-            for (Notifications _Notifications : realmResults) {
-                notificationsModel.add(_Notifications);
-            }
-            Collections.reverse(notificationsModel);
-            LinearLayoutManager notificationList = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
-            notificationListAdapter = new NotificationLayoutAdapter(MainActivity.this, notificationsModel, MainActivity.this);
-            binding.notificationList.setLayoutManager(notificationList);
-            binding.notificationList.setAdapter(notificationListAdapter);
-            progress.dismiss();
-        } else {
-            loadFromFirebase();
-        }
-
-    }
 
     private void updateNotificationCount() {
-        if (clearNotificationCount) {
-            realm.executeTransaction(realm -> notificationUpdate.setNewNotiifcation(0));
-            countNotification.setText(notificationUpdate.getNewNotiifcation() + "");
-            countNotification.setVisibility(View.GONE);
-            clearNotificationCount = false;
-            loadFromFirebase();
 
-        } else {
-            if (notificationUpdate.getNewNotiifcation() == 0) {
-                countNotification.setVisibility(View.GONE);
-            } else {
-                countNotification.setVisibility(View.VISIBLE);
-                countNotification.setText(notificationUpdate.getNewNotiifcation() + "");
-            }
-        }
-    }
-
-    @Override
-    public void ShareImageClickListener(int position, Drawable Image) {
-        try {
-            if(notificationsModel.get(position).getFilePath()!=null){
-                Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), MainActivity.this);
-                if (bmpUri != null) {
-                    Intent shareIntent = new Intent();
-                    shareIntent.setAction(Intent.ACTION_SEND);
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playStoreUrl));
-                    shareIntent.setType("*/*");
-                    startActivity(Intent.createChooser(shareIntent, "Share Image"));
-                }
-            }
-            else {
-                Toast.makeText(MainActivity.this,"Failed to Share. Please try again",Toast.LENGTH_LONG).show();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void FullSizeImageClickListener(String imagePath) {
-        ImageRequest imageRequest = ImageRequestBuilder
-                .newBuilderWithSource(Uri.parse(imagePath))
-                .setAutoRotateEnabled(true)
-                .build();
-
-        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        final DataSource<CloseableReference<CloseableImage>>
-                dataSource = imagePipeline.fetchDecodedImage(imageRequest, this);
-
-        dataSource.subscribe(new BaseBitmapDataSubscriber() {
-
-            @Override
-            public void onNewResultImpl(@Nullable Bitmap bitmap) {
-                if (dataSource.isFinished() && bitmap != null) {
-                    LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-                    View customView = inflater.inflate(R.layout.full_image_size_popup, null);
-                    customView.setLayoutParams(params);
-                    com.github.chrisbanes.photoview.PhotoView imageHolder = customView.findViewById(R.id.imageHolder);
-
-                    Picasso.with(MainActivity.this).load(imagePath).into(imageHolder);
-
-                    mBuilder = new BlurPopupWindow.Builder(MainActivity.this);
-
-                            mBuilder.setContentView(customView)
-                            .setGravity(Gravity.CENTER)
-                            .setDismissOnClickBack(true)
-                            .setDismissOnTouchBackground(false)
-                            .setBlurRadius(10)
-                            .setTintColor(0x30000000)
-                            .build().show();
-                    dataSource.close();
-                }
-            }
-
-            @Override
-            public void onFailureImpl(DataSource dataSource) {
-                if (dataSource != null) {
-                    dataSource.close();
-                }
-            }
-        }, UiThreadImmediateExecutorService.getInstance());
     }
 
     @Override

@@ -8,19 +8,25 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="org.cfp.citizenconnect.MainActivity">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/notificationList"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:overScrollMode="never"
+            android:layout_above="@+id/bottom_navigation"
+            android:layout_alignParentTop="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"/>
+        <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </layout>
 
