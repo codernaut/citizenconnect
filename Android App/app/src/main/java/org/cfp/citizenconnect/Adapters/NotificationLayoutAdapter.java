@@ -1,6 +1,5 @@
 package org.cfp.citizenconnect.Adapters;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -14,11 +13,8 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.cfp.citizenconnect.Model.Notifications;
-import org.cfp.citizenconnect.Model.NotificationsTemplate;
 import org.cfp.citizenconnect.R;
-import org.w3c.dom.Text;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,6 +60,7 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
         ImageButton BtnShare;
         TextView description;
         TextView DateTime;
+        ImageButton BtnClose;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -72,12 +69,16 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
             description = itemView.findViewById(R.id.description);
             DateTime = itemView.findViewById(R.id.DateTime);
 
-            BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(),snapHolder.getDrawable()));
+
+            BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable()));
             snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
         }
     }
-    public  interface  OnItemInteractionListener{
-         void ShareImageClickListener(int position, Drawable image);
-         void  FullSizeImageClickListener(String imagePath);
+
+    public interface OnItemInteractionListener {
+        void ShareImageClickListener(int position, Drawable image);
+
+        void FullSizeImageClickListener(String imagePath);
+
     }
 }
