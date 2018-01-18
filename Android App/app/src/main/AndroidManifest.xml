@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
-        android:name="org.cfp.citizenconnect.CitizenConnectApplciation"
+        android:name="org.cfp.citizenconnect.CitizenConnectApplication"
         android:icon="@mipmap/connection"
         android:label="@string/app_name"
         android:supportsRtl="true"

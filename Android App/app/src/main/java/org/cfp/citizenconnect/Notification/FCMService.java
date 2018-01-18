@@ -59,13 +59,17 @@ public class FCMService extends FirebaseMessagingService {
 
     public void UpdateNewNotification() {
         NotificationUpdate notificationUpdate = NotificationUpdate.getInstance(mRealm);
-        int newNotification = notificationUpdate.getNewNotiifcation();
+        int newNotification = notificationUpdate.getNewNotification();
 
         newNotification = newNotification + 1;
         int finalNewNotification = newNotification;
         mRealm.executeTransaction((Realm realm) -> {
-            notificationUpdate.setNewNotiifcation(finalNewNotification);
+            notificationUpdate.setNewNotification(finalNewNotification);
         });
 
     }
+
+
+
+
 }

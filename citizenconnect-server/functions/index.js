@@ -1,10 +1,10 @@
 
-
 const functions = require('firebase-functions');
-var gcs = require('@google-cloud/storage')({keyFilename:'citizenconnect-ed5fa-firebase-adminsdk-op53u-069b5c7148.json'})
+var constants = require('./constants');
+var gcs = require('@google-cloud/storage')({keyFilename:constants.KEY_FILE_NAME})
 const spawn = require('child-process-promise').spawn
 var FCM = require('fcm-push');
-var serverKey = 'AAAAb6tZ1_Y:APA91bGU7sDMrtgMF1y_OIOWqVqMPMc_0RT25UmvUkq-RHdz9LWrd6nX4Lbjpn4RKKefu1cqO_2Cb8l9a-U5x5DMMsu6WQZ7IdYj6Mb9y8h0DsOTzUILSckywWlCFfHanESLq_rnIe0H';
+var serverKey = constants.SERVER_KEY;
 var fcm = new FCM(serverKey);
 const admin = require('firebase-admin')
 var dateFormat = require('dateformat');
@@ -12,7 +12,7 @@ var now = new Date();
 
   admin.initializeApp({
     credential: admin.credential.applicationDefault(),
-    databaseURL: "https://citizenconnect-ed5fa.firebaseio.com"
+    databaseURL: constants.DATABASE_URL
   });
   var datetime = require('node-datetime');
 

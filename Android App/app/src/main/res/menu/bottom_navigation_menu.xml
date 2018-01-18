@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_item1"
+        app:actionLayout="@layout/count_layout"
+        android:icon="@drawable/ic_view_list_white_24dp"
+        android:title="@string/bottom_item1"/>
+    <item
+        android:id="@+id/action_item2"
+        android:icon="@drawable/ic_storage_white_24dp"
+
+        android:title="@string/bottom_item2"/>
+    <item
+        android:id="@+id/action_item3"
+        android:icon="@drawable/ic_feedback_white_24dp"
+        android:title="@string/bottom_item3"/>
+</menu>

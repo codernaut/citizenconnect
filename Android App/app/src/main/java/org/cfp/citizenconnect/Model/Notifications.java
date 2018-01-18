@@ -1,12 +1,21 @@
 package org.cfp.citizenconnect.Model;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+
+import org.cfp.citizenconnect.CustomCallBack;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-import static org.cfp.citizenconnect.CitizenConnectApplciation.realm;
+import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
+import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;
 
 /**
  * Created by shahzaibshahid on 13/12/2017.
@@ -69,6 +78,20 @@ public class Notifications extends RealmObject {
             notifications.setFilePath(notificationsObj.getFilePath());
             notifications.setTag(notificationsObj.getTag());
         });
+    }
+    public static  List<Notifications>  fetchFirebaseNotifications(DatabaseReference databaseReference){
+        List<Notifications> notificationsModel = new ArrayList<>();
+        realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
+        getAFireBaseData(databaseReference, response -> {
+            for (DataSnapshot data : response.getChildren()) {
+                Notifications notifications = data.getValue(Notifications.class);
+                Notifications.setNotifications(notifications, realm);
+                notificationsModel.add(notifications);
+            }
+        }, error -> {
+
+        });
+        return notificationsModel;
     }
 
 }
