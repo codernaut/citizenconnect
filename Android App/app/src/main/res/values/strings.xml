@@ -8,7 +8,10 @@
     <string name="playStoreUrl">https://play.google.com/store/apps/details?id=org.cfp.citizenconnect</string>
     
     <string name="bottom_item1">Notification</string>
-    <string name="bottom_item2">Data</string>
-    <string name="bottom_item3">Feedback</string>
+    <string name="bottom_item2">Services</string>
+    <string name="bottom_item3">Data</string>
+    <string name="bottom_item4">Feedback</string>
+
+    <string name="search_hint">Search Notification</string>
     
 </resources>

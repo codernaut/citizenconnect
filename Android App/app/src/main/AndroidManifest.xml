@@ -21,14 +21,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-        <activity android:name="org.cfp.citizenconnect.MainActivity">
+        <activity android:name="org.cfp.citizenconnect.MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.SEARCH" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".AboutActivity"/>s
+        <activity android:name=".Data.DataSetListActivity"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".PdfViewerActivity"/>
         <service
             android:name="org.cfp.citizenconnect.Notification.FCMService">
             <intent-filter>

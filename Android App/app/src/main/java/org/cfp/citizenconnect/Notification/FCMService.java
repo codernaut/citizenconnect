@@ -38,7 +38,7 @@ public class FCMService extends FirebaseMessagingService {
 
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
                     openApp, PendingIntent.FLAG_UPDATE_CURRENT);
-            Notification noti = new Notification.Builder(this)
+            Notification notification = new Notification.Builder(this)
                     .setContentIntent(pendingIntent)
                     .setSmallIcon(R.drawable.connection_notification)
                     .setLargeIcon(MyUtils.getBitmap(R.mipmap.connection, getApplicationContext()))
@@ -51,7 +51,7 @@ public class FCMService extends FirebaseMessagingService {
 
             NotificationManager notificationManager =
                     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.notify(0, noti);
+            notificationManager.notify(0, notification);
 
 
         }

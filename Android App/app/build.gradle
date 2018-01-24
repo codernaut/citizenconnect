@@ -65,6 +65,8 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.kyleduo.blurpopupwindow:blurpopupwindow:1.0.8'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }

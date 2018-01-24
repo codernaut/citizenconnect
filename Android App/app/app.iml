@@ -137,6 +137,7 @@
     <orderEntry type="library" name="com.google.firebase:firebase-iid-11.0.4" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-ui-26.1.0" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.2@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test:runner-1.0.1" level="project" />
     <orderEntry type="library" name="com.parse.bolts:bolts-android:1.1.4@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-idling-resource-3.0.1" level="project" />
@@ -152,6 +153,7 @@
     <orderEntry type="library" scope="TEST" name="net.sf.kxml:kxml2:2.3.0@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-common-11.0.4" level="project" />
     <orderEntry type="library" name="com.squareup.picasso:picasso:2.5.2@jar" level="project" />
+    <orderEntry type="library" name="com.joanzapata.pdfview:android-pdfview-1.0.4" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/shahzaibshahid/Library/Android/sdk/build-tools/26.0.2/renderscript/lib/renderscript-v8.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:transition-26.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:design-26.1.0" level="project" />

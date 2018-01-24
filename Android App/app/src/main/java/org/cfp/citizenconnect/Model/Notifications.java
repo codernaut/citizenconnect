@@ -1,5 +1,6 @@
 package org.cfp.citizenconnect.Model;
 
+import com.facebook.datasource.DataSource;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -79,7 +80,7 @@ public class Notifications extends RealmObject {
             notifications.setTag(notificationsObj.getTag());
         });
     }
-    public static  List<Notifications>  fetchFirebaseNotifications(DatabaseReference databaseReference){
+    public static  void  fetchFirebaseNotifications(DatabaseReference databaseReference, CustomCallBack.Listener<List<Notifications>> mResultListener, CustomCallBack.ErrorListener<DatabaseError> mError){
         List<Notifications> notificationsModel = new ArrayList<>();
         realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
         getAFireBaseData(databaseReference, response -> {
@@ -88,10 +89,10 @@ public class Notifications extends RealmObject {
                 Notifications.setNotifications(notifications, realm);
                 notificationsModel.add(notifications);
             }
-        }, error -> {
-
+            mResultListener.onResponse(notificationsModel);
+        }, (DatabaseError error) -> {
+            mError.onErrorResponse(error);
         });
-        return notificationsModel;
     }
 
 }

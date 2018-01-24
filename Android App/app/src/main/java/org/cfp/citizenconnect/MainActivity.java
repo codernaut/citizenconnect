@@ -1,6 +1,7 @@
 package org.cfp.citizenconnect;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -17,11 +19,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
 import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
+import org.cfp.citizenconnect.Interfaces.ScrollStatus;
+import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 
@@ -29,29 +35,28 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
 
-    NotificationUpdate notificationUpdate;
+    public Search mSearch;
     ProgressDialog progress;
     ActivityMainBinding binding;
     boolean clearNotificationCount;
     String phoneNo;
     ConstraintLayout mLayout;
     AHBottomNavigation bottomNavigation;
-    private BroadcastReceiver mNotificationReceiver;
     MyPagerAdapter mPageAdapter;
     ViewPager mViewPager;
     int currentItem;
+    MenuItem menuItem;
+    NotificationUpdate notificationUpdate;
+    private BroadcastReceiver mNotificationReceiver;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        if (getIntent().getExtras() != null) {
-            clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
-        }
-
         progress = new ProgressDialog(this);
         progress.setTitle("Please wait");
         //progress.show();
@@ -60,19 +65,32 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottom_navigation);
         mViewPager = findViewById(R.id.viewpager);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.ic_notifications_white_24dp, R.color.colorPrimary);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_data_usage_white_24dp, R.color.colorPrimary);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_feedback_white_24dp, R.color.colorPrimary);
-
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_documents_filled, R.color.colorPrimary);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_storage_white_24dp, R.color.colorPrimary);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.bottom_item4, R.drawable.ic_feedback_white_24dp, R.color.colorPrimary);
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
+        bottomNavigation.addItem(item4);
+        notificationUpdate.setNewNotification(2);
+        if (getIntent().getExtras() != null) {
+            clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
+            if (clearNotificationCount) {
+                notificationUpdate.setNewNotification(0);
+                changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
+            }
+        } else {
+            if (notificationUpdate.getNewNotification() != 0) {
+                changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
+            }
+        }
+        //Todo: Added only for demo
+        changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
         bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
         bottomNavigation.setInactiveColor(ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
         bottomNavigation.setForceTint(true);
         bottomNavigation.setTranslucentNavigationEnabled(true);
-        bottomNavigation.setNotificationBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.red));
-        bottomNavigation.setNotification("3", 0);
         mPageAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPageAdapter);
         currentItem = bottomNavigation.getCurrentItem();
@@ -85,22 +103,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 bottomNavigation.setCurrentItem(position);
+                String count;
+                count = notificationUpdate.getNewNotification() == 0 ? "" : notificationUpdate.getNewNotification() + "";
                 if (position == 0) {
-
+                    changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.red));
+                    if(searchView!=null){
+                        searchView.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
+                    if(searchView!=null){
+                        searchView.setVisibility(View.GONE);
+                    }
                 }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+                if (menuItem != null) {
+                    menuItem.collapseActionView();
+                }
 
             }
         });
-        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
-            @Override
-            public boolean onTabSelected(int position, boolean wasSelected) {
-                mViewPager.setCurrentItem(position);
-                return true;
-            }
+        bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
+            mViewPager.setCurrentItem(position);
+            return true;
         });
     }
 
@@ -117,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 boolean update = intent.getBooleanExtra("newUpdate", false);
                 if (update) {
-                    updateNotificationCount();
+                    changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
                 }
             }
         };
@@ -128,11 +156,40 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.notification_menu, menu);
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconified(false);
+        searchView.setOnCloseListener(() -> {
+            searchView.clearFocus();
+            menuItem.collapseActionView();
+
+            return true;
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mSearch.OnSearchNotification(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mSearch.OnSearchNotification(query);
+                return true;
+            }
+
+        });
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        menuItem = item;
         switch (item.getItemId()) {
             case R.id.aboutUS:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
@@ -187,11 +244,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    private void updateNotificationCount() {
-
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -207,6 +259,19 @@ public class MainActivity extends AppCompatActivity {
 
             default:
                 break;
+        }
+    }
+
+    private void changeNotificationStatus(String count, @ColorInt int color) {
+        bottomNavigation.setNotificationBackgroundColor(color);
+        bottomNavigation.setNotification(count, 0);
+    }
+
+    @Override
+    public void OnScrollStatusChanged(boolean status) {
+        if (status) {
+            changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
+            notificationUpdate.setNewNotification(0);
         }
     }
 }
