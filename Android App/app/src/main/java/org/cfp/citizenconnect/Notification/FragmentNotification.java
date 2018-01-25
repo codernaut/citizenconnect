@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,15 +65,15 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.notification_fragment, container, false);
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setTitle("Please wait");
+        progressDialog.setMessage("Please wait");
         progressDialog.show();
-        mScrollStatus = (MainActivity)getActivity();
+        mScrollStatus = (MainActivity) getActivity();
         loadFromRealm();
         binding.notificationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if(dy>0){
+                if (dy > 0) {
                     mScrollStatus.OnScrollStatusChanged(true);
                 }
             }
@@ -163,7 +162,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             mBuilder.setContentView(customView)
                     .setGravity(Gravity.CENTER)
                     .setDismissOnClickBack(true)
-                    .setDismissOnTouchBackground(false)
+                    .setDismissOnTouchBackground(true)
                     .setBlurRadius(10)
                     .setTintColor(0x30000000)
                     .build().show();

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -56,9 +57,10 @@ public class GridViewAdapter extends BaseAdapter {
         SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
         TextView title = view.findViewById(R.id.titleGV);
         CardView mCardView = view.findViewById(R.id.mainCV);
+        LinearLayout background = view.findViewById(R.id.background);
         final Layout layout = (Layout) this.getItem(i);
         icons.setImageURI(Uri.parse(layout.getIcon()));
-        icons.setBackgroundColor(Color.parseColor(layout.getColor()));
+        background.setBackgroundColor(Color.parseColor(layout.getColor()));
         title.setText(layout.getName());
         mCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
         return view;

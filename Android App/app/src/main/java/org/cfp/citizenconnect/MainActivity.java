@@ -19,7 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.SearchView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -52,13 +51,15 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     NotificationUpdate notificationUpdate;
     private BroadcastReceiver mNotificationReceiver;
     SearchView searchView;
+    MenuItem searchMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         progress = new ProgressDialog(this);
-        progress.setTitle("Please wait");
+        progress.setMessage("Please wait");
+        progress.setCancelable(false);
         //progress.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         mLayout = findViewById(R.id.mainLayout);
@@ -107,14 +108,12 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 count = notificationUpdate.getNewNotification() == 0 ? "" : notificationUpdate.getNewNotification() + "";
                 if (position == 0) {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.red));
-                    if(searchView!=null){
-                        searchView.setVisibility(View.VISIBLE);
-                    }
+                    searchMenu.setVisible(true);
+
                 } else {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
-                    if(searchView!=null){
-                        searchView.setVisibility(View.GONE);
-                    }
+                    searchMenu.setVisible(false);
+
                 }
             }
 
@@ -156,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.notification_menu, menu);
+        searchMenu = menu.findItem(R.id.search);
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView =

@@ -11,5 +11,5 @@ public class Constants {
     public static final  String DATA_MEDICAL_STORE = "dataset";
 
     public  static  final String DATA_TYPE = "dataType";
-    public static  final String URL = "filePath";
+    public static  final String FILE_URL = "filePath";
 }

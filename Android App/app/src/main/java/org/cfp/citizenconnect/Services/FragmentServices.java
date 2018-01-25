@@ -11,11 +11,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseError;
-
 import org.cfp.citizenconnect.Adapters.GridViewAdapter;
-import org.cfp.citizenconnect.CustomCallBack;
-import org.cfp.citizenconnect.Data.DataSetListActivity;
 import org.cfp.citizenconnect.Model.Layout;
 import org.cfp.citizenconnect.Model.Services;
 import org.cfp.citizenconnect.PdfViewerActivity;
@@ -26,8 +22,8 @@ import java.util.ArrayList;
 import static org.cfp.citizenconnect.CitizenConnectApplication.database;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
+import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Constants.SERVICES_REFFERENCE;
-import static org.cfp.citizenconnect.Constants.URL;
 import static org.cfp.citizenconnect.Model.Layout.getDataSetLayout;
 import static org.cfp.citizenconnect.Model.Services.getServices;
 import static org.cfp.citizenconnect.Model.Services.isObjectExist;
@@ -54,6 +50,7 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait");
         progressDialog.show();
+        progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);
         mList = new ArrayList<>();
         getDataSetLayout(database.getReference(SERVICES_REFFERENCE), response -> {
@@ -70,21 +67,20 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
     @Override
     public void viewDataList(String type) {
         progressDialog.show();
-        Services servicesModel = isObjectExist(type,realm);
-        if(servicesModel!=null){
+        Services servicesModel = isObjectExist(type, realm);
+        if (servicesModel != null) {
             progressDialog.dismiss();
             Intent i = new Intent(getActivity(), PdfViewerActivity.class);
             i.putExtra(DATA_TYPE, type);
-            i.putExtra(URL,servicesModel.getFileUrl());
+            i.putExtra(FILE_URL, servicesModel.getFileUrl());
             startActivity(i);
-        }
-        else {
+        } else {
             getServices(response -> {
-                if(response){
+                if (response) {
                     progressDialog.dismiss();
                     Intent i = new Intent(getActivity(), PdfViewerActivity.class);
                     i.putExtra(DATA_TYPE, type);
-                    i.putExtra(URL,isObjectExist(type,realm).getFileUrl());
+                    i.putExtra(FILE_URL, isObjectExist(type, realm).getFileUrl());
                     startActivity(i);
                 }
             }, error -> {

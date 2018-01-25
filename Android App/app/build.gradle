@@ -66,7 +66,8 @@ dependencies {
     compile 'com.kyleduo.blurpopupwindow:blurpopupwindow:1.0.8'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    compile 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    compile 'com.zsoltsafrany:needle:1.0.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }

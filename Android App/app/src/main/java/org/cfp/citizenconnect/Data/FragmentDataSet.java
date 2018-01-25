@@ -49,6 +49,7 @@ public class FragmentDataSet extends Fragment implements GridViewAdapter.OnItemC
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait");
         progressDialog.show();
+        progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);
         mList = new ArrayList<>();
         getDataSetLayout(database.getReference(DATASET_REFFERENCE), response -> {

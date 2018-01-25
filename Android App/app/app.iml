@@ -143,6 +143,8 @@
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-idling-resource-3.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-compat-26.1.0" level="project" />
+    <orderEntry type="library" name="com.github.barteksc:pdfium-android-1.7.1" level="project" />
+    <orderEntry type="library" name="com.github.barteksc:android-pdf-viewer-2.8.2" level="project" />
     <orderEntry type="library" name="com.android.databinding:baseLibrary:3.1.0-alpha03@jar" level="project" />
     <orderEntry type="library" name="io.realm:realm-annotations:4.3.1@jar" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-tasks-11.0.4" level="project" />
@@ -153,10 +155,10 @@
     <orderEntry type="library" scope="TEST" name="net.sf.kxml:kxml2:2.3.0@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-common-11.0.4" level="project" />
     <orderEntry type="library" name="com.squareup.picasso:picasso:2.5.2@jar" level="project" />
-    <orderEntry type="library" name="com.joanzapata.pdfview:android-pdfview-1.0.4" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/shahzaibshahid/Library/Android/sdk/build-tools/26.0.2/renderscript/lib/renderscript-v8.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:transition-26.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:design-26.1.0" level="project" />
+    <orderEntry type="library" name="com.zsoltsafrany:needle:1.0.0@jar" level="project" />
     <orderEntry type="library" name="com.crashlytics.sdk.android:answers-1.4.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-11.0.4" level="project" />
     <orderEntry type="library" name="com.getkeepsafe.relinker:relinker-1.2.2" level="project" />
