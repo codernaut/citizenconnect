@@ -25,8 +25,8 @@ import io.realm.RealmResults;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
+import static org.cfp.citizenconnect.Model.DataSet.fetchFromRealm;
 import static org.cfp.citizenconnect.Model.DataSet.getDataSet;
-import static org.cfp.citizenconnect.Model.DataSet.isObjectExist;
 
 /**
  * Created by shahzaibshahid on 23/01/2018.
@@ -34,11 +34,12 @@ import static org.cfp.citizenconnect.Model.DataSet.isObjectExist;
 
 public class DataSetListActivity extends AppCompatActivity {
 
-    ProgressDialog progressDialog;
+
     DataSetAdapter dataSetAdapter;
     RecyclerView recyclerView;
     String type;
     ArrayList<DataSet> list;
+    ProgressDialog progressDialog;
     MenuItem menuItem;
     LinearLayoutManager dataListLayout;
     DividerItemDecoration dividerItemDecoration;
@@ -49,7 +50,7 @@ public class DataSetListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dataset_list_activity);
         recyclerView = findViewById(R.id.dataList_RV);
-        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(DataSetListActivity.this);
         progressDialog.setMessage("Please wait");
         progressDialog.show();
         dataListLayout = new LinearLayoutManager(DataSetListActivity.this, LinearLayoutManager.VERTICAL, false);
@@ -61,18 +62,11 @@ public class DataSetListActivity extends AppCompatActivity {
         if (bundle != null) {
             type = bundle.getString(DATA_TYPE);
             getSupportActionBar().setTitle(type);
-            list = isObjectExist(type);
+            list = fetchFromRealm(type);
             if (list.size() == 0) {
 
-                getDataSet(type, response -> {
-                    list = response;
-                    updateAdapter();
-                    progressDialog.dismiss();
-                }, error -> {
-                    progressDialog.dismiss();
-                    Toast.makeText(DataSetListActivity.this, "Failed to load data", Toast.LENGTH_LONG).show();
-                    finish();
-                });
+                Toast.makeText(DataSetListActivity.this,"No data found",Toast.LENGTH_LONG).show();
+                finish();
             } else {
                 updateAdapter();
                 progressDialog.dismiss();
@@ -103,6 +97,7 @@ public class DataSetListActivity extends AppCompatActivity {
     public void updateAdapter() {
         dataSetAdapter = new DataSetAdapter(DataSetListActivity.this, list);
         recyclerView.setAdapter(dataSetAdapter);
+        progressDialog.dismiss();
     }
 
 
@@ -149,4 +144,6 @@ public class DataSetListActivity extends AppCompatActivity {
         }
         updateAdapter();
     }
+
+
 }

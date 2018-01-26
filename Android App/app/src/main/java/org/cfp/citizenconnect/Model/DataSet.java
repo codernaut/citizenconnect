@@ -2,6 +2,7 @@ package org.cfp.citizenconnect.Model;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.PropertyName;
 
 import org.cfp.citizenconnect.CustomCallBack;
 
@@ -26,13 +27,29 @@ public class DataSet extends RealmObject {
     @PrimaryKey
     String id;
     String dataSetType;
+    @PropertyName("Address")
     String Address;
+    @PropertyName("Name")
     String Name;
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
+    String Registration;
 
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
+    public String get_Registration() {
+        return Registration;
+    }
+
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
+    public void set_Registration(String registration) {
+        Registration = registration;
+    }
+
+    @PropertyName("Address")
     public String get_Address() {
         return Address;
     }
 
+    @PropertyName("Address")
     public void set_Address(String address) {
         Address = address;
     }
@@ -54,42 +71,38 @@ public class DataSet extends RealmObject {
         this.dataSetType = dataSetType;
     }
 
-
+    @PropertyName("Name")
     public String get_Name() {
         return Name;
     }
 
+    @PropertyName("Name")
     public void set_Name(String name) {
         Name = name;
     }
 
 
-    public static void getDataSet(String type, CustomCallBack.Listener<ArrayList<DataSet>> mList, CustomCallBack.ErrorListener<DatabaseError> mErr) {
-        final ArrayList<DataSet>[] list = new ArrayList[]{new ArrayList<>()};
+    public static void getDataSet( CustomCallBack.Listener<Boolean> _response, CustomCallBack.ErrorListener<DatabaseError> mErr) {
         getAFireBaseData(database.getReference(DATA_MEDICAL_STORE), response -> {
             for (DataSnapshot _child : response.getChildren()) {
-                if (_child.child("type").getValue().equals(type)) {
-                    DataSnapshot snapshot = _child.child("data");
-                    for (DataSnapshot _snapshot : snapshot.getChildren()) {
-                        DataSet dataSet = _snapshot.getValue(DataSet.class);
-                        list[0].add(dataSet);
-
-                        realm.executeTransaction(realm -> {
-                            DataSet object = realm.createObject(DataSet.class, UUID.randomUUID().toString());
-                            object.set_Name(dataSet.get_Name());
-                            object.set_Address(dataSet.get_Address());
-                            object.setDataSetType(type);
-                        });
-                    }
-                    break;
+                DataSnapshot snapshot = _child.child("data");
+                for (DataSnapshot _snapshot : snapshot.getChildren()) {
+                    DataSet dataSet = _snapshot.getValue(DataSet.class);
+                    realm.executeTransaction(realm -> {
+                        DataSet object = realm.createObject(DataSet.class, UUID.randomUUID().toString());
+                        object.set_Name(dataSet.get_Name());
+                        object.set_Address(dataSet.get_Address());
+                        object.setDataSetType(_child.child("type").getValue().toString());
+                    });
                 }
-
             }
-            mList.onResponse(list[0]);
-        }, error -> mErr.onErrorResponse(error));
+            _response.onResponse(true);
+        }, error -> {
+            mErr.onErrorResponse(error);
+        });
     }
 
-    public static ArrayList<DataSet> isObjectExist(String type) {
+    public static ArrayList<DataSet> fetchFromRealm(String type) {
         ArrayList<DataSet> list = new ArrayList<>();
         RealmResults<DataSet> dataSet = realm.where(DataSet.class).equalTo("dataSetType", type, Case.INSENSITIVE).findAll();
         for (DataSet _data : dataSet) {

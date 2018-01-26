@@ -38,8 +38,6 @@ public class CitizenConnectApplication extends Application {
         Realm.init(this);
 
         RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        Intent service = new Intent(this, TaskHandlerService.class);
-        startService(service);
         realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");

@@ -68,6 +68,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.barteksc:android-pdf-viewer:2.8.2'
     compile 'com.zsoltsafrany:needle:1.0.0'
+    compile 'com.github.d-max:spots-dialog:0.7@aar'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }

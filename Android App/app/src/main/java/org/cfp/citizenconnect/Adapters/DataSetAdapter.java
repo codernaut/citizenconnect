@@ -2,6 +2,7 @@ package org.cfp.citizenconnect.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class DataSetAdapter extends RecyclerView.Adapter<DataSetAdapter.ViewHold
 
     public DataSetAdapter(Context mContext, List<DataSet> mList) {
         this.list = mList;
+
         this.mContext = mContext;
     }
 
@@ -37,6 +39,7 @@ public class DataSetAdapter extends RecyclerView.Adapter<DataSetAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
         holder.name.setText(list.get(position).get_Name());
         holder.address.setText(list.get(position).get_Address());
     }

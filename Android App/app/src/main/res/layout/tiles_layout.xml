@@ -26,7 +26,6 @@
                     android:id="@+id/iconHolder"
                     android:layout_margin="12dp"
                     android:layout_width="match_parent"
-                    fresco:progressBarImage="@color/darkGrey"
 
                     android:layout_height="match_parent"
                     fresco:actualImageScaleType="centerInside"

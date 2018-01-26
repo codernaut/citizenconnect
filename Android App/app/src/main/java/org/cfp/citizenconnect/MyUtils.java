@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.support.v4.content.FileProvider;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -83,6 +84,7 @@ public class MyUtils {
         return icon;
     }
 
+    @WorkerThread
     public static void getAFireBaseData(DatabaseReference databaseReference, CustomCallBack.Listener<DataSnapshot> mListener, CustomCallBack.ErrorListener<DatabaseError> mErrorListener) {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
