@@ -24,11 +24,12 @@ public class NotificationUpdate extends RealmObject {
     int lastState;
 
     public int getNewNotification() {
+
         return newNotification;
     }
 
-    public void setNewNotification(int newNotification) {
-        this.newNotification = newNotification;
+    public void setNewNotification(int _newNotification) {
+        realm.executeTransaction(realm -> newNotification = _newNotification);
     }
 
     public static NotificationUpdate getInstance(Realm realm) {

@@ -57,10 +57,10 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         SimpleDraweeView snapHolder;
-        ImageButton BtnShare;
+        TextView BtnShare;
         TextView description;
         TextView DateTime;
-        ImageButton BtnClose;
+        TextView view;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -68,10 +68,10 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
             BtnShare = itemView.findViewById(R.id.BtnShare);
             description = itemView.findViewById(R.id.description);
             DateTime = itemView.findViewById(R.id.DateTime);
-
+            view = itemView.findViewById(R.id.view);
 
             BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable()));
-            snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
+            view.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
         }
     }
 
