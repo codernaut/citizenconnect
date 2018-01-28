@@ -3,16 +3,20 @@ package org.cfp.citizenconnect;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -127,5 +131,19 @@ public class MyUtils {
                 }
             }
         }, UiThreadImmediateExecutorService.getInstance());
+    }
+    public static boolean isDeviceOnline(Context mContext) {
+        ConnectivityManager connMgr =
+                (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+    public static boolean validatePhoneNumber(EditText mPhoneNumberField) {
+        String phoneNumber = mPhoneNumberField.getText().toString();
+        if (TextUtils.isEmpty(phoneNumber)) {
+            return false;
+        }
+
+        return true;
     }
 }

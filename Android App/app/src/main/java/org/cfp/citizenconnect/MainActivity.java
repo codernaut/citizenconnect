@@ -151,6 +151,8 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         this.registerReceiver(mNotificationReceiver, intentFilter);
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -234,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     protected void onPause() {
 
         super.onPause();
-
+        progress.dismiss();
         this.unregisterReceiver(this.mNotificationReceiver);
     }
 

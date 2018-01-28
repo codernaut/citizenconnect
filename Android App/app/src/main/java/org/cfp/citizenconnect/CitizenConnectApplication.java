@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -26,6 +27,7 @@ public class CitizenConnectApplication extends Application {
     public  static StorageReference firebaseStorageRef;
     public  static  FirebaseDatabase database;
     public  static DatabaseReference FilesRef;
+    public static FirebaseAuth mAuth;
     public  static  Realm realm;
 
     public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
@@ -37,10 +39,11 @@ public class CitizenConnectApplication extends Application {
         Fresco.initialize(this);
         Realm.init(this);
 
-        RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        realm = Realm.getInstance(config);
+       // RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
+        realm = Realm.getInstance(Realm.getDefaultConfiguration());
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");
+        mAuth = FirebaseAuth.getInstance();
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseMessaging.getInstance().subscribeToTopic("notification");

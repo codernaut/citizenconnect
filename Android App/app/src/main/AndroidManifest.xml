@@ -3,6 +3,9 @@
     package="org.cfp.citizenconnect">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="org.cfp.citizenconnect.CitizenConnectApplication"
         android:icon="@mipmap/connection"
@@ -39,6 +42,7 @@
         <activity android:name=".Data.DataSetListActivity"/>
         <activity android:name=".AboutActivity"/>
         <activity android:name=".PdfViewerActivity"/>
+        <activity android:name=".PhoneVerificationActivity"/>
         <service
             android:name="org.cfp.citizenconnect.Notification.FCMService">
             <intent-filter>
@@ -57,5 +61,5 @@
             android:value="bfae663fa9eebd9d18d5aa4902482cb8c6a7dff9" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

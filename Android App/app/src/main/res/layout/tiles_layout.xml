@@ -24,7 +24,6 @@
                 android:layout_weight="6">
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/iconHolder"
-                    android:layout_margin="12dp"
                     android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
