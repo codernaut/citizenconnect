@@ -23,9 +23,9 @@ public class User extends RealmObject {
     String email;
     public  static User getUserInstance(Realm realm){
         User user = realm.where(User.class).findFirst();
-        if(user.equals(null)){
+        if(user==null){
             realm.executeTransaction(realm1 -> realm1.createObject(User.class));
         }
-        return  user;
+        return  realm.where(User.class).findFirst();
     }
 }

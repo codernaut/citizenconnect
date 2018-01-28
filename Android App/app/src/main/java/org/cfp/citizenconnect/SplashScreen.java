@@ -74,30 +74,29 @@ public class SplashScreen extends Activity implements EasyPermissions.Permission
     }
 
     private class DownloadFilesTask extends AsyncTask<Void, Integer, Void> {
-        ProgressBar progress;
+
         Context context;
 
-        public DownloadFilesTask(ProgressBar progress, Context context) {
-            this.progress = progress;
+        public DownloadFilesTask(Context context) {
+
             this.context = context;
 
         }
 
         @Override
         protected void onPreExecute() {
-            progress.setVisibility(ProgressBar.VISIBLE);
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
             getDataSet(response -> {
-                progress.setVisibility(ProgressBar.GONE);
+
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
 
             }, error -> {
-                progress.setVisibility(ProgressBar.GONE);
+
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             });
@@ -209,7 +208,8 @@ public class SplashScreen extends Activity implements EasyPermissions.Permission
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             } else {
-                new DownloadFilesTask(progressBar, SplashScreen.this).execute();
+                progressBar.setVisibility(ProgressBar.VISIBLE);
+                new DownloadFilesTask(SplashScreen.this).execute();
             }
             // new SendEmail(mCredential).execute();
         }
