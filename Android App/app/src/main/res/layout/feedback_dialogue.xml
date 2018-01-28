@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+
         android:text="Get in touch!"
         android:textColor="@color/black"
         android:textSize="16sp" />
@@ -28,11 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="12dp"
-        android:textColor="@color/colorPrimary"
         android:layout_marginRight="12dp"
         android:layout_marginTop="32dp"
         android:hint="Full Name"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/ContactNumberET"
@@ -40,27 +40,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="12dp"
-        android:textColor="@color/colorPrimary"
         android:layout_marginRight="12dp"
         android:layout_marginTop="24dp"
         android:hint="Contact Number"
         android:inputType="number"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <Spinner
-        android:id="@+id/subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:entries="@array/countrySubjectItems"
-        android:prompt="@string/feedbackPrompt"
         android:layout_marginLeft="12dp"
-        android:textColor="@color/colorPrimary"
-        android:padding="8dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="24dp"
-        android:textSize="14sp" >
-    </Spinner>
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/messageET"
@@ -70,12 +63,10 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="24dp"
-        android:textColor="@color/colorPrimary"
         android:hint="Message"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <Button
-        android:id="@+id/sendMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -3,6 +3,9 @@
     package="org.cfp.citizenconnect">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="org.cfp.citizenconnect.CitizenConnectApplication"
         android:icon="@mipmap/connection"
@@ -21,14 +24,25 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-        <activity android:name="org.cfp.citizenconnect.MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity"/>s
+        <activity android:name="org.cfp.citizenconnect.MainActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".Data.DataSetListActivity"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".PdfViewerActivity"/>
+        <activity android:name=".PhoneVerificationActivity"/>
         <service
             android:name="org.cfp.citizenconnect.Notification.FCMService">
             <intent-filter>
@@ -47,5 +61,5 @@
             android:value="bfae663fa9eebd9d18d5aa4902482cb8c6a7dff9" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

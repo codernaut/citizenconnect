@@ -1,13 +1,16 @@
 package org.cfp.citizenconnect.Notification;
 
-import android.support.v4.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,9 @@ import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
+import org.cfp.citizenconnect.Interfaces.ScrollStatus;
+import org.cfp.citizenconnect.Interfaces.Search;
+import org.cfp.citizenconnect.MainActivity;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.R;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
@@ -27,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.realm.Case;
 import io.realm.RealmResults;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
@@ -40,24 +47,45 @@ import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
  * Created by shahzaibshahid on 18/01/2018.
  */
 
-public class FragmentNotification extends Fragment implements NotificationLayoutAdapter.OnItemInteractionListener {
+public class FragmentNotification extends Fragment implements NotificationLayoutAdapter.OnItemInteractionListener, Search {
     NotificationFragmentBinding binding;
     List<Notifications> notificationsModel = new ArrayList<>();
     NotificationLayoutAdapter notificationListAdapter;
     BlurPopupWindow.Builder mBuilder;
+    ProgressDialog progressDialog;
+    ScrollStatus mScrollStatus;
 
-    public static FragmentNotification newInstance(){
+    public static FragmentNotification newInstance() {
         FragmentNotification fragmentNotification = new FragmentNotification();
-        return  fragmentNotification;
+        return fragmentNotification;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.notification_fragment, container, false);
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please wait");
+        progressDialog.show();
+        mScrollStatus = (MainActivity) getActivity();
         loadFromRealm();
+        binding.notificationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    mScrollStatus.OnScrollStatusChanged(true);
+                }
+            }
+        });
         View view = binding.getRoot();
         return view;
+    }
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        ((MainActivity) getActivity()).mSearch = this;
     }
 
     private void loadFromRealm() {
@@ -72,6 +100,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
             binding.notificationList.setLayoutManager(notificationList);
             binding.notificationList.setAdapter(notificationListAdapter);
+            progressDialog.dismiss();
 
         } else {
             loadFromFirebase();
@@ -81,13 +110,19 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
     private void loadFromFirebase() {
         notificationsModel.clear();
-        notificationsModel = fetchFirebaseNotifications(FilesRef);
-        Collections.reverse(notificationsModel);
-        LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
-        binding.notificationList.destroyDrawingCache();
-        binding.notificationList.setLayoutManager(notificationList);
-        binding.notificationList.setAdapter(notificationListAdapter);
+        fetchFirebaseNotifications(FilesRef, response -> {
+            notificationsModel = response;
+            Collections.reverse(notificationsModel);
+            LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+            notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
+            binding.notificationList.destroyDrawingCache();
+            binding.notificationList.setLayoutManager(notificationList);
+            binding.notificationList.setAdapter(notificationListAdapter);
+            progressDialog.dismiss();
+        }, error -> {
+            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG);
+            progressDialog.dismiss();
+        });
     }
 
     @Override
@@ -127,10 +162,24 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             mBuilder.setContentView(customView)
                     .setGravity(Gravity.CENTER)
                     .setDismissOnClickBack(true)
-                    .setDismissOnTouchBackground(false)
+                    .setDismissOnTouchBackground(true)
                     .setBlurRadius(10)
                     .setTintColor(0x30000000)
                     .build().show();
         }, error -> Toast.makeText(getActivity(), "Failed to load Image", Toast.LENGTH_LONG).show());
+    }
+
+    @Override
+    public void OnSearchNotification(String query) {
+        notificationsModel.clear();
+        RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll();
+        for (Notifications _Notifications : realmResults) {
+            notificationsModel.add(_Notifications);
+        }
+        Collections.reverse(notificationsModel);
+        LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
+        binding.notificationList.setLayoutManager(notificationList);
+        binding.notificationList.setAdapter(notificationListAdapter);
     }
 }
