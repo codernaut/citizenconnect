@@ -26,6 +26,8 @@ import javax.mail.internet.MimeMultipart;
 
 import io.realm.Realm;
 
+import static org.cfp.citizenconnect.CitizenConnectApplication.config;
+
 
 /**
  * Created by shahzaibshahid on 27/01/2018.
@@ -46,7 +48,7 @@ public class SendEmail {
                 .setApplicationName("Zero Point")
                 .build();
         this.toRecipient = toRecipient;
-        Realm realm = Realm.getDefaultInstance();
+        Realm realm = Realm.getInstance(config);
         user = User.getUserInstance(realm);
         this._subject = subject;
         this._body = body;

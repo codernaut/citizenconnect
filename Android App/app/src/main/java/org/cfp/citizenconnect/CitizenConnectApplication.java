@@ -29,6 +29,7 @@ public class CitizenConnectApplication extends Application {
     public  static DatabaseReference FilesRef;
     public static FirebaseAuth mAuth;
     public  static  Realm realm;
+    public  static  RealmConfiguration config;
 
     public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
 
@@ -39,8 +40,8 @@ public class CitizenConnectApplication extends Application {
         Fresco.initialize(this);
         Realm.init(this);
 
-       // RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        realm = Realm.getInstance(Realm.getDefaultConfiguration());
+        config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
+        realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");
         mAuth = FirebaseAuth.getInstance();

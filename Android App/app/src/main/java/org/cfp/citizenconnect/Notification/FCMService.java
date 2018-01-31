@@ -16,6 +16,8 @@ import org.cfp.citizenconnect.R;
 
 import io.realm.Realm;
 
+import static org.cfp.citizenconnect.CitizenConnectApplication.config;
+
 /**
  * Created by root on 05/12/2017.
  */
@@ -25,7 +27,7 @@ public class FCMService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        mRealm = Realm.getDefaultInstance();
+        mRealm = Realm.getInstance(config);
         UpdateNewNotification();
         Log.d("FirebaseData", "Message data payload: " + remoteMessage.getData());
         if (remoteMessage.getData().size() > 0) {
