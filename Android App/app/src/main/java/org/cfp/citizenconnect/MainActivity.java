@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
         bottomNavigation.addItem(item4);
-        notificationUpdate.setNewNotification(2);
         if (getIntent().getExtras() != null) {
             clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
             if (clearNotificationCount) {
@@ -85,8 +84,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
             }
         }
-        //Todo: Added only for demo
-        changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
         bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
         bottomNavigation.setInactiveColor(ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
@@ -150,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         };
         this.registerReceiver(mNotificationReceiver, intentFilter);
     }
-
 
 
     @Override
@@ -258,11 +254,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 }
             }
             break;
-
             default:
                 break;
         }
     }
+
 
     private void changeNotificationStatus(String count, @ColorInt int color) {
         bottomNavigation.setNotificationBackgroundColor(color);

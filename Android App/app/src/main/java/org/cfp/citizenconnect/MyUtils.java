@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -101,6 +102,21 @@ public class MyUtils {
                 mErrorListener.onErrorResponse(error);
             }
         });
+    }
+
+    public static  void mSnakbar(String message,String actionText,int duration,int visibility,View view,View.OnClickListener listener){
+        Snackbar mySnackbar = Snackbar.make(view,
+                message, Snackbar.LENGTH_SHORT);
+        mySnackbar.setAction(actionText, listener);
+        mySnackbar.setDuration(duration);
+        switch (visibility) {
+            case 1:
+                mySnackbar.show();
+                break;
+            case 0:
+                mySnackbar.dismiss();
+                break;
+        }
     }
 
     public static void frescoImageRequest(String imagePath,Context mContext,CustomCallBack.Listener<Bitmap> onBitmapReceived,CustomCallBack.ErrorListener<DataSource> onFailure) {

@@ -55,7 +55,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Phone Verification failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Phone Verification failed"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
