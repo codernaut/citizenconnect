@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "479616161782-q4dcj9bp2eov9be6r9u4b8dn3osd3ed0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.cfp.citizenconnect",
+            "certificate_hash": "613eb155d739f6a5395b656f56bbf4ff601a925c"
+          }
+        },
+        {
           "client_id": "479616161782-g047vtlsdc7au21gnm4cdlthdqvet7ml.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

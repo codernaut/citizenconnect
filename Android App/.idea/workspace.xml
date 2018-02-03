@@ -6,426 +6,95 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MainActivity" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b3cc5dc-4511-4be1-9d2c-98a775579aac" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_design_26_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_26_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_aurelhubert_ahbottomnavigation_2_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/FragmentStateAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/MyPagerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CustomCallBack.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/FragmentDataSet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FragmentNotification.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/color/color_state_list.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/data_fragment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notification_fragment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-08-08-614.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-08-08-614.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-12-35-513.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-12-35-513.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-14-00-096.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-14-00-096.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-15-27-748.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-15-27-748.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-16-00-539.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-16-00-539.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-16-43-486.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-16-43-486.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-17-24-106.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-17-24-106.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-18-19-006.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-18-19-006.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-29-01-666.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-29-01-666.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-33-00-428.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-33-00-428.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-33-05-372.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-33-05-372.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-35-10-022.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-35-10-022.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-36-14-921.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-36-14-921.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-37-30-740.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-37-30-740.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-51-56-306.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-51-56-306.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-53-22-828.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-11-53-22-828.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-03-35-580.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-03-35-580.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-04-25-970.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-04-25-970.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-05-02-033.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-05-02-033.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-09-20-351.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-09-20-351.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-10-05-565.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-10-05-565.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-21-56-283.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-21-56-283.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-22-45-397.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-22-45-397.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-23-10-633.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-23-10-633.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-23-38-890.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-23-38-890.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-27-18-851.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-27-18-851.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-30-40-188.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-30-40-188.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-38-01-438.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-38-01-438.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-45-08-391.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-45-08-391.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-45-44-996.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-45-44-996.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-46-43-575.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-46-43-575.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-47-48-899.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-47-48-899.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-48-09-863.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-48-09-863.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-48-59-491.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-48-59-491.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-50-58-898.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-50-58-898.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-52-19-269.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-52-19-269.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-53-40-407.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-53-40-407.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-55-44-294.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-55-44-294.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-59-38-548.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-12-59-38-548.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-00-58-674.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-00-58-674.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-02-33-628.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-02-33-628.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-03-16-681.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-03-16-681.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-04-42-051.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-04-42-051.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-08-33-094.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-08-33-094.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-09-27-844.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-09-27-844.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-10-30-265.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-10-30-265.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-13-38-137.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-13-38-137.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-19-41-753.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-19-41-753.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-23-15-674.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-23-15-674.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-25-09-921.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-25-09-921.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-26-00-641.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-26-00-641.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-27-01-715.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-27-01-715.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-29-35-631.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-29-35-631.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-30-45-734.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-30-45-734.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-43-24-179.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-43-24-179.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-44-34-978.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-44-34-978.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-48-22-312.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-48-22-312.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-52-12-186.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-52-12-186.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-53-28-048.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-53-28-048.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-54-47-265.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-54-47-265.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-59-51-928.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-13-59-51-928.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-01-18-723.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-01-18-723.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-07-24-472.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-07-24-472.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-08-12-458.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-08-12-458.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-09-44-641.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-09-44-641.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-11-31-382.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-11-31-382.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-12-09-090.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-12-09-090.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-14-14-663.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-14-14-663.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-14-45-862.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-14-45-862.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-16-09-981.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-16-09-981.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-17-28-174.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-17-28-174.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-19-01-217.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-19-01-217.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-20-16-944.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-20-16-944.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-22-34-769.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-22-34-769.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-25-30-244.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-25-30-244.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-26-28-761.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-14-26-28-761.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-06-22-640.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-06-22-640.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-10-01-778.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-10-01-778.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-12-06-139.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-12-06-139.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-14-32-162.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-14-32-162.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-19-21-641.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-19-21-641.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-21-09-288.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-21-09-288.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-24-05-801.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-24-05-801.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-27-31-695.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-27-31-695.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-28-32-729.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-28-32-729.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-32-25-108.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-32-25-108.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-33-48-592.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-16-33-48-592.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-17-22-58-473.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-17-22-58-473.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-17-23-05-520.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-17-23-05-520.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-18-01-08-975.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-18-01-08-975.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-40-51-080.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-40-51-080.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-46-09-408.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-46-09-408.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-49-26-954.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-49-26-954.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-51-11-468.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-51-11-468.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-52-47-138.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-52-47-138.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-53-10-432.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-53-10-432.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-54-17-227.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-54-17-227.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-55-30-371.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-55-30-371.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-56-45-420.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-56-45-420.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-57-50-470.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-20-57-50-470.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-00-10-907.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-00-10-907.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-03-12-162.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-03-12-162.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-07-20-451.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-07-20-451.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-08-16-181.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-08-16-181.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-08-58-271.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-08-58-271.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-11-50-627.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-11-50-627.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-12-58-398.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-12-58-398.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-14-23-788.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-14-23-788.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-21-47-770.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-21-47-770.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-22-54-086.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-22-54-086.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-24-43-314.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-24-43-314.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-26-10-780.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-26-10-780.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-29-28-656.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-29-28-656.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-40-30-004.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-40-30-004.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-43-05-858.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-21-43-05-858.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-23-09-00-124.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-23-09-00-124.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-23-10-26-973.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-09-23-10-26-973.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-46-34-208.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-46-34-208.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-49-08-412.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-49-08-412.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-50-09-008.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-50-09-008.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-53-21-025.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-53-21-025.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-58-12-014.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-58-12-014.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-59-43-822.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-00-59-43-822.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-01-01-01-830.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-01-01-01-830.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-01-22-58-466.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-01-22-58-466.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-28-47-835.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-28-47-835.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-28-57-558.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-28-57-558.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-29-18-087.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-29-18-087.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-29-23-315.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-29-23-315.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-30-15-024.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-30-15-024.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-37-34-798.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-11-37-34-798.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-51-25-380.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-51-25-380.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-51-32-003.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-51-32-003.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-54-35-041.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-54-35-041.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-54-39-645.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-54-39-645.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-55-43-248.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-10-13-55-43-248.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-00-57-55-411.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-00-57-55-411.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-00-58-06-916.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-00-58-06-916.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-11-45-48-619.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-11-45-48-619.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-11-50-52-958.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-11-50-52-958.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-13-01-769.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-13-01-769.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-17-13-474.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-17-13-474.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-20-24-618.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-20-24-618.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-34-54-340.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-34-54-340.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-10-470.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-10-470.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-16-399.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-16-399.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-51-213.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-11-12-59-51-213.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-05-53-320.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-05-53-320.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-08-00-722.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-08-00-722.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-08-49-988.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-08-49-988.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-09-50-034.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-09-50-034.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-10-47-672.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-10-47-672.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-19-26-331.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-19-26-331.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-19-34-980.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-19-34-980.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-21-12-649.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-21-12-649.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-23-29-097.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-23-29-097.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-24-28-186.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-17-24-28-186.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-42-05-318.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-42-05-318.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-44-37-865.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-44-37-865.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-51-32-574.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-51-32-574.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-52-34-540.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-52-34-540.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-55-46-731.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-55-46-731.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-57-44-918.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-22-57-44-918.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-01-18-492.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-01-18-492.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-01-22-212.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-01-22-212.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-03-14-894.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-03-14-894.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-04-11-111.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-04-11-111.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-06-10-916.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-06-10-916.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-06-46-185.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-06-46-185.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-07-43-082.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-07-43-082.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-07-50-707.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-07-50-707.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-08-43-998.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-08-43-998.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-11-08-990.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-11-08-990.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-11-56-046.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-11-56-046.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-12-43-598.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-12-43-598.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-14-19-923.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-14-19-923.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-22-57-991.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-22-57-991.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-23-23-849.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-23-23-849.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-25-04-477.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-25-04-477.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-25-23-759.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-25-23-759.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-26-56-848.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-26-56-848.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-27-20-153.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-27-20-153.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-28-52-437.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-28-52-437.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-04-610.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-04-610.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-08-321.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-08-321.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-45-636.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-12-23-30-45-636.rawproto" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplciation.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplication.java" />
+    <list default="true" id="8b3cc5dc-4511-4be1-9d2c-98a775579aac" name="Default" comment="Progressbar loading issue pending">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/activation.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/additionnal.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/mail.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____Development_Code_for_Pakistan_citizenconnect_Android_App_libs_activation_jar_unspecified_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____Development_Code_for_Pakistan_citizenconnect_Android_App_libs_additionnal_jar_unspecified_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____Development_Code_for_Pakistan_citizenconnect_Android_App_libs_mail_jar_unspecified_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_core_jackson_core_2_1_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_github_barteksc_android_pdf_viewer_2_8_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_github_barteksc_pdfium_android_1_7_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_github_d_max_spots_dialog_0_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_11_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_11_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_android_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_apis_google_api_services_gmail_v1_rev79_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_2_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_11_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_guava_guava_jdk5_17_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_http_client_google_http_client_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_http_client_google_http_client_android_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_http_client_google_http_client_jackson2_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_oauth_client_google_oauth_client_1_23_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_zsoltsafrany_needle_1_0_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/pub_devrel_easypermissions_0_3_0.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-02-31-487.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-02-31-487.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-04-07-682.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-04-07-682.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-05-27-116.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-05-27-116.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-05-49-753.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-05-49-753.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-13-15-505.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-13-15-505.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-32-22-756.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-32-22-756.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-43-22-439.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-43-22-439.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-43-29-124.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-43-29-124.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-54-35-939.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-54-35-939.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-54-40-896.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-12-54-40-896.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-34-40-540.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-34-40-540.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-35-09-081.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-35-09-081.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-35-53-501.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-35-53-501.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-36-45-264.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-36-45-264.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-38-34-010.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-38-34-010.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-39-34-284.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-13-39-34-284.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-15-05-016.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-15-05-016.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-31-03-614.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-31-03-614.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-31-27-017.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-31-27-017.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-37-46-904.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-37-46-904.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-39-07-917.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-39-07-917.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-41-14-757.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-41-14-757.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-45-04-868.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-45-04-868.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-47-24-338.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-47-24-338.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-49-16-221.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-01-18-17-49-16-221.rawproto" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/release/app-release.apk" afterPath="$PROJECT_DIR$/app/release/app-release.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationUpdate.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationUpdate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/count_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/count_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/notification_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/notification_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../citizenconnect-server/functions/index.js" afterPath="$PROJECT_DIR$/../citizenconnect-server/functions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../citizenconnect-server/functions/package-lock.json" afterPath="$PROJECT_DIR$/../citizenconnect-server/functions/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../citizenconnect-server/functions/package.json" afterPath="$PROJECT_DIR$/../citizenconnect-server/functions/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../citizenconnect-server/package-lock.json" afterPath="$PROJECT_DIR$/../citizenconnect-server/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../citizenconnect-server/public/index.html" afterPath="$PROJECT_DIR$/../citizenconnect-server/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/google-services.json" afterPath="$PROJECT_DIR$/google-services.json" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -444,49 +113,133 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Android App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="android" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
+              </PATH_ELEMENT>
+            </PATH>
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java">
+      <file leaf-file-name="SplashScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SplashScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-568">
-              <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-              <folding>
-                <element signature="e#2317#2338#0" expanded="true" />
-                <element signature="e#2469#2490#0" expanded="true" />
-                <element signature="e#2618#2639#0" expanded="true" />
-                <element signature="e#4650#4962#0" expanded="true" />
-                <element signature="e#4961#4962#0" expanded="true" />
-                <element signature="e#5549#5590#0" expanded="true" />
-                <element signature="e#6185#6229#0" expanded="true" />
-                <element signature="e#6826#6872#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1530">
+              <caret line="124" column="39" lean-forward="false" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FragmentDataSet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/FragmentDataSet.java">
+      <file leaf-file-name="splash_layout.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="120">
+              <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FragmentNotification.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FragmentNotification.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="51" column="5" lean-forward="false" selection-start-line="48" selection-start-column="3" selection-end-line="51" selection-end-column="5" />
+            <state relative-caret-position="281">
+              <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationUpdate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationUpdate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Services.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Services.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -494,86 +247,49 @@
       <file leaf-file-name="CustomCallBack.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CustomCallBack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java">
+      <file leaf-file-name="DataSetAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/DataSetAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+            <state relative-caret-position="120">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bottom_navigation_menu.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="402">
+              <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_fragment.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/data_fragment.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="GridViewAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/GridViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="46" />
+            <state relative-caret-position="120">
+              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feedback_fragment.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="Notifications.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+            <state relative-caret-position="647">
+              <caret line="95" column="5" lean-forward="false" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FragmentFeedback.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="67" lean-forward="false" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyPagerAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/MyPagerAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#516#517#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#629#630#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -584,46 +300,47 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
         <option value="AnnotationType" />
-        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loadFromFirebase()</find>
-      <find>loadFromRealm()</find>
-      <find>i</find>
-      <find>ic</find>
-      <find>ic_</find>
-      <find>ic_la</find>
-      <find>ic_lau</find>
-      <find>ic_laun</find>
-      <find>loa</find>
-      <find>loadFromFirebase</find>
-      <find>Notifications</find>
-      <find>setNotifications</find>
-      <find>mListener</find>
-      <find>share</find>
-      <find>shareim</find>
-      <find>progress</find>
-      <find>FilesRef</find>
-      <find>countNotification</find>
-      <find>update</find>
-      <find>updateNotificationCount</find>
-      <find>clearNotificationCount</find>
-      <find>getNewNotiifcation</find>
-      <find>com.android.support:support</find>
-      <find>Main</find>
-      <find>notificationsModel</find>
-      <find>mBuilder</find>
-      <find>bitmap</find>
-      <find>Fragment</find>
-      <find>phoneNo</find>
-      <find>FragmentPagerAdapter</find>
+      <find>DownloadFilesTask</find>
+      <find>setNewNotification</find>
+      <find>account</find>
+      <find>RealmConfiguration config</find>
+      <find>RealmConfiguration confi</find>
+      <find>ge</find>
+      <find>getD</find>
+      <find>getDe</find>
+      <find>getDef</find>
+      <find>getDefa</find>
+      <find>getDefault</find>
+      <find>getDefaultI</find>
+      <find>getDefaultIn</find>
+      <find>sendMessage</find>
+      <find>REQUEST_ACCOUNT_PICKER</find>
+      <find>mCredential</find>
+      <find>REQUEST_PHONE_VERIFICATION</find>
+      <find>EasyPermissions</find>
+      <find>permi</find>
+      <find>Manifest</find>
+      <find>REQUEST_PERMISSION_GET_ACCOUNTS</find>
+      <find>requestPermissions</find>
+      <find>snack</find>
+      <find>REQUEST_AUTHORIZATION</find>
+      <find>mContext</find>
+      <find>chooseAccount</find>
+      <find>user</find>
+      <find>mScrollStatus</find>
+      <find>fetchFirebaseNotifications</find>
+      <find>loadFromRealm</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2953,57 +2670,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_snap_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/SnapsNotificationAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Files.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/xml/fileprovider.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/circle_share.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/circle_notification_count.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/TaskHandlerService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationsTemplate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/reactivex/BackpressureStrategy.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/AboutActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/AboutActivity.java" />
-        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/org/cfp/citizenconnect/R.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/NotificationListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/NotificationLayoutAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/full_image_size_popup.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplciation.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CustomCallBack.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationStatus.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationUpdate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/color/color_state_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/count_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/EActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/notification_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SuperClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/searchable.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Interfaces/Search.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Interfaces/ScrollStatus.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/services_fragment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FragmentNotification.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/FragmentStateAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/PagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/data_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/FragmentDataSet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dataset_list_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dataset_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/search_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/DataSetLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/MyPagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Layout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Services.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/GridViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/FragmentDataSet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/feedback_dialogue.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/data_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/pdf_viewer_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Services/FragmentServices.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/DataSetAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/NotificationLayoutAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/MyAsyncTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/DataSetListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/DataSet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MakeRequestTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/phone_verification_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/tiles_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PdfViewerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/snack_bar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SendEmail.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/User.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Interfaces/Permissions.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PhoneVerificationActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FragmentNotification.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" />
       </list>
     </option>
   </component>
@@ -3027,9 +2744,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3042,8 +2756,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3068,24 +2811,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android App" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -3178,29 +2903,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Feedback" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android App" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="citizenconnect" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
+              <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3238,6 +2941,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3250,22 +2955,28 @@
     <property name="ExportApk.SignV2" value="true" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
-    <property name="FullScreen" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-mdpi" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
+    <property name="FullScreen" value="true" />
+    <property name="android.profiler.active" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g935f-9886274d3157314d56" />
+    <property name="DEBUGGABLE_PROCESS" value="org.cfp.citizenconnect" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="DEBUGGER_ID" value="Auto" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.cfp.citizenconnect" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.cfp.citizenconnect" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-mdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.cfp.citizenconnect" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -3281,6 +2992,24 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
+    <configuration default="false" name="Android App [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -3351,7 +3080,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516279770359" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517396638482" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3399,7 +3128,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516279770359" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517396638482" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3536,55 +3265,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="app" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516279770360" />
-      </method>
-    </configuration>
     <configuration default="false" name="RecyclerViewPager" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="RecyclerViewPager" />
       <option name="DEPLOY" value="true" />
@@ -3631,7 +3311,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516279770360" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517396638497" />
       </method>
     </configuration>
     <configuration default="false" name="recyclerViewPager" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -3680,14 +3360,69 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516279770360" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517396638497" />
       </method>
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Android App.app" />
-      <item index="1" class="java.lang.String" itemvalue="Android App.RecyclerViewPager" />
-      <item index="2" class="java.lang.String" itemvalue="Android App.recyclerViewPager" />
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method>
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517396638497" />
+      </method>
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Android App.RecyclerViewPager" />
+      <item index="1" class="java.lang.String" itemvalue="Android App.recyclerViewPager" />
+      <item index="2" class="java.lang.String" itemvalue="Android App.app" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.Android App [signingReport]" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Gradle.Android App [signingReport]" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -3710,6 +3445,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8b3cc5dc-4511-4be1-9d2c-98a775579aac" name="Default" comment="" />
@@ -3718,34 +3456,94 @@
       <option name="presentableId" value="Default" />
       <updated>1512923125556</updated>
     </task>
+    <task id="LOCAL-00001" summary="Change&#10; App Theme &#10; Card layout &#10;  Data Set Added&#10;  Services Added">
+      <created>1516815102199</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1516815102199</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed layout issues &#10;added Feedback layout &#10;close popup on background click">
+      <created>1516907629252</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1516907629252</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Progressbar loading issue pending">
+      <created>1516974634625</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1516974634625</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Gmail API added &#10;Phone Auth Added">
+      <created>1517126763793</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1517126763793</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Model Crash">
+      <created>1517137104624</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1517137104624</updated>
+    </task>
+    <task id="LOCAL-00006" summary="icon Added">
+      <created>1517382113327</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1517382113327</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Stable Version 3.1.4">
+      <created>1517387226959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1517387226959</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5028612" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40240964" sideWeight="0.5071531" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40240964" sideWeight="0.49570817" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.49713877" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40240964" sideWeight="0.49284694" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.4914163" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20600858" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32572114" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3025751" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253012" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23676682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25250357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -3755,26 +3553,63 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40240964" sideWeight="0.5071531" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40240964" sideWeight="0.49284694" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.4914163" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3025751" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253012" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21316166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change&#10; App Theme &#10; Card layout &#10;  Data Set Added&#10;  Services Added" />
+    <MESSAGE value="Fixed layout issues &#10;added Feedback layout &#10;close popup on background click" />
+    <MESSAGE value="Progressbar loading issue pending" />
+    <MESSAGE value="Gmail API added &#10;Phone Auth Added" />
+    <MESSAGE value="Model Crash" />
+    <MESSAGE value="icon Added" />
+    <MESSAGE value="Stable Version 3.1.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stable Version 3.1.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java</url>
-          <line>30</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/TaskHandlerService.java</url>
@@ -3782,12 +3617,43 @@
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PhoneVerificationActivity.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PhoneVerificationActivity.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PhoneVerificationActivity.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="88" />
+      <option name="time" value="214" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="remoteMessage.getData()" language="JAVA" />
+        <watch expression="user.getEmail()" language="JAVA" />
         <watch expression="remoteMessage.getData().toString()" language="JAVA" />
         <watch expression="remoteMessage.getData()[0]" language="JAVA" />
         <watch expression="remoteMessage.getData().get(&quot;serverMessage&quot;)" language="JAVA" />
@@ -3810,6 +3676,10 @@
         <watch expression="mFirebaseRemoteConfig" language="JAVA" />
         <watch expression="firebaseStorageRef.child(&quot;image&quot;);" language="JAVA" />
         <watch expression="firebaseStorageRef.child(&quot;image&quot;).getDownloadUrl()" language="JAVA" />
+        <watch expression="fullName.getText().equals(&quot;&quot;)" language="JAVA" />
+        <watch expression="fullName.getText().equals(null)" language="JAVA" />
+        <watch expression="fullName.equals(null)" language="JAVA" />
+        <watch expression="fullName.getText().toString().equals(&quot;&quot;)" language="JAVA" />
         <watch expression="firebaseStorageRef.child(&quot;image&quot;).getStorage()" language="JAVA" />
         <watch expression="firebaseStorageRef.child(&quot;image&quot;)" language="JAVA" />
         <watch expression="firebaseStorageRef.child(&quot;image&quot;).getDownloadUrl()" language="JAVA" />
@@ -3875,126 +3745,447 @@
         <watch expression="bitmap" language="JAVA" />
         <watch expression="bitmap.getHeight()*1.5" language="JAVA" />
         <watch expression="e.getMessage()" language="JAVA" />
+        <watch expression="menuItem.getActionView()" language="JAVA" />
+        <watch expression="menuItem.getActionView()!=null" language="JAVA" />
+        <watch expression="menuItem" language="JAVA" />
+        <watch expression="database.getReference(DATASET_REFFERENCE)" language="JAVA" />
+        <watch expression="_child.child(String.valueOf(childCount[0])).getValue(DataSetLayout.class);" language="JAVA" />
+        <watch expression="_child.getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;MedicalStores&quot;).getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;Medical Stores&quot;).getValue()" language="JAVA" />
+        <watch expression="_child.getValue()" language="JAVA" />
+        <watch expression="_child.getChildren()" language="JAVA" />
+        <watch expression="_child.getValue()" language="JAVA" />
+        <watch expression="_child.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="_inner.getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;type&quot;)" language="JAVA" />
+        <watch expression="_child.child(&quot;type&quot;).getValue()" language="JAVA" />
+        <watch expression="_child.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="typeList.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="typeList.getValue()" language="JAVA" />
+        <watch expression="(ArrayList&lt;DataSet&gt;) typeList.getValue();" language="JAVA" />
+        <watch expression="list[0] = (ArrayList&lt;DataSet&gt;) typeList.getValue();" language="JAVA" />
+        <watch expression="list[0].get(0)" language="JAVA" />
+        <watch expression="(ArrayList&lt;DataSet&gt;) typeList.getValue();                     }" language="JAVA" />
+        <watch expression="(ArrayList&lt;DataSet&gt;) typeList.getValue();                " language="JAVA" />
+        <watch expression="(ArrayList&lt;DataSet&gt;) typeList.getValue();" language="JAVA" />
+        <watch expression="typeList.getValue()" language="JAVA" />
+        <watch expression="_child.getChildren()" language="JAVA" />
+        <watch expression="typeList.getKey()" language="JAVA" />
+        <watch expression="mList" language="JAVA" />
+        <watch expression="list.get(0)" language="JAVA" />
+        <watch expression="list.get(0)" language="JAVA" />
+        <watch expression="list.get(0).getName()" language="JAVA" />
+        <watch expression="list.get(0)" language="JAVA" />
+        <watch expression="list.get(0)" language="JAVA" />
+        <watch expression="list.getClass()" language="JAVA" />
+        <watch expression="list.get(0).name" language="JAVA" />
+        <watch expression="(ArrayList&lt;DataSet&gt;) typeList.getValue();" language="JAVA" />
+        <watch expression="list.get(0)" language="JAVA" />
+        <watch expression="map =(HashMap&lt;String, String&gt;) list.get(position)" language="JAVA" custom="java.lang.String" />
+        <watch expression="typeList.getKey()" language="JAVA" />
+        <watch expression="typeList.getValue()" language="JAVA" />
+        <watch expression="typeList.getValue()" language="JAVA" />
+        <watch expression="typeList.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="_child.getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;).getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;)" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;)" language="JAVA" />
+        <watch expression="_child.child(&quot;type&quot;)" language="JAVA" />
+        <watch expression="_child.getValue(DataSet.class)" language="JAVA" />
+        <watch expression="_child.getValue()" language="JAVA" />
+        <watch expression="_child.getChildrenCount()" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;).getValue(DataSet.class)" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;).getValue()" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;)" language="JAVA" />
+        <watch expression="_snapshot.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="_snapshot.getValue()" language="JAVA" />
+        <watch expression="_snapshot.getChildren()" language="JAVA" />
+        <watch expression="s.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="_snapshot.getChildren()" language="JAVA" />
+        <watch expression="_snapshot.getChildren();" language="JAVA" />
+        <watch expression="_snapshot.getValue(DataSet.class)" language="JAVA" />
+        <watch expression="_snapshot.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="dataSet" language="JAVA" />
+        <watch expression="dataSet.getName()" language="JAVA" />
+        <watch expression="_snapshot.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.getName()" language="JAVA" />
+        <watch expression="dataSet.getLocation()" language="JAVA" />
+        <watch expression="_child.child(&quot;data&quot;);" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet.getLocation()" language="JAVA" />
+        <watch expression="dataSet.getLocation()" language="JAVA" />
+        <watch expression="_snapshot.getValue(DataSet.class);" language="JAVA" />
+        <watch expression="response.getChildren()" language="JAVA" />
+        <watch expression="services.getFileUrl()" language="JAVA" />
+        <watch expression="services.getType()" language="JAVA" />
+        <watch expression="services.getType()" language="JAVA" />
+        <watch expression="destinationPath" language="JAVA" />
+        <watch expression="url" language="JAVA" />
+        <watch expression="searchMenu.getActionView().setVisibility(View.GONE);" language="JAVA" />
+        <watch expression="list.get(position).get_Name()" language="JAVA" />
+        <watch expression="error" language="JAVA" />
+        <watch expression="error.getMessage()" language="JAVA" />
+        <watch expression="User.getUserInstance(realm);" language="JAVA" />
+        <watch expression="user==null" language="JAVA" />
+        <watch expression="response" language="JAVA" />
+        <watch expression="getIntent().getExtras()" language="JAVA" />
+        <watch expression="getIntent().getStringExtra(BUNDLE_PHONE_VERIFY)" language="JAVA" />
+        <watch expression="user.equals(null)" language="JAVA" />
+        <watch expression="user" language="JAVA" />
+        <watch expression="user==null" language="JAVA" />
+        <watch expression="user==null" language="JAVA" />
+        <watch expression="user.getEmail()" language="JAVA" />
+        <watch expression="user.getEmail()!=null" language="JAVA" />
+        <watch expression="user" language="JAVA" />
+        <watch expression="user==null" language="JAVA" />
+        <watch expression="perms.get(0) == Manifest.permission.GET_ACCOUNTS" language="JAVA" />
+        <watch expression="perms.get(0).equals(Manifest.permission.GET_ACCOUNTS)" language="JAVA" custom="android.Manifest" />
+        <watch expression="(ContextCompat.checkSelfPermission(getActivity(),                 Manifest.permission.GET_ACCOUNTS)                 == PackageManager.PERMISSION_GRANTED)" language="JAVA" />
+      </configuration>
+      <configuration name="Remote">
+        <watch expression="list.get(position).get_Name()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="dataSet" language="JAVA" />
+        <watch expression="_snapshot.getValue()" language="JAVA" />
+        <watch expression="dataSet.get_Name()" language="JAVA" />
+        <watch expression="_child.child(&quot;type&quot;).getValue()" language="JAVA" />
+        <watch expression="e.getLocalizedMessage()" language="JAVA" />
+        <watch expression="requestCode" language="JAVA" />
+        <watch expression="permissions" language="JAVA" />
+        <watch expression="grantResults" language="JAVA" />
+        <watch expression="perms" language="JAVA" />
+        <watch expression="requestCode" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/TaskHandlerService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circle_notification_count.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="34" column="5" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#571#572#0" expanded="false" />
-            <element signature="e#598#599#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification_list.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="173" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/delete_sign.png" />
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/LayoutInflater.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/imagepipeline/0.6.1/c0170e3b3c5ce81e565a7ab2ae41f91370677de1/imagepipeline-0.6.1-sources.jar!/com/facebook/imagepipeline/producers/BaseConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/imagepipeline/0.6.1/c0170e3b3c5ce81e565a7ab2ae41f91370677de1/imagepipeline-0.6.1-sources.jar!/com/facebook/imagepipeline/datasource/BaseBitmapDataSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/fbcore/0.6.1/313ac3d4fd01761f58243ac58214185912352445/fbcore-0.6.1-sources.jar!/com/facebook/datasource/BaseDataSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/fbcore/0.6.1/313ac3d4fd01761f58243ac58214185912352445/fbcore-0.6.1-sources.jar!/com/facebook/common/executors/CallerThreadExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/blurpopupwindow-1.0.8.aar/33f6a5adeaf67bd0230ff682a87ad2a7/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/fbcore/0.6.1/313ac3d4fd01761f58243ac58214185912352445/fbcore-0.6.1-sources.jar!/com/facebook/datasource/AbstractDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_new_notification.png">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/connection.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/org/cfp/citizenconnect/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#790560#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/ViewGroup.class">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/26.1.0/73bfdb5cca1949a51219d3676700996990ea3b52/support-compat-26.1.0-sources.jar!/android/support/v4/app/ActivityCompat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10500">
-          <caret line="914" column="15" lean-forward="false" selection-start-line="914" selection-start-column="15" selection-end-line="914" selection-end-column="15" />
+        <state relative-caret-position="178">
+          <caret line="386" column="23" lean-forward="false" selection-start-line="386" selection-start-column="23" selection-end-line="386" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/mail.jar!/javax/mail/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SendEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="109" column="39" lean-forward="false" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/os/AsyncTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/29ca6aaf2d4976c13dd7c836e91bd2a61b697bf3/support-annotations-26.1.0-sources.jar!/android/support/annotation/Nullable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="34" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/phone_verification_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11085">
+          <caret line="1104" column="0" lean-forward="false" selection-start-line="1104" selection-start-column="0" selection-end-line="1104" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/DataSetListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tiles_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PdfViewerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/snack_bar.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/DataSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/TaskHandlerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SendEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/design/26.1.0/c7ac62df01dd0a97d93500ad3da7faebf03ba49/design-26.1.0-sources.jar!/android/support/design/widget/Snackbar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="241" column="84" lean-forward="false" selection-start-line="241" selection-start-column="55" selection-end-line="241" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/full_image_size_popup.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="330" column="35" lean-forward="false" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/NotificationListAdapter.java">
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/TextView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="140" column="5" lean-forward="false" selection-start-line="140" selection-start-column="5" selection-end-line="140" selection-end-column="5" />
+        <state relative-caret-position="11055">
+          <caret line="1244" column="0" lean-forward="false" selection-start-line="1244" selection-start-column="0" selection-end-line="1244" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/26.1.0/8279b00f5194701ff18363fa2958c5a26670b0ef/support-fragment-26.1.0-sources.jar!/android/support/v4/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15795">
+          <caret line="1181" column="33" lean-forward="false" selection-start-line="1181" selection-start-column="15" selection-end-line="1181" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/Manifest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="96" column="35" lean-forward="false" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/26.1.0/73bfdb5cca1949a51219d3676700996990ea3b52/support-compat-26.1.0-sources.jar!/android/support/v4/content/ContextCompat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5880">
+          <caret line="424" column="61" lean-forward="false" selection-start-line="424" selection-start-column="61" selection-end-line="424" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/pub.devrel/easypermissions/0.3.0/fbcbfe8a871702db53e5be80e1f2da72c733655d/easypermissions-0.3.0-sources.jar!/pub/devrel/easypermissions/EasyPermissions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="253" column="23" lean-forward="false" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/content/pm/PackageManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="157" column="28" lean-forward="false" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#287#288#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+            <element signature="e#358#359#0" expanded="false" />
+            <element signature="e#423#424#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="106" column="133" lean-forward="false" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="133" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2525#2526#0" expanded="false" />
+            <element signature="e#2572#2573#0" expanded="false" />
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4102#4103#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Interfaces/Permissions.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="123" lean-forward="false" selection-start-line="16" selection-start-column="123" selection-end-line="16" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="151" column="51" lean-forward="false" selection-start-line="151" selection-start-column="51" selection-end-line="151" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/PhoneVerificationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="57" column="107" lean-forward="false" selection-start-line="57" selection-start-column="107" selection-end-line="57" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4002,333 +4193,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/AboutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationStatus.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/NotificationLayoutAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1777#1778#0" expanded="false" />
-            <element signature="e#1823#1824#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/studio.vmoptions">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FCMService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CitizenConnectApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="39" column="68" lean-forward="false" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/color/color_state_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/EActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/NotificationUpdate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#327#328#0" expanded="false" />
-            <element signature="e#359#360#0" expanded="false" />
-            <element signature="e#406#407#0" expanded="false" />
-            <element signature="e#448#449#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#545#546#0" expanded="false" />
-            <element signature="e#604#605#0" expanded="false" />
-            <element signature="e#658#659#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/notification_menu.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+        <state relative-caret-position="135">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/org/cfp/citizenconnect/R.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Services.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60765">
-          <caret line="4056" column="28" lean-forward="false" selection-start-line="4056" selection-start-column="28" selection-end-line="4056" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SuperClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/count_layout.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="58" lean-forward="false" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification_layout.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification_fragment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/MyFirebaseInstanceIDService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="71" lean-forward="false" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MyUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="107" column="42" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/FragmentStateAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="136">
+          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/CustomCallBack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/DataSetAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        <state relative-caret-position="120">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/data_fragment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/GridViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="46" />
+        <state relative-caret-position="120">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Model/Notifications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="95" column="5" lean-forward="false" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Notification/FragmentNotification.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="51" column="5" lean-forward="false" selection-start-line="48" selection-start-column="3" selection-end-line="51" selection-end-column="5" />
+        <state relative-caret-position="281">
+          <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Data/FragmentDataSet.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/SplashScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="1530">
+          <caret line="124" column="39" lean-forward="false" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedback_fragment.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Feedback/FragmentFeedback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="67" lean-forward="false" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/Adapters/MyPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/cfp/citizenconnect/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="e#2317#2338#0" expanded="true" />
-            <element signature="e#2469#2490#0" expanded="true" />
-            <element signature="e#2618#2639#0" expanded="true" />
-            <element signature="e#4650#4962#0" expanded="true" />
-            <element signature="e#4961#4962#0" expanded="true" />
-            <element signature="e#5549#5590#0" expanded="true" />
-            <element signature="e#6185#6229#0" expanded="true" />
-            <element signature="e#6826#6872#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
   </component>
