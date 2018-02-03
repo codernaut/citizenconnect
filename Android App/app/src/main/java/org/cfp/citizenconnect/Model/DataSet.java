@@ -31,30 +31,21 @@ public class DataSet extends RealmObject {
 
     private String dataSetType;
 
-    @PropertyName("Address") //TODO There is another Address field with a space at the end.
+    @PropertyName("Address")
     private String address;
 
     @PropertyName("Name")
     private String name;
 
-    @PropertyName("Registration Status(Reg No,& Date & Relevant Law ") //TODO why such a long and problematic key name and there is a space at the end
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
     private String registration;
 
-    @PropertyName("Male")
-    private Double male; //TODO why double?
-
-    @PropertyName("Female")
-    private Double female; //TODO why double?
-
-    @PropertyName("Total Employees")
-    private Double totalEmployees;
-
-    @PropertyName("Registration Status(Reg No,& Date & Relevant Law ")
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
     public String getRegistration() {
         return registration;
     }
 
-    @PropertyName("Registration Status(Reg No,& Date & Relevant Law ")
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
     public void setRegistration(String registration) {
         this.registration = registration;
     }
@@ -68,46 +59,6 @@ public class DataSet extends RealmObject {
     private void setAddress(String address) {
         this.address = address;
     }
-
-    @PropertyName("Name")
-    public String getName() {
-        return name;
-    }
-
-    @PropertyName("Name")
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    @PropertyName("Male")
-    public Double getMale() {
-        return male;
-    }
-
-    @PropertyName("Male")
-    public void setMale(Double male) {
-        this.male = male;
-    }
-
-    @PropertyName("Female")
-    public Double getFemale() {
-        return female;
-    }
-
-    @PropertyName("Female")
-    public void setFemale(Double female) {
-        this.female = female;
-    }
-
-/*    @PropertyName("Total Employees")
-    public Double getTotalEmployees() {
-        return totalEmployees;
-    }
-
-    @PropertyName("Total Employees")
-    public void setTotalEmployees(Double totalEmployees) {
-        this.totalEmployees = totalEmployees;
-    }*/
 
     public String getId() {
         return id;
@@ -125,26 +76,33 @@ public class DataSet extends RealmObject {
         this.dataSetType = dataSetType;
     }
 
+    @PropertyName("name")
+    public String getName() {
+        return name;
+    }
+
+    @PropertyName("name")
+    private void setName(String name) {
+        this.name = name;
+    }
 
     public static void getDataSet(CustomCallBack.Listener<Boolean> _response,
                                   CustomCallBack.ErrorListener<DatabaseError> mErr) {
         getAFireBaseData(database.getReference(DATA_MEDICAL_STORE), response -> {
-            realm.executeTransactionAsync(realm -> {
-                        for (DataSnapshot _child : response.getChildren()) {
-                            DataSnapshot snapshot = _child.child("data");
-
-                            for (DataSnapshot _snapshot : snapshot.getChildren()) {
-                                final DataSet dataSet = _snapshot.getValue(DataSet.class);
-                                final DataSet object = realm.createObject(DataSet.class,
-                                        UUID.randomUUID().toString());
-                                object.setName(dataSet.getName());
-                                object.setAddress(dataSet.getAddress());
-                                object.setDataSetType(_child.child("type").getValue().toString());
-                            }
-                            _response.onResponse(true);
-                        }
-                    }
-            );
+            for (DataSnapshot _child : response.getChildren()) {
+                DataSnapshot snapshot = _child.child("data");
+                for (DataSnapshot _snapshot : snapshot.getChildren()) {
+                    final DataSet dataSet = _snapshot.getValue(DataSet.class);
+                    realm.executeTransaction(realm -> {
+                        final DataSet object = realm.createObject(DataSet.class,
+                                UUID.randomUUID().toString());
+                        object.setName(dataSet.getName());
+                        object.setAddress(dataSet.getAddress());
+                        object.setDataSetType(_child.child("type").getValue().toString());
+                    });
+                }
+            }
+            _response.onResponse(true);
         }, mErr);
     }
 
