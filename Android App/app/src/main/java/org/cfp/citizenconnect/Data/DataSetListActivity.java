@@ -19,6 +19,7 @@ import org.cfp.citizenconnect.Model.DataSet;
 import org.cfp.citizenconnect.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.Case;
 import io.realm.RealmResults;
@@ -26,7 +27,6 @@ import io.realm.RealmResults;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
 import static org.cfp.citizenconnect.Model.DataSet.fetchFromRealm;
-import static org.cfp.citizenconnect.Model.DataSet.getDataSet;
 
 /**
  * Created by shahzaibshahid on 23/01/2018.
@@ -38,7 +38,7 @@ public class DataSetListActivity extends AppCompatActivity {
     DataSetAdapter dataSetAdapter;
     RecyclerView recyclerView;
     String type;
-    ArrayList<DataSet> list;
+    List<DataSet> list;
     ProgressDialog progressDialog;
     MenuItem menuItem;
     LinearLayoutManager dataListLayout;
@@ -64,7 +64,6 @@ public class DataSetListActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(type);
             list = fetchFromRealm(type);
             if (list.size() == 0) {
-
                 Toast.makeText(DataSetListActivity.this,"No data found",Toast.LENGTH_LONG).show();
                 finish();
             } else {
@@ -138,10 +137,9 @@ public class DataSetListActivity extends AppCompatActivity {
 
     private void updateQuery(String query) {
         list.clear();
-        RealmResults<DataSet> dataSets = realm.where(DataSet.class).equalTo("dataSetType", type).contains("Name", query, Case.INSENSITIVE).findAll();
-        for (DataSet dataSet : dataSets) {
-            list.add(dataSet);
-        }
+        RealmResults<DataSet> dataSets = realm.where(DataSet.class).equalTo("dataSetType",
+                type).contains("Name", query, Case.INSENSITIVE).findAll();
+        list.addAll(dataSets);
         updateAdapter();
     }
 

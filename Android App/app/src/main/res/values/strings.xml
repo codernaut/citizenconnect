@@ -23,6 +23,8 @@
         <item>Traffic Issues</item>
         <item>Government offices</item>
         <item>Others</item>
-
     </string-array>
+
+    <string name="no_internet_msg">No Internet Available</string>
 </resources>
+

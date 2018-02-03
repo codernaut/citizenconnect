@@ -7,6 +7,7 @@ import com.google.firebase.database.PropertyName;
 import org.cfp.citizenconnect.CustomCallBack;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import io.realm.Case;
@@ -24,36 +25,40 @@ import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;
  */
 
 public class DataSet extends RealmObject {
+
     @PrimaryKey
-    String id;
-    String dataSetType;
+    private String id;
+
+    private String dataSetType;
+
     @PropertyName("Address")
-    String Address;
+    private String address;
+
     @PropertyName("Name")
-    String Name;
-    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
-    String Registration;
+    private String name;
 
     @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
-    public String get_Registration() {
-        return Registration;
+    private String registration;
+
+    @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
+    public String getRegistration() {
+        return registration;
     }
 
     @PropertyName("Registration Status(Reg No,& Date & Relevant Law")
-    public void set_Registration(String registration) {
-        Registration = registration;
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 
     @PropertyName("Address")
-    public String get_Address() {
-        return Address;
+    public String getAddress() {
+        return address;
     }
 
     @PropertyName("Address")
-    public void set_Address(String address) {
-        Address = address;
+    private void setAddress(String address) {
+        this.address = address;
     }
-
 
     public String getId() {
         return id;
@@ -67,47 +72,45 @@ public class DataSet extends RealmObject {
         return dataSetType;
     }
 
-    public void setDataSetType(String dataSetType) {
+    private void setDataSetType(String dataSetType) {
         this.dataSetType = dataSetType;
     }
 
-    @PropertyName("Name")
-    public String get_Name() {
-        return Name;
+    @PropertyName("name")
+    public String getName() {
+        return name;
     }
 
-    @PropertyName("Name")
-    public void set_Name(String name) {
-        Name = name;
+    @PropertyName("name")
+    private void setName(String name) {
+        this.name = name;
     }
 
-
-    public static void getDataSet( CustomCallBack.Listener<Boolean> _response, CustomCallBack.ErrorListener<DatabaseError> mErr) {
+    public static void getDataSet(CustomCallBack.Listener<Boolean> _response,
+                                  CustomCallBack.ErrorListener<DatabaseError> mErr) {
         getAFireBaseData(database.getReference(DATA_MEDICAL_STORE), response -> {
             for (DataSnapshot _child : response.getChildren()) {
                 DataSnapshot snapshot = _child.child("data");
                 for (DataSnapshot _snapshot : snapshot.getChildren()) {
-                    DataSet dataSet = _snapshot.getValue(DataSet.class);
+                    final DataSet dataSet = _snapshot.getValue(DataSet.class);
                     realm.executeTransaction(realm -> {
-                        DataSet object = realm.createObject(DataSet.class, UUID.randomUUID().toString());
-                        object.set_Name(dataSet.get_Name());
-                        object.set_Address(dataSet.get_Address());
+                        final DataSet object = realm.createObject(DataSet.class,
+                                UUID.randomUUID().toString());
+                        object.setName(dataSet.getName());
+                        object.setAddress(dataSet.getAddress());
                         object.setDataSetType(_child.child("type").getValue().toString());
                     });
                 }
             }
             _response.onResponse(true);
-        }, error -> {
-            mErr.onErrorResponse(error);
-        });
+        }, mErr);
     }
 
-    public static ArrayList<DataSet> fetchFromRealm(String type) {
-        ArrayList<DataSet> list = new ArrayList<>();
-        RealmResults<DataSet> dataSet = realm.where(DataSet.class).equalTo("dataSetType", type, Case.INSENSITIVE).findAll();
-        for (DataSet _data : dataSet) {
-            list.add(_data);
-        }
+    public static List<DataSet> fetchFromRealm(String type) {
+        final List<DataSet> list = new ArrayList<>();
+        RealmResults<DataSet> dataSet = realm.where(DataSet.class).equalTo("dataSetType",
+                type, Case.INSENSITIVE).findAll();
+        list.addAll(dataSet);
         return list;
     }
 
