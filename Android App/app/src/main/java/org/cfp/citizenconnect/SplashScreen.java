@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -31,8 +32,9 @@ import static org.cfp.citizenconnect.MyUtils.mSnakbar;
 public class SplashScreen extends Activity {
     ProgressBar progressBar;
 
+
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 2;
-    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
+
     User user;
 
     @Override
@@ -65,7 +67,7 @@ public class SplashScreen extends Activity {
 
         @Override
         protected void onPreExecute() {
-            mSnakbar("Please wait...", null, 5000, 1, findViewById(R.id.coordinator), null);
+            Toast.makeText(SplashScreen.this,"Please wait ...",Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -108,9 +110,9 @@ public class SplashScreen extends Activity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_PERMISSION_GET_ACCOUNTS) {
+       /* if (requestCode == REQUEST_PERMISSION_GET_ACCOUNTS) {
             getResultsFromApi();
-        }
+        }*/
     }
 
     public void getResultsFromApi() {
@@ -120,10 +122,6 @@ public class SplashScreen extends Activity {
             if (googleApiAvailability.isUserResolvableError(status)) {
                 showGooglePlayServicesAvailabilityErrorDialog(status);
             }
-        } else if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.GET_ACCOUNTS},
-                    REQUEST_PERMISSION_GET_ACCOUNTS);
         } else if (!isDeviceOnline(SplashScreen.this)) {
             mSnakbar("No Internet Available", null, 5000, 1, findViewById(R.id.coordinator), null);
             progressBar.setVisibility(View.GONE);

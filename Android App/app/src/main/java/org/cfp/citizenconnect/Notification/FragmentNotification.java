@@ -1,14 +1,17 @@
 package org.cfp.citizenconnect.Notification;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -17,6 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 import com.squareup.picasso.Picasso;
 
@@ -24,6 +30,7 @@ import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.MainActivity;
+import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.R;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
@@ -54,6 +61,9 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     BlurPopupWindow.Builder mBuilder;
     ProgressDialog progressDialog;
     ScrollStatus mScrollStatus;
+    NotificationUpdate notificationUpdate;
+    private BroadcastReceiver mNotificationReceiver;
+
 
     public static FragmentNotification newInstance() {
         FragmentNotification fragmentNotification = new FragmentNotification();
@@ -67,8 +77,15 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait");
         progressDialog.show();
+        notificationUpdate = NotificationUpdate.getInstance(realm);
         mScrollStatus = (MainActivity) getActivity();
-        loadFromRealm();
+        if(notificationUpdate.getNewNotification()>0 || !notificationUpdate.isLastStateRead()){
+            loadFromFirebase();
+        }
+        else {
+            loadFromRealm();
+        }
+
         binding.notificationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -78,10 +95,41 @@ public class FragmentNotification extends Fragment implements NotificationLayout
                 }
             }
         });
+
         View view = binding.getRoot();
         return view;
     }
 
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(
+                "android.intent.action.MAIN");
+
+        mNotificationReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean update = intent.getBooleanExtra("newUpdate", false);
+                if (update) {
+                    loadFromFirebase();
+
+                }
+            }
+        };
+        getActivity().registerReceiver(mNotificationReceiver, intentFilter);
+    }
+
+
+    @Override
+    public void onPause() {
+
+        super.onPause();
+
+        getActivity().unregisterReceiver(this.mNotificationReceiver);
+    }
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -96,11 +144,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
                 notificationsModel.add(_Notifications);
             }
             Collections.reverse(notificationsModel);
-            LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-            notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
-            binding.notificationList.setLayoutManager(notificationList);
-            binding.notificationList.setAdapter(notificationListAdapter);
-            progressDialog.dismiss();
+            updateRecyclerView();
 
         } else {
             loadFromFirebase();
@@ -110,21 +154,15 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
     private void loadFromFirebase() {
         notificationsModel.clear();
-        fetchFirebaseNotifications(FilesRef, response -> {
+        fetchFirebaseNotifications(FilesRef, (List<Notifications> response) -> {
             notificationsModel = response;
             Collections.reverse(notificationsModel);
-            LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-            notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
-            binding.notificationList.destroyDrawingCache();
-            binding.notificationList.setLayoutManager(notificationList);
-            binding.notificationList.setAdapter(notificationListAdapter);
-            progressDialog.dismiss();
+            updateRecyclerView();
         }, error -> {
             Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG);
             progressDialog.dismiss();
         });
     }
-
     @Override
     public void ShareImageClickListener(int position, Drawable image) {
         try {
@@ -181,5 +219,13 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(notificationListAdapter);
+    }
+    public void updateRecyclerView(){
+        LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
+
+        binding.notificationList.setLayoutManager(notificationList);
+        binding.notificationList.setAdapter(notificationListAdapter);
+        progressDialog.dismiss();
     }
 }

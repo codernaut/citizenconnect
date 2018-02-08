@@ -1,5 +1,6 @@
 package org.cfp.citizenconnect;
 
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.BroadcastReceiver;
@@ -27,11 +28,16 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
+import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
+import org.greenrobot.eventbus.EventBus;
+
+import io.realm.Realm;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
+import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
 
 
 public class MainActivity extends AppCompatActivity implements ScrollStatus {
@@ -52,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     private BroadcastReceiver mNotificationReceiver;
     SearchView searchView;
     MenuItem searchMenu;
+
+    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +84,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         if (getIntent().getExtras() != null) {
             clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
             if (clearNotificationCount) {
-                notificationUpdate.setNewNotification(0);
+                realm.executeTransaction(realm -> {
+                    notificationUpdate.setLastStateRead(true);
+                    notificationUpdate.setNewNotification(0);
+                });
+
                 changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
             }
         } else {
@@ -141,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             public void onReceive(Context context, Intent intent) {
                 boolean update = intent.getBooleanExtra("newUpdate", false);
                 if (update) {
+
                     changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
                 }
             }
@@ -254,6 +267,15 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 }
             }
             break;
+            case REQUEST_PERMISSION_GET_ACCOUNTS:{
+                if(grantResults.length>0){
+                    EventBus.getDefault().post(new MessageEvent("Permission Granted",true));
+                }
+                else {
+                    EventBus.getDefault().post(new MessageEvent("Permission Denied",false));
+                }
+            }
+            break;
             default:
                 break;
         }
@@ -268,8 +290,15 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     @Override
     public void OnScrollStatusChanged(boolean status) {
         if (status) {
+            NotificationManager notificationManager = (NotificationManager)
+                    getSystemService(Context.
+                            NOTIFICATION_SERVICE);
+            notificationManager.cancel(ICT_NOTIFICATION_ID);
             changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
-            notificationUpdate.setNewNotification(0);
+            realm.executeTransaction(realm -> {
+                notificationUpdate.setLastStateRead(true);
+                notificationUpdate.setNewNotification(0);
+            });
         }
     }
 }

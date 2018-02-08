@@ -22,10 +22,15 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccoun
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.ExponentialBackOff;
 
+import org.cfp.citizenconnect.Interfaces.Permissions;
+import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.User;
 import org.cfp.citizenconnect.PhoneVerificationActivity;
 import org.cfp.citizenconnect.R;
 import org.cfp.citizenconnect.SendEmail;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -41,7 +46,7 @@ import static org.cfp.citizenconnect.Constants.SCOPES;
  * Created by shahzaibshahid on 18/01/2018.
  */
 
-public class FragmentFeedback extends Fragment {
+public class FragmentFeedback extends Fragment{
     static GoogleAccountCredential mCredential;
 
 
@@ -53,7 +58,7 @@ public class FragmentFeedback extends Fragment {
     static final int REQUEST_AUTHORIZATION = 4;
     static final int REQUEST_PHONE_VERIFICATION = 626;
     public static String BUNDLE_PHONE_VERIFY = "phoneNumber";
-    Context contextActivity;
+    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
 
     public static FragmentFeedback newInstance() {
         FragmentFeedback fragmentFeedback = new FragmentFeedback();
@@ -72,7 +77,7 @@ public class FragmentFeedback extends Fragment {
 
         send.setOnClickListener(view -> {
             if (fieldVerifications()) {
-                chooseAccount(ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.GET_ACCOUNTS));
+                chooseAccount();
             } else {
                 Toast.makeText(getActivity(), "Please Enter all details", Toast.LENGTH_LONG).show();
             }
@@ -86,6 +91,28 @@ public class FragmentFeedback extends Fragment {
         mCredential.setSelectedAccountName(user.getEmail());
 
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        if(event.status){
+            chooseAccount();
+        }
+        else {
+
+        }
     }
 
     public void sendMessage() {
@@ -106,11 +133,10 @@ public class FragmentFeedback extends Fragment {
             }
         });
         Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
-
     }
 
-    private void chooseAccount(int permissionStatus) {
-        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+    private void chooseAccount() {
+        if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED) {
             user = User.getUserInstance(realm);
             if (user.getEmail() != null) {
                 mCredential.setSelectedAccountName(user.getEmail());
@@ -120,6 +146,11 @@ public class FragmentFeedback extends Fragment {
                         mCredential.newChooseAccountIntent(),
                         REQUEST_ACCOUNT_PICKER);
             }
+        }
+        else {
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{android.Manifest.permission.GET_ACCOUNTS},
+                    REQUEST_PERMISSION_GET_ACCOUNTS);
         }
     }
 

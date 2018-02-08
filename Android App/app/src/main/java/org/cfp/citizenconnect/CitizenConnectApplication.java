@@ -2,6 +2,7 @@ package org.cfp.citizenconnect;
 
 import android.app.Application;
 import android.content.Intent;
+import android.support.multidex.MultiDex;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -39,7 +40,7 @@ public class CitizenConnectApplication extends Application {
         Fabric.with(this, new Crashlytics());
         Fresco.initialize(this);
         Realm.init(this);
-
+        MultiDex.install(this);
         config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
