@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 import io.realm.Case;
+import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
@@ -20,6 +21,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.database;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DATA_MEDICAL_STORE;
 import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;
+import static org.cfp.citizenconnect.MyUtils.getFirebaseDataOnce;
 
 /**
  * Created by shahzaibshahid on 23/01/2018.
@@ -75,24 +77,20 @@ public class DataSet extends RealmObject {
 
     public static void getDataSet(CustomCallBack.Listener<Boolean> _response,
                                   CustomCallBack.ErrorListener<DatabaseError> mErr) {
-        getAFireBaseData(database.getReference(DATA_MEDICAL_STORE), response -> {
-            realm.executeTransactionAsync(realm -> {
-                        for (DataSnapshot _child : response.getChildren()) {
-                            DataSnapshot snapshot = _child.child("data");
-
-                            for (DataSnapshot _snapshot : snapshot.getChildren()) {
-                                final DataSet dataSet = _snapshot.getValue(DataSet.class);
-                                final DataSet object = realm.createObject(DataSet.class,
-                                        UUID.randomUUID().toString());
-                                object.setName(dataSet.getName());
-                                object.setAddress(dataSet.getAddress());
-                                object.setDataSetType(_child.child("type").getValue().toString());
+        getFirebaseDataOnce(database.getReference(DATA_MEDICAL_STORE), response ->
+                realm.executeTransactionAsync(realm -> {
+                            for (DataSnapshot _child : response.getChildren()) {
+                                DataSnapshot snapshot = _child.child("data");
+                                for (DataSnapshot _snapshot : snapshot.getChildren()) {
+                                    final DataSet dataSet = _snapshot.getValue(DataSet.class);
+                                    final DataSet object = realm.createObject(DataSet.class,
+                                            UUID.randomUUID().toString());
+                                    object.setName(dataSet.getName());
+                                    object.setAddress(dataSet.getAddress());
+                                    object.setDataSetType(_child.child("type").getValue().toString());
+                                }
                             }
-                            _response.onResponse(true);
-                        }
-                    }
-            );
-        }, mErr);
+                        }, () -> _response.onResponse(true)), mErr);
     }
 
     public static List<DataSet> fetchFromRealm(String type) {
