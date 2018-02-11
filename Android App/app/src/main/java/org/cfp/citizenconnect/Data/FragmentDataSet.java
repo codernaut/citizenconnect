@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import static org.cfp.citizenconnect.CitizenConnectApplication.database;
 import static org.cfp.citizenconnect.Constants.DATASET_REFFERENCE;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
-import static org.cfp.citizenconnect.Model.Layout.getDataSetLayout;
+import static org.cfp.citizenconnect.Model.Layout.getLayout;
 
 /**
  * Created by shahzaibshahid on 18/01/2018.
@@ -52,7 +52,7 @@ public class FragmentDataSet extends Fragment implements GridViewAdapter.OnItemC
         progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);
         mList = new ArrayList<>();
-        getDataSetLayout(database.getReference(DATASET_REFFERENCE), response -> {
+        getLayout("DATASET",database.getReference(DATASET_REFFERENCE), response -> {
             gridViewAdapter = new GridViewAdapter(getActivity(), response, this);
             mGridView.setAdapter(gridViewAdapter);
             progressDialog.dismiss();

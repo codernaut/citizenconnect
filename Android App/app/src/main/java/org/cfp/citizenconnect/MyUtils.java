@@ -91,7 +91,7 @@ public class MyUtils {
 
     @WorkerThread
     public static void getAFireBaseData(DatabaseReference databaseReference, CustomCallBack.Listener<DataSnapshot> mListener, CustomCallBack.ErrorListener<DatabaseError> mErrorListener) {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mListener.onResponse(dataSnapshot);
@@ -148,6 +148,7 @@ public class MyUtils {
             }
         }, UiThreadImmediateExecutorService.getInstance());
     }
+
     public static boolean isDeviceOnline(Context mContext) {
         ConnectivityManager connMgr =
                 (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
