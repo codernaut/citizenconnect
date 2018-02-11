@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -62,9 +63,8 @@ public class SplashScreen extends Activity {
         protected Void doInBackground(Void... voids) {
             getDataSet(response -> {
                         runOnUiThread(() -> {
-                            mSnakbar(getString(R.string.completed_msg), null,
-                                    2000, 1, findViewById(R.id.coordinator),
-                                    null);
+                            Toast.makeText(SplashScreen.this,
+                                    getString(R.string.completed_msg),Toast.LENGTH_LONG).show();
 
                             progressBar.setVisibility(View.GONE);
                         });
