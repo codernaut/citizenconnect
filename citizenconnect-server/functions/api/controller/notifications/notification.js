@@ -14,12 +14,10 @@ var FCM = require('fcm-push');
 var serverKey = constants.SERVER_KEY;
 var fcm = new FCM(serverKey);
 var now = new Date();
-
 var filepath;
 var fileMem;
 var fileName;
 var firebaseFileURL;
-
 exports.sendNotification = function (req, res) {
   if (req.method === 'POST') {
     console.log("Value" + req.body.name)
@@ -70,7 +68,6 @@ exports.sendNotification = function (req, res) {
     busboy.on('field', function (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
       console.log('Field [' + fieldname + ']: value: ' + inspect(val));
       fields_HashMap.set(fieldname, inspect(val))
-
     });
 
     busboy.end(req.rawBody);
