@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -20,9 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 import com.squareup.picasso.Picasso;
 
@@ -46,6 +42,8 @@ import io.realm.RealmResults;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
+import static org.cfp.citizenconnect.Constants.DESCRIPTION;
+import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.frescoImageRequest;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
@@ -79,10 +77,9 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         progressDialog.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         mScrollStatus = (MainActivity) getActivity();
-        if(notificationUpdate.getNewNotification()>0 || !notificationUpdate.isLastStateRead()){
+        if (notificationUpdate.getNewNotification() > 0 || !notificationUpdate.isLastStateRead()) {
             loadFromFirebase();
-        }
-        else {
+        } else {
             loadFromRealm();
         }
 
@@ -130,6 +127,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
         getActivity().unregisterReceiver(this.mNotificationReceiver);
     }
+
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -163,6 +161,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             progressDialog.dismiss();
         });
     }
+
     @Override
     public void ShareImageClickListener(int position, Drawable image) {
         try {
@@ -185,26 +184,11 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath) {
-        frescoImageRequest(imagePath, getActivity(), response -> {
-            LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            View customView = inflater.inflate(R.layout.full_image_size_popup, null);
-            customView.setLayoutParams(params);
-            com.github.chrisbanes.photoview.PhotoView imageHolder = customView.findViewById(R.id.imageHolder);
-
-            Picasso.with(getActivity()).load(imagePath).into(imageHolder);
-
-            mBuilder = new BlurPopupWindow.Builder(getActivity());
-
-            mBuilder.setContentView(customView)
-                    .setGravity(Gravity.CENTER)
-                    .setDismissOnClickBack(true)
-                    .setDismissOnTouchBackground(true)
-                    .setBlurRadius(10)
-                    .setTintColor(0x30000000)
-                    .build().show();
-        }, error -> Toast.makeText(getActivity(), "Failed to load Image", Toast.LENGTH_LONG).show());
+    public void FullSizeImageClickListener(String imagePath,String description) {
+        Intent i = new Intent(getActivity(),FullImageActivity.class);
+        i.putExtra(FILE_URL,imagePath);
+        i.putExtra(DESCRIPTION,description);
+        startActivity(i);
     }
 
     @Override
@@ -220,7 +204,8 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(notificationListAdapter);
     }
-    public void updateRecyclerView(){
+
+    public void updateRecyclerView() {
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
 

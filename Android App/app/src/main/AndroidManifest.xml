@@ -42,6 +42,7 @@
         </activity>
         <activity android:name=".Data.DataSetListActivity"/>
         <activity android:name=".AboutActivity"/>
+        <activity android:name=".Notification.FullImageActivity"/>
         <activity android:name=".PdfViewerActivity"/>
         <activity android:name=".PhoneVerificationActivity"/>
         <service

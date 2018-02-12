@@ -33,8 +33,6 @@ import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 import org.greenrobot.eventbus.EventBus;
 
-import io.realm.Realm;
-
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
 import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
@@ -81,20 +79,8 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
         bottomNavigation.addItem(item4);
-        if (getIntent().getExtras() != null) {
-            clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
-            if (clearNotificationCount) {
-                realm.executeTransaction(realm -> {
-                    notificationUpdate.setLastStateRead(true);
-                    notificationUpdate.setNewNotification(0);
-                });
-
-                changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
-            }
-        } else {
-            if (notificationUpdate.getNewNotification() != 0) {
-                changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
-            }
+        if (notificationUpdate.getNewNotification() != 0) {
+            changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
         }
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
         bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
@@ -153,7 +139,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             public void onReceive(Context context, Intent intent) {
                 boolean update = intent.getBooleanExtra("newUpdate", false);
                 if (update) {
-
                     changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
                 }
             }
@@ -267,12 +252,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 }
             }
             break;
-            case REQUEST_PERMISSION_GET_ACCOUNTS:{
-                if(grantResults.length>0){
-                    EventBus.getDefault().post(new MessageEvent("Permission Granted",true));
-                }
-                else {
-                    EventBus.getDefault().post(new MessageEvent("Permission Denied",false));
+            case REQUEST_PERMISSION_GET_ACCOUNTS: {
+                if (grantResults.length > 0) {
+                    EventBus.getDefault().post(new MessageEvent("Permission Granted", true));
+                } else {
+                    EventBus.getDefault().post(new MessageEvent("Permission Denied", false));
                 }
             }
             break;
