@@ -16,7 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.cfp.citizenconnect.Model.Layout;
 import org.cfp.citizenconnect.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by shahzaibshahid on 22/01/2018.
@@ -24,10 +24,10 @@ import java.util.ArrayList;
 
 public class GridViewAdapter extends BaseAdapter {
     Context mContext;
-    ArrayList<Layout> gridViewList;
+    List<Layout> gridViewList;
     OnItemClickListener mListener;
 
-    public GridViewAdapter(Context mContext, ArrayList<Layout> gridViewList, OnItemClickListener mListener) {
+    public GridViewAdapter(Context mContext, List<Layout> gridViewList, OnItemClickListener mListener) {
         this.mContext = mContext;
         this.gridViewList = gridViewList;
         this.mListener = mListener;
