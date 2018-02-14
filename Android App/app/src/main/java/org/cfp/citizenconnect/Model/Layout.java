@@ -3,11 +3,13 @@ package org.cfp.citizenconnect.Model;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.database.PropertyName;
 
 import org.cfp.citizenconnect.CustomCallBack;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import io.realm.Realm;
@@ -22,14 +24,16 @@ import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;
  * Created by shahzaibshahid on 22/01/2018.
  */
 
+@IgnoreExtraProperties
 public class Layout extends RealmObject {
 
     @PrimaryKey
-    String id;
-    String color;
-    String icon;
-    String name;
-    String type;
+    private String id;
+    private String color;
+    private String icon;
+    private String name;
+    private String type;
+
     public String getType() {
         return type;
     }
@@ -71,16 +75,16 @@ public class Layout extends RealmObject {
         this.name = name;
     }
 
-    public static void getLayout(String type,DatabaseReference databaseReference, CustomCallBack.Listener<ArrayList<Layout>> mList, CustomCallBack.ErrorListener<DatabaseError> mErr) {
-        ArrayList<Layout> list = new ArrayList<>();
-        RealmResults<Layout> results = realm.where(Layout.class).equalTo("type",type).findAll();
+    public static void getLayout(String type,DatabaseReference databaseReference,
+                                 CustomCallBack.Listener<List<Layout>> mList,
+                                 CustomCallBack.ErrorListener<DatabaseError> mErr) {
+        List<Layout> list = new ArrayList<>();
+        RealmResults<Layout> results = realm.where(Layout.class)
+                .equalTo("type",type).findAll();
         if(results.size()>0){
-            for(Layout layout :results){
-                list.add(layout);
-            }
+            list.addAll(results);
             mList.onResponse(list);
-        }
-        else {
+        } else {
             getAFireBaseData(databaseReference, response -> {
                 for (DataSnapshot _child : response.getChildren()) {
                     Layout mLayout = _child.getValue(Layout.class);
@@ -94,7 +98,7 @@ public class Layout extends RealmObject {
                     list.add(mLayout);
                 }
                 mList.onResponse(list);
-            }, error -> mErr.onErrorResponse(error));
+            }, mErr);
         }
     }
 

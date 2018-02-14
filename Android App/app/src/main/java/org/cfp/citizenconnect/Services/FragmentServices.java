@@ -48,7 +48,7 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.data_fragment, container, false);
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Please wait");
+        progressDialog.setMessage(getString(R.string.in_progress_msg));
         progressDialog.show();
         progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);

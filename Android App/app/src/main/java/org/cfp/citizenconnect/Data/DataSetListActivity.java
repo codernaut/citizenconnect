@@ -51,7 +51,7 @@ public class DataSetListActivity extends AppCompatActivity {
         setContentView(R.layout.dataset_list_activity);
         recyclerView = findViewById(R.id.dataList_RV);
         progressDialog = new ProgressDialog(DataSetListActivity.this);
-        progressDialog.setMessage("Please wait");
+        progressDialog.setMessage(getString(R.string.in_progress_msg));
         progressDialog.show();
         dataListLayout = new LinearLayoutManager(DataSetListActivity.this, LinearLayoutManager.VERTICAL, false);
         dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),

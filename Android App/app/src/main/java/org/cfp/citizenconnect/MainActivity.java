@@ -33,8 +33,6 @@ import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 import org.greenrobot.eventbus.EventBus;
 
-import io.realm.Realm;
-
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
 import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         progress = new ProgressDialog(this);
-        progress.setMessage("Please wait");
+        progress.setMessage(getString(R.string.in_progress_msg));
         progress.setCancelable(false);
         //progress.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);

@@ -55,8 +55,8 @@ public class SplashScreen extends Activity {
 
         @Override
         protected void onPreExecute() {
-            mSnakbar(getString(R.string.in_progress_msg), null, 5000, 1,
-                    findViewById(R.id.coordinator), null);
+            Toast.makeText(SplashScreen.this, getString(R.string.in_progress_msg),
+                    Toast.LENGTH_LONG).show();
         }
 
         @Override

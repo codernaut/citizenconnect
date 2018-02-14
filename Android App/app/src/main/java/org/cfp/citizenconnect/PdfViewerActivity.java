@@ -35,7 +35,7 @@ public class PdfViewerActivity extends AppCompatActivity {
         setContentView(R.layout.pdf_viewer_layout);
         pdfView = findViewById(R.id.pdfView);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait");
+        progressDialog.setMessage(getString(R.string.in_progress_msg));
         progressDialog.show();
         progressDialog.setCancelable(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
