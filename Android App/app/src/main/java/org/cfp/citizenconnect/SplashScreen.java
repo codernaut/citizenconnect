@@ -74,7 +74,7 @@ public class SplashScreen extends Activity {
         protected Void doInBackground(Void... voids) {
 
             getDataSet(response -> {
-
+                
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
 

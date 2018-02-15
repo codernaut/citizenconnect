@@ -18,4 +18,5 @@ public class Constants {
     public static final String[] SCOPES = { GmailScopes.GMAIL_LABELS, GmailScopes.GMAIL_COMPOSE, GmailScopes.GMAIL_READONLY};
 
     public static final String DESCRIPTION = "Notification Description";
+    public  static  final long REALM_SCHEMA_VERSION = 3;
 }

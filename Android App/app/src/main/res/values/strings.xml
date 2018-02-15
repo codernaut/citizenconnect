@@ -25,4 +25,10 @@
         <item>Others</item>
 
     </string-array>
+
+
+    <string name="status_success">success</string>
+
+    <string name="sendEmailURL">https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/notifications/sendEmail</string>
+
 </resources>

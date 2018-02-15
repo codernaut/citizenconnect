@@ -13,14 +13,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
-import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
@@ -37,15 +39,16 @@ import java.util.Collections;
 import java.util.List;
 
 import io.realm.Case;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DESCRIPTION;
 import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
-import static org.cfp.citizenconnect.MyUtils.frescoImageRequest;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
 /**
@@ -90,6 +93,34 @@ public class FragmentNotification extends Fragment implements NotificationLayout
                 if (dy > 0) {
                     mScrollStatus.OnScrollStatusChanged(true);
                 }
+            }
+        });
+
+        FilesRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                //realm.executeTransaction(realm -> realm.where(Notifications.class).equalTo("id",dataSnapshot.getKey()).findAll().deleteAllFromRealm());
+                loadFromFirebase();
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
@@ -166,6 +197,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     public void ShareImageClickListener(int position, Drawable image) {
         try {
             if (notificationsModel.get(position).getFilePath() != null) {
+
                 Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), getActivity());
                 if (bmpUri != null) {
                     Intent shareIntent = new Intent();
@@ -184,10 +216,10 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath,String description) {
-        Intent i = new Intent(getActivity(),FullImageActivity.class);
-        i.putExtra(FILE_URL,imagePath);
-        i.putExtra(DESCRIPTION,description);
+    public void FullSizeImageClickListener(String imagePath, String description) {
+        Intent i = new Intent(getActivity(), FullImageActivity.class);
+        i.putExtra(FILE_URL, imagePath);
+        i.putExtra(DESCRIPTION, description);
         startActivity(i);
     }
 
@@ -206,6 +238,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     public void updateRecyclerView() {
+
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
 
