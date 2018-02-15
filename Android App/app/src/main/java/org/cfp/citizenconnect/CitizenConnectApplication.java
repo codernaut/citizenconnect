@@ -2,6 +2,7 @@ package org.cfp.citizenconnect;
 
 import android.app.Application;
 import android.content.Intent;
+import android.support.multidex.MultiDex;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -29,6 +30,7 @@ public class CitizenConnectApplication extends Application {
     public  static DatabaseReference FilesRef;
     public static FirebaseAuth mAuth;
     public  static  Realm realm;
+    public  static  RealmConfiguration config;
 
     public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
 
@@ -38,9 +40,9 @@ public class CitizenConnectApplication extends Application {
         Fabric.with(this, new Crashlytics());
         Fresco.initialize(this);
         Realm.init(this);
-
-       // RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        realm = Realm.getInstance(Realm.getDefaultConfiguration());
+        MultiDex.install(this);
+        config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
+        realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");
         mAuth = FirebaseAuth.getInstance();

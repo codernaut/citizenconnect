@@ -29,6 +29,7 @@
                 fresco:actualImageScaleType="fitXY" />
 
             <LinearLayout
+                android:id="@+id/descriptionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
@@ -66,25 +67,26 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp"
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/BtnShare"
                         android:layout_width="wrap_content"
                         android:text="SHARE"
+                        android:padding="12dp"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:textColor="@color/darkGrey"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent" />
                     <TextView
                         android:id="@+id/view"
                         android:layout_width="wrap_content"
                         android:text="VIEW"
+                        android:padding="12dp"
                         android:textStyle="bold"
                         android:layout_marginLeft="18dp"
                         android:textSize="16sp"
                         android:textColor="@color/colorPrimary"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent" />
                 </LinearLayout>
 
             </LinearLayout>

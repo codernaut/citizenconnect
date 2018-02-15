@@ -24,7 +24,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
 import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Constants.SERVICES_REFFERENCE;
-import static org.cfp.citizenconnect.Model.Layout.getDataSetLayout;
+import static org.cfp.citizenconnect.Model.Layout.getLayout;
 import static org.cfp.citizenconnect.Model.Services.getServices;
 import static org.cfp.citizenconnect.Model.Services.isObjectExist;
 
@@ -48,12 +48,12 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.data_fragment, container, false);
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Please wait");
+        progressDialog.setMessage(getString(R.string.in_progress_msg));
         progressDialog.show();
         progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);
         mList = new ArrayList<>();
-        getDataSetLayout(database.getReference(SERVICES_REFFERENCE), response -> {
+        getLayout("SERVICES",database.getReference(SERVICES_REFFERENCE), response -> {
             gridViewAdapter = new GridViewAdapter(getActivity(), response, this);
             mGridView.setAdapter(gridViewAdapter);
             progressDialog.dismiss();

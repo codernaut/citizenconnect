@@ -14,6 +14,6 @@ public class Constants {
 
     public  static  final String DATA_TYPE = "dataType";
     public static  final String FILE_URL = "filePath";
-    public static final String[] SCOPES = { GmailScopes.GMAIL_LABELS, GmailScopes.GMAIL_COMPOSE,
-            GmailScopes.GMAIL_INSERT, GmailScopes.GMAIL_MODIFY, GmailScopes.GMAIL_READONLY, GmailScopes.MAIL_GOOGLE_COM };
+    public static  final int ICT_NOTIFICATION_ID=0;
+    public static final String[] SCOPES = { GmailScopes.GMAIL_LABELS, GmailScopes.GMAIL_COMPOSE, GmailScopes.GMAIL_READONLY};
 }

@@ -16,6 +16,9 @@ import org.cfp.citizenconnect.R;
 
 import io.realm.Realm;
 
+import static org.cfp.citizenconnect.CitizenConnectApplication.config;
+import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
+
 /**
  * Created by root on 05/12/2017.
  */
@@ -25,7 +28,7 @@ public class FCMService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        mRealm = Realm.getDefaultInstance();
+        mRealm = Realm.getInstance(config);
         UpdateNewNotification();
         Log.d("FirebaseData", "Message data payload: " + remoteMessage.getData());
         if (remoteMessage.getData().size() > 0) {
@@ -51,7 +54,7 @@ public class FCMService extends FirebaseMessagingService {
 
             NotificationManager notificationManager =
                     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.notify(0, notification);
+            notificationManager.notify(ICT_NOTIFICATION_ID, notification);
 
 
         }
@@ -65,6 +68,7 @@ public class FCMService extends FirebaseMessagingService {
         int finalNewNotification = newNotification;
         mRealm.executeTransaction((Realm realm) -> {
             notificationUpdate.setNewNotification(finalNewNotification);
+            notificationUpdate.setLastStateRead(false);
         });
 
     }

@@ -1,102 +1,18 @@
-
+var express = require('express')
+var cors = require('cors')
+const app = express();
+var bodyParser = require('body-parser')
+var notificationAPI = require('./api/routes/notificationRoutes')
+var constants = require('./constants')
 const functions = require('firebase-functions');
-var constants = require('./constants');
-var gcs = require('@google-cloud/storage')({keyFilename:constants.KEY_FILE_NAME})
-const spawn = require('child-process-promise').spawn
-var FCM = require('fcm-push');
-var serverKey = constants.SERVER_KEY;
-var fcm = new FCM(serverKey);
-const admin = require('firebase-admin')
-var dateFormat = require('dateformat');
-var now = new Date();
 
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    databaseURL: constants.DATABASE_URL
-  });
-  var datetime = require('node-datetime');
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
-var databaseRef = admin.database();
+var util = require('util');
+notificationAPI(app)
 
-exports.generateThumbnail = functions.storage.object()
-.onChange(event=>{
-    const object = event.data
-    const filePath = object.name
-    const fileName = filePath.split('/').pop()
-    const fileBucket = object.bucket
-    const bucket = gcs.bucket(fileBucket)
-    const tempFilePath  = `/tmp/${fileName}`
-    const ref = admin.database().ref()
-    const file = bucket.file(filePath)
-    const thumbFilePath = filePath.replace(/(\/)?([^\/]*)$/,
-    '$1thumb_$2')
-    console.log('File Bucket'+fileBucket)
-    console.log('Bucket :'+bucket)
-    if(fileName.startsWith('thumb_')){
-        console.log('Alerady a Thumbnail')
-        return
-    }
-    if  (!object.contentType.startsWith('image/')){
-        console.log('This is not an image:'+object.contentType)
-        return
-    }
-    if  (object.resourceState === 'not_exists'){
-        console.log('This is a deletion event')
-        return
-    }
-    return bucket.file(filePath).download({
-        destination: tempFilePath
-    })
-    .then(()=>{
-        const thumbFile = bucket.file(thumbFilePath)
-        const config = {
-            action: 'read',
-            expires: '03-09-2491'
-        }
-        return Promise.all([
-            thumbFile.getSignedUrl(config),
-            file.getSignedUrl(config)
-        ])
-    }).then(results => {
-        const thumbResult = results[0]
-        const originalResult = results [1]
-        const thumbFileUrl = thumbResult[0]
-        const fileUrl  = originalResult[0]
-        console.log('Downloadable link:'+fileUrl)
-        //Save Download link to real Time Database
-        saveFileURL(fileUrl,fileName)
-        sendNotification(fileUrl);
-        return;
-    })
-    return bucket.upload(tempFilePath,{
-        destination: thumbFilePath
-    })
-})
-
-function saveFileURL(fileUrl,fileName) {
-    databaseRef.ref('Notifications').push({
-        filePath: fileUrl,
-        date: dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
-        description: "Notification Description on "+dateFormat(now, "dd-mm-yyyy"),
-        tag: "Notification"
-    });
-  }
-
-function sendNotification(msg){
-    var message = {
-        to: '/topics/notification',
-        priority: "high",
-        data: {
-            serveMessage: msg
-        },
-    };
-
-    fcm.send(message, function(err, response){
-        if (err) {
-            console.log("Error in Sending notification :"+err);
-        } else {
-            console.log("Successfully sent with response: ", response);
-        }
-    });
-}
-
+// Expose Express API as a single Cloud Function:
+exports.notifications = functions.https.onRequest(app);

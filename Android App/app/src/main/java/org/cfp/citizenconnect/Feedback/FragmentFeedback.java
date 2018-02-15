@@ -1,12 +1,14 @@
 package org.cfp.citizenconnect.Feedback;
 
-import android.app.ProgressDialog;
+import android.Manifest;
+import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +22,15 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccoun
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.ExponentialBackOff;
 
+import org.cfp.citizenconnect.Interfaces.Permissions;
+import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.User;
 import org.cfp.citizenconnect.PhoneVerificationActivity;
 import org.cfp.citizenconnect.R;
 import org.cfp.citizenconnect.SendEmail;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -39,7 +46,7 @@ import static org.cfp.citizenconnect.Constants.SCOPES;
  * Created by shahzaibshahid on 18/01/2018.
  */
 
-public class FragmentFeedback extends Fragment {
+public class FragmentFeedback extends Fragment{
     static GoogleAccountCredential mCredential;
 
 
@@ -47,11 +54,11 @@ public class FragmentFeedback extends Fragment {
     Button send;
     EditText fullName, contactNumber, Message;
     Spinner spinner;
+    static final int REQUEST_ACCOUNT_PICKER = 1;
     static final int REQUEST_AUTHORIZATION = 4;
     static final int REQUEST_PHONE_VERIFICATION = 626;
     public static String BUNDLE_PHONE_VERIFY = "phoneNumber";
-    Context mContext;
-    static ProgressDialog progressBar;
+    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
 
     public static FragmentFeedback newInstance() {
         FragmentFeedback fragmentFeedback = new FragmentFeedback();
@@ -67,12 +74,10 @@ public class FragmentFeedback extends Fragment {
         contactNumber = rootView.findViewById(R.id.ContactNumberET);
         Message = rootView.findViewById(R.id.messageET);
         spinner = rootView.findViewById(R.id.subject);
-        mContext = getActivity();
+
         send.setOnClickListener(view -> {
-            if (feildVerifications()) {
-                Intent verifyContact = new Intent(getActivity(), PhoneVerificationActivity.class);
-                verifyContact.putExtra(BUNDLE_PHONE_VERIFY, contactNumber.getText().toString());
-                startActivityForResult(verifyContact, REQUEST_PHONE_VERIFICATION);
+            if (fieldVerifications()) {
+                chooseAccount();
             } else {
                 Toast.makeText(getActivity(), "Please Enter all details", Toast.LENGTH_LONG).show();
             }
@@ -86,6 +91,28 @@ public class FragmentFeedback extends Fragment {
         mCredential.setSelectedAccountName(user.getEmail());
 
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        if(event.status){
+            chooseAccount();
+        }
+        else {
+
+        }
     }
 
     public void sendMessage() {
@@ -105,8 +132,26 @@ public class FragmentFeedback extends Fragment {
                 e.printStackTrace();
             }
         });
-        Toast.makeText(getActivity(), "Sent", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
+    }
 
+    private void chooseAccount() {
+        if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED) {
+            user = User.getUserInstance(realm);
+            if (user.getEmail() != null) {
+                mCredential.setSelectedAccountName(user.getEmail());
+                phoneVerification();
+            } else {
+                startActivityForResult(
+                        mCredential.newChooseAccountIntent(),
+                        REQUEST_ACCOUNT_PICKER);
+            }
+        }
+        else {
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{android.Manifest.permission.GET_ACCOUNTS},
+                    REQUEST_PERMISSION_GET_ACCOUNTS);
+        }
     }
 
     @Override
@@ -116,21 +161,31 @@ public class FragmentFeedback extends Fragment {
                 sendMessage();
             }
         }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case REQUEST_AUTHORIZATION:
-                sendMessage();
-                break;
+        if (requestCode == REQUEST_ACCOUNT_PICKER) {
+            if (resultCode == RESULT_OK && data != null &&
+                    data.getExtras() != null) {
+                String accountName =
+                        data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                if (accountName != null) {
+                    user.setEmail(accountName);
+                    mCredential.setSelectedAccountName(accountName);
+                    phoneVerification();
+                } else {
+                    Toast.makeText(getActivity(), "No Account details provided", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        if (requestCode == REQUEST_AUTHORIZATION) {
+            if (resultCode != RESULT_OK) {
+                Toast.makeText(getActivity(), "Failed to send your message Feedback", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(getActivity(), "Sent", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
-    private boolean feildVerifications() {
+    private boolean fieldVerifications() {
         if (fullName.getText().toString().equals("") ||
                 contactNumber.getText().toString().equals("") || Message.getText().toString().equals("")) {
             return false;
@@ -139,4 +194,9 @@ public class FragmentFeedback extends Fragment {
         }
     }
 
+    private void phoneVerification() {
+        Intent verifyContact = new Intent(getActivity(), PhoneVerificationActivity.class);
+        verifyContact.putExtra(BUNDLE_PHONE_VERIFY, contactNumber.getText().toString());
+        startActivityForResult(verifyContact, REQUEST_PHONE_VERIFICATION);
+    }
 }

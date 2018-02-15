@@ -1,65 +1,118 @@
 var mFirebase = require('../../../configurations/firebase')
-exports.sendNotification = function(req,res){
-    console.log("Request :"+req.file + " and "+req.files)
-    let file = req.file;
-    if (file) {
-        console.log("Calling -> uploadImageToStorage ")
-        uploadImageToStorage(file).then((success) => {
-          res.status(200).send({
-            status: 200,
-            "Message": success
-          });
-        },(fail)=>{
-            console.log("Request Failed")
-            res.status(500).send({
-                status: 500,
-                "Message": "Uploading Failed"
-            })
-        }).catch((error) => {
-          console.error(error);
-        });
-      }
-      else{
-        console.log("Request Received,File not found")
-          res.status(500).send({
-              status: 500,
-              "Message": "File not found"
-          })
-      }
-};
+var HashMap = require('hashmap');
+var fields_HashMap = new HashMap();
+const _path = require('path');
+const os = require('os');
+const fs = require('fs');
+const gcs = require('@google-cloud/storage')({ keyFilename: _path.join(__dirname, 'ServiceKey.json') });
+const Busboy = require('busboy');
+var temp = require('fs-temp')
+var constants = require('../../../constants')
+var inspect = require('util').inspect;
+var dateFormat = require('dateformat');
+var FCM = require('fcm-push');
+var serverKey = constants.SERVER_KEY;
+var fcm = new FCM(serverKey);
+var now = new Date();
+var filepath;
+var fileMem;
+var fileName;
+var firebaseFileURL;
+exports.sendNotification = function (req, res) {
+  if (req.method === 'POST') {
+    console.log("Value" + req.body.name)
+    const busboy = new Busboy({ headers: req.headers });
+    const uploads = {}
+    busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+      console.log(`File [${fieldname}] filename: ${filename}, encoding: ${encoding}, mimetype: ${mimetype}`);
 
-/**
- * Upload the image file to Google Storage
- * @param {File} file object that will be uploaded to Google Storage
- */
-const uploadImageToStorage = (file) => {
-    let prom = new Promise((resolve, reject) => {
-        console.log("Uploading File")
-      if (!file) {
-        console.log("File not found")
-        reject('No image file');
-      }
-      let newFileName = `${file.originalname}_${Date.now()}`;
-  
-      let fileUpload = mFirebase.storageBucket.file(newFileName);
-  
-      const blobStream = fileUpload.createWriteStream({
-        metadata: {
-          contentType: file.mimetype
-        }
+      filepath = _path.join(os.tmpdir(), filename);
+      uploads[fieldname] = { file: filepath }
+      fileName = filename;
+      file.pipe(fs.createWriteStream(filepath));
+
+      console.log('Path: ' + filepath)
+
+      busboy.on('finish', function () {
+
+        mFirebase.storageBucket
+          .upload(filepath)
+          .then(() => {
+            console.log(`File Uploaded`);
+            const bucket = gcs.bucket(constants.STORAGE_BUCKET_NOTIFICATION);
+            const file = bucket.file(fileName);
+            return file.getSignedUrl({
+              action: 'read',
+              expires: '03-09-2491'
+            })
+          })
+          .then(signedUrls => {
+            firebaseFileURL = signedUrls[0]
+            return Promise.all([
+              saveFileURL(firebaseFileURL)
+            ])
+          })
+          .then(() => {
+            sendNotification(firebaseFileURL, res)
+          })
+          .catch(err => {
+            console.error('ERROR:', err);
+            res.json({
+              "status": 500,
+              "Error": err
+            })
+          });
       });
-  
-      blobStream.on('error', (error) => {
-        console.log("Something is wrong! Unable to upload at the moment.")
-        reject('Something is wrong! Unable to upload at the moment.');
-      });
-  
-      blobStream.on('finish', () => {
-        const url = format(`https://storage.googleapis.com/${mFirebase.storageBucket.name}/${fileUpload.name}`);
-        resolve(url);
-      });
-  
-      blobStream.end(file.buffer);
     });
-    return prom;
+
+    busboy.on('field', function (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+      console.log('Field [' + fieldname + ']: value: ' + inspect(val));
+      fields_HashMap.set(fieldname, inspect(val))
+    });
+
+    busboy.end(req.rawBody);
+  } else {
+
+    res.status(405).end();
   }
+};
+function saveFileURL(fileUrl) {
+  return new Promise((resolve, reject) => {
+    mFirebase.FirebaseDatabaseRef.ref('Notifications').push({
+      filePath: fileUrl,
+      date: dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
+      description: fields_HashMap.get("description"),
+      tag: fields_HashMap.get("tag")
+    }).then((response) => {
+      resolve(response)
+    }).catch(err => {
+      reject(err)
+    })
+  })
+}
+
+function sendNotification(msg, res) {
+  var message = {
+    to: '/topics/notification',
+    priority: "high",
+    data: {
+      serveMessage: msg
+    },
+  };
+
+  fcm.send(message, function (err, response) {
+    if (err) {
+      res.json({
+        "status": 403,
+        "Error": err
+      })
+    }
+    else {
+      res.json({
+        "status": 200,
+        "Response": response,
+        "Message":"Notification Sent!"
+      })
+    }
+  });
+}

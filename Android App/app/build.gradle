@@ -21,11 +21,12 @@ android {
         applicationId "org.cfp.citizenconnect"
         minSdkVersion 23
         targetSdkVersion 26
-        versionCode 6
-        versionName "2.3"
+        versionCode 11
+        versionName "3.1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         renderscriptTargetApi 25
         renderscriptSupportModeEnabled true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -78,6 +79,8 @@ dependencies {
     compile 'com.github.barteksc:android-pdf-viewer:2.8.2'
     compile 'com.zsoltsafrany:needle:1.0.0'
     compile 'com.github.d-max:spots-dialog:0.7@aar'
+    compile 'org.greenrobot:eventbus:3.1.1'
+    compile 'com.android.support:multidex:1.0.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }
@@ -89,9 +92,9 @@ dependencies {
     compile('com.google.apis:google-api-services-gmail:v1-rev79-1.23.0') {
         exclude group: 'org.apache.httpcomponents'
     }
-    implementation files('/Development/Code for Pakistan/citizenconnect/Android App/libs/activation.jar')
-    implementation files('/Development/Code for Pakistan/citizenconnect/Android App/libs/additionnal.jar')
-    implementation files('/Development/Code for Pakistan/citizenconnect/Android App/libs/mail.jar')
+    implementation files('libs/activation.jar')
+    implementation files('libs/additional.jar')
+    implementation files('libs/mail.jar')
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'realm-android'

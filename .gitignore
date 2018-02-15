@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+**/.gradle
+**/.vscode
+**/.DS_Store
+.DS_Store
+**/node_modules
+**/node
+**/build
+**/*.log
+**/.idea
+**/build
+=======
+.DS_Store
+>>>>>>> .gitignore added for parent dir to avoid DS_Store

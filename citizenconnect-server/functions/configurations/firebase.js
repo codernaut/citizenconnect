@@ -1,18 +1,20 @@
-const googleStorage = require('@google-cloud/storage');
-const Multer = require('multer');
+var path = require("path");
+const Storage = require('@google-cloud/storage')
 const admin = require('firebase-admin')
 var constants = require('../constants')
 
-const storage = googleStorage({
-    projectId: constants.PROJECT_ID,
-    keyFilename: constants.KEY_FILE_NAME
-  });
+var serviceAccount = require('../configurations/ServiceKey.json')
 
-  exports.storageBucket = storage.bucket(constants.STORAGE_BUCKET_URL); 
+const storage = new Storage();
+
 
 admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    databaseURL: constants.DATABASE_URL
-  });
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket: constants.STORAGE_BUCKET_URL,
+  databaseURL: constants.DATABASE_URL,
+});
 
-  exports.FirebaseDatabaseRef = admin.database();
+exports.storageBucket = storage.bucket(constants.STORAGE_BUCKET_NOTIFICATION);
+
+exports.FirebaseDatabaseRef = admin.database();
+

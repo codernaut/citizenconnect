@@ -38,7 +38,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
         verify = findViewById(R.id.submitCode);
         code = findViewById(R.id.code);
         progressDialog =  new ProgressDialog(PhoneVerificationActivity.this);
-        progressDialog.setTitle("Please wait");
+        progressDialog.setTitle(getString(R.string.in_progress_msg));
         progressDialog.setMessage("Verifying...");
         getSupportActionBar().setTitle("Phone Verification");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,7 +55,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Phone Verification failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Phone Verification failed"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
