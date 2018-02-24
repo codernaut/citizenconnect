@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -70,7 +71,7 @@ public class FragmentFeedback extends Fragment {
         contactNumber = rootView.findViewById(R.id.ContactNumberET);
         Message = rootView.findViewById(R.id.messageET);
         feedBackType = rootView.findViewById(R.id.subject);
-
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE );
         send.setOnClickListener(view -> {
             if (fieldVerifications()) {
                 phoneVerification();
@@ -79,8 +80,6 @@ public class FragmentFeedback extends Fragment {
             }
 
         });
-
-
         mCredential = GoogleAccountCredential.usingOAuth2(
                 getActivity(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());

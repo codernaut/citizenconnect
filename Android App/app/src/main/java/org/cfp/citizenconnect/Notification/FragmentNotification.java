@@ -9,8 +9,10 @@ import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
@@ -28,6 +33,7 @@ import org.cfp.citizenconnect.MainActivity;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.R;
+import org.cfp.citizenconnect.SplashScreen;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
 
 import java.io.IOException;
@@ -77,6 +83,14 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         progressDialog.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         mScrollStatus = (MainActivity) getActivity();
+        binding.swipeRefreshLayout.setOnRefreshListener(() -> {
+            final Handler handler = new Handler();
+            handler.postDelayed(() -> {
+                loadFromFirebase();
+                binding.swipeRefreshLayout.setRefreshing(false);
+            }, 500);
+
+        });
         if (notificationUpdate.getNewNotification() > 0 || !notificationUpdate.isLastStateRead()) {
             loadFromFirebase();
         } else {
@@ -105,8 +119,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                //realm.executeTransaction(realm -> realm.where(Notifications.class).equalTo("id",dataSnapshot.getKey()).findAll().deleteAllFromRealm());
                 loadFromFirebase();
             }
 
