@@ -19,9 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
@@ -76,7 +73,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.notification_fragment, container, false);
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Please wait");
+        progressDialog.setMessage(getString(R.string.in_progress_msg));
         progressDialog.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         mScrollStatus = (MainActivity) getActivity();

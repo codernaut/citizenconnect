@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         progress = new ProgressDialog(this);
-        progress.setMessage("Please wait");
+        progress.setMessage(getString(R.string.in_progress_msg));
         progress.setCancelable(false);
         //progress.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);

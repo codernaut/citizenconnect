@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -32,7 +34,6 @@ import static org.cfp.citizenconnect.MyUtils.mSnakbar;
 public class SplashScreen extends Activity {
     ProgressBar progressBar;
 
-
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 2;
 
     User user;
@@ -48,49 +49,44 @@ public class SplashScreen extends Activity {
 
     public boolean isObjectExist() {
         RealmResults<DataSet> sets = realm.where(DataSet.class).findAll();
-        if (sets.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return sets.size() > 0;
     }
 
-    private class DownloadFilesTask extends AsyncTask<Void, Integer, Void> {
-
-        Context context;
-
-        public DownloadFilesTask(Context context) {
-
-            this.context = context;
-
-        }
+    private class DownloadFilesTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(SplashScreen.this,"Please wait ...",Toast.LENGTH_LONG).show();
+            Toast.makeText(SplashScreen.this, getString(R.string.in_progress_msg),
+                    Toast.LENGTH_LONG).show();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
             getDataSet(response -> {
-                
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
+                        runOnUiThread(() -> {
+                            Toast.makeText(SplashScreen.this,
+                                    getString(R.string.completed_msg),Toast.LENGTH_LONG).show();
 
-            }, error -> {
+                            progressBar.setVisibility(View.GONE);
+                        });
+                        final Handler handler = new Handler();
+                        handler.postDelayed(SplashScreen.this::launchMainActivity, 2000);
 
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
-            });
+                    },
+                    error -> launchMainActivity());
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
-
         }
 
+    }
+
+    private void launchMainActivity() {
+        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+        finish();
     }
 
     @Override
@@ -122,24 +118,22 @@ public class SplashScreen extends Activity {
             if (googleApiAvailability.isUserResolvableError(status)) {
                 showGooglePlayServicesAvailabilityErrorDialog(status);
             }
-        } else if (!isDeviceOnline(SplashScreen.this)) {
-            mSnakbar("No Internet Available", null, 5000, 1, findViewById(R.id.coordinator), null);
+        }else if (!isDeviceOnline(SplashScreen.this)) {
+            mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,
+                    findViewById(R.id.coordinator), null);
             progressBar.setVisibility(View.GONE);
         } else {
             if (isObjectExist()) {
                 progressBar.setVisibility(View.GONE);
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
+                launchMainActivity();
             } else {
                 progressBar.setVisibility(ProgressBar.VISIBLE);
-                new DownloadFilesTask(SplashScreen.this).execute();
+                new DownloadFilesTask().execute();
             }
         }
     }
 
-
-    void showGooglePlayServicesAvailabilityErrorDialog(
-            final int connectionStatusCode) {
+    void showGooglePlayServicesAvailabilityErrorDialog(final int connectionStatusCode) {
         GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         Dialog dialog = apiAvailability.getErrorDialog(
                 SplashScreen.this,

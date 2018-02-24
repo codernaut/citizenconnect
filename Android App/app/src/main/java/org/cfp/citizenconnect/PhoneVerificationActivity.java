@@ -38,7 +38,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
         verify = findViewById(R.id.submitCode);
         code = findViewById(R.id.code);
         progressDialog =  new ProgressDialog(PhoneVerificationActivity.this);
-        progressDialog.setTitle("Please wait");
+        progressDialog.setTitle(getString(R.string.in_progress_msg));
         progressDialog.setMessage("Verifying...");
         getSupportActionBar().setTitle("Phone Verification");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
