@@ -21,8 +21,8 @@ android {
         applicationId "org.cfp.citizenconnect"
         minSdkVersion 23
         targetSdkVersion 26
-        versionCode 11
-        versionName "3.1.4"
+        versionCode 18
+        versionName "3.2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         renderscriptTargetApi 25
         renderscriptSupportModeEnabled true
@@ -81,6 +81,8 @@ dependencies {
     compile 'com.github.d-max:spots-dialog:0.7@aar'
     compile 'org.greenrobot:eventbus:3.1.1'
     compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }

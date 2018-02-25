@@ -6,7 +6,7 @@
     <string name="ambulance">051-115</string>
     <string name="fireBrigade">051-16</string>
     <string name="playStoreUrl">https://play.google.com/store/apps/details?id=org.cfp.citizenconnect</string>
-    
+
     <string name="bottom_item1">Notification</string>
     <string name="bottom_item2">Services</string>
     <string name="bottom_item3">Data</string>
@@ -27,5 +27,7 @@
     </string-array>
 
     <string name="no_internet_msg">No Internet Available</string>
+    <string name="status_success">success</string>
+    <string name="sendEmailURL">xxxx</string>
 </resources>
 

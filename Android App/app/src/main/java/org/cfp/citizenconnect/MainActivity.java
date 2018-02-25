@@ -20,10 +20,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
@@ -79,20 +83,8 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
         bottomNavigation.addItem(item4);
-        if (getIntent().getExtras() != null) {
-            clearNotificationCount = getIntent().getExtras().getBoolean("clearNotificationCount", false);
-            if (clearNotificationCount) {
-                realm.executeTransaction(realm -> {
-                    notificationUpdate.setLastStateRead(true);
-                    notificationUpdate.setNewNotification(0);
-                });
-
-                changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
-            }
-        } else {
-            if (notificationUpdate.getNewNotification() != 0) {
-                changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
-            }
+        if (notificationUpdate.getNewNotification() != 0) {
+            changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
         }
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
         bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
@@ -132,6 +124,20 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             }
         });
+        KeyboardVisibilityEvent.setEventListener(
+                MainActivity.this,
+                new KeyboardVisibilityEventListener() {
+                    @Override
+                    public void onVisibilityChanged(boolean isOpen) {
+                        if(isOpen){
+                            binding.bottomNavigation.setVisibility(View.GONE);
+                            bottomNavigation.hideBottomNavigation(true);
+                        }else {
+                            binding.bottomNavigation.setVisibility(View.VISIBLE);
+                            bottomNavigation.restoreBottomNavigation(true);
+                        }
+                    }
+                });
         bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
             mViewPager.setCurrentItem(position);
             return true;
@@ -151,7 +157,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             public void onReceive(Context context, Intent intent) {
                 boolean update = intent.getBooleanExtra("newUpdate", false);
                 if (update) {
-
                     changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
                 }
             }
@@ -265,12 +270,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 }
             }
             break;
-            case REQUEST_PERMISSION_GET_ACCOUNTS:{
-                if(grantResults.length>0){
-                    EventBus.getDefault().post(new MessageEvent("Permission Granted",true));
-                }
-                else {
-                    EventBus.getDefault().post(new MessageEvent("Permission Denied",false));
+            case REQUEST_PERMISSION_GET_ACCOUNTS: {
+                if (grantResults.length > 0) {
+                    EventBus.getDefault().post(new MessageEvent("Permission Granted", true));
+                } else {
+                    EventBus.getDefault().post(new MessageEvent("Permission Denied", false));
                 }
             }
             break;

@@ -31,28 +31,31 @@ public class DataSet extends RealmObject {
     @PrimaryKey
     private String id;
 
+    @PropertyName("dataSetType")
     private String dataSetType;
 
+    @PropertyName("Address")
     private String address;
 
+    @PropertyName("Name")
     private String name;
 
-    @PropertyName("Address")
+
     public String getAddress() {
         return address;
     }
 
-    @PropertyName("Address")
+
     public void setAddress(String address) {
         this.address = address;
     }
 
-    @PropertyName("Name")
+
     public String getName() {
         return name;
     }
 
-    @PropertyName("Name")
+
     public void setName(String name) {
         this.name = name;
     }
@@ -65,9 +68,11 @@ public class DataSet extends RealmObject {
         this.id = id;
     }
 
+
     public String getDataSetType() {
         return dataSetType;
     }
+
 
     private void setDataSetType(String dataSetType) {
         this.dataSetType = dataSetType;
@@ -89,6 +94,7 @@ public class DataSet extends RealmObject {
                                 }
                             }
                         }, () -> _response.onResponse(true)), mErr);
+
     }
 
     public static List<DataSet> fetchFromRealm(String type) {

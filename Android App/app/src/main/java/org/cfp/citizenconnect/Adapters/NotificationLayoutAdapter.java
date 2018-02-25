@@ -74,16 +74,16 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
             view = itemView.findViewById(R.id.view);
 
             BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable()));
-            view.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
-            descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
-            snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath()));
+            view.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(),description.getText().toString()));
+            descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(),description.getText().toString()));
+            snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(),description.getText().toString()));
         }
     }
 
     public interface OnItemInteractionListener {
         void ShareImageClickListener(int position, Drawable image);
 
-        void FullSizeImageClickListener(String imagePath);
+        void FullSizeImageClickListener(String imagePath,String description);
 
     }
 }

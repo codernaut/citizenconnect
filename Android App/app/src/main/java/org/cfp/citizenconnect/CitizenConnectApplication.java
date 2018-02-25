@@ -1,9 +1,10 @@
 package org.cfp.citizenconnect;
 
 import android.app.Application;
-import android.content.Intent;
 import android.support.multidex.MultiDex;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,19 +19,23 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
+import static org.cfp.citizenconnect.Constants.REALM_SCHEMA_VERSION;
+
 /**
  * Created by root on 05/12/2017.
  */
 
 public class CitizenConnectApplication extends Application {
     public static FirebaseRemoteConfig mFirebaseRemoteConfig;
-    public  static FirebaseStorage firebaseStorage ;
-    public  static StorageReference firebaseStorageRef;
-    public  static  FirebaseDatabase database;
-    public  static DatabaseReference FilesRef;
+    public static FirebaseStorage firebaseStorage;
+    public static StorageReference firebaseStorageRef;
+    public static FirebaseDatabase database;
+    public static DatabaseReference FilesRef;
     public static FirebaseAuth mAuth;
-    public  static  Realm realm;
-    public  static  RealmConfiguration config;
+    public static Realm realm;
+    public static RealmConfiguration config;
+
+    public static RequestQueue mRequestQueue;
 
     public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
 
@@ -41,7 +46,9 @@ public class CitizenConnectApplication extends Application {
         Fresco.initialize(this);
         Realm.init(this);
         MultiDex.install(this);
-        config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
+        config = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .schemaVersion(REALM_SCHEMA_VERSION).build();
         realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");
@@ -52,7 +59,7 @@ public class CitizenConnectApplication extends Application {
 
         firebaseStorage = FirebaseStorage.getInstance();
         firebaseStorageRef = firebaseStorage.getReference();
-
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
 
     }

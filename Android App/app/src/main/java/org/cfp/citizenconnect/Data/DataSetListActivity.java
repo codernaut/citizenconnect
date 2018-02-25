@@ -138,7 +138,7 @@ public class DataSetListActivity extends AppCompatActivity {
     private void updateQuery(String query) {
         list.clear();
         RealmResults<DataSet> dataSets = realm.where(DataSet.class).equalTo("dataSetType",
-                type).contains("Name", query, Case.INSENSITIVE).findAll();
+                type).contains("name", query, Case.INSENSITIVE).findAll();
         list.addAll(dataSets);
         updateAdapter();
     }
