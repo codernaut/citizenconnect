@@ -33,8 +33,8 @@ import static org.cfp.citizenconnect.MyUtils.mSnakbar;
 public class SplashScreen extends Activity {
     ProgressBar progressBar;
 
-    static final int REQUEST_GOOGLE_PLAY_SERVICES = 2;
-    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
+    //static final int REQUEST_GOOGLE_PLAY_SERVICES = 2;
+    //static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
     User user;
 
     @Override
@@ -92,38 +92,22 @@ public class SplashScreen extends Activity {
     protected void onActivityResult(
             int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case REQUEST_GOOGLE_PLAY_SERVICES:
-                if (resultCode != RESULT_OK) {
-                    //Todo: google service must be required
-                } else {
+
                     getResultsFromApi();
-                }
-                break;
-        }
+
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_PERMISSION_GET_ACCOUNTS) {
+
             getResultsFromApi();
-        }
+
     }
 
     public void getResultsFromApi() {
-        GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
-        int status = googleApiAvailability.isGooglePlayServicesAvailable(this);
-        if (status != ConnectionResult.SUCCESS) {
-            if (googleApiAvailability.isUserResolvableError(status)) {
-                showGooglePlayServicesAvailabilityErrorDialog(status);
-            }
-        } else if (ActivityCompat.checkSelfPermission(this,
-                android.Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.GET_ACCOUNTS},
-                    REQUEST_PERMISSION_GET_ACCOUNTS);
-        } else if (!isDeviceOnline(SplashScreen.this)) {
+
+      if (!isDeviceOnline(SplashScreen.this)) {
             mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,
                     findViewById(R.id.coordinator), null);
             progressBar.setVisibility(View.GONE);
@@ -134,17 +118,9 @@ public class SplashScreen extends Activity {
             } else {
                 progressBar.setVisibility(ProgressBar.VISIBLE);
                 new DownloadFilesTask().execute();
-            }
+         }
         }
     }
 
-    void showGooglePlayServicesAvailabilityErrorDialog(final int connectionStatusCode) {
-        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-        Dialog dialog = apiAvailability.getErrorDialog(
-                SplashScreen.this,
-                connectionStatusCode,
-                REQUEST_GOOGLE_PLAY_SERVICES);
-        dialog.show();
-    }
 
 }
