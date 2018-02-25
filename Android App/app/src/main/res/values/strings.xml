@@ -26,6 +26,11 @@
         <item>Others</item>
     </string-array>
 
+
     <string name="no_internet_msg">No Internet Available</string>
+    <string name="status_success">success</string>
+    <string name="sendEmailURL">xxxx</string>
+
+
 </resources>
 

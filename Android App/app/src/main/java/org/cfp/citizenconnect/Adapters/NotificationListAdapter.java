@@ -97,7 +97,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath) {
+    public void FullSizeImageClickListener(String imagePath,String description) {
 
     }
 

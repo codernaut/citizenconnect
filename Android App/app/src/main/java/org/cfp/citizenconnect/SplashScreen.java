@@ -62,6 +62,7 @@ public class SplashScreen extends Activity {
         @Override
         protected Void doInBackground(Void... voids) {
             getDataSet(response -> {
+
                         runOnUiThread(() -> {
                             Toast.makeText(SplashScreen.this,
                                     getString(R.string.completed_msg),Toast.LENGTH_LONG).show();

@@ -1,14 +1,9 @@
 package org.cfp.citizenconnect.Feedback;
 
-import android.Manifest;
 import android.accounts.AccountManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,26 +13,27 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.ExponentialBackOff;
 
-import org.cfp.citizenconnect.Interfaces.Permissions;
 import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.User;
 import org.cfp.citizenconnect.PhoneVerificationActivity;
 import org.cfp.citizenconnect.R;
-import org.cfp.citizenconnect.SendEmail;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.Arrays;
-
-import needle.Needle;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
+import static org.cfp.citizenconnect.CitizenConnectApplication.mRequestQueue;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Constants.SCOPES;
 
@@ -46,14 +42,14 @@ import static org.cfp.citizenconnect.Constants.SCOPES;
  * Created by shahzaibshahid on 18/01/2018.
  */
 
-public class FragmentFeedback extends Fragment{
+public class FragmentFeedback extends Fragment {
     static GoogleAccountCredential mCredential;
 
 
     User user;
     Button send;
     EditText fullName, contactNumber, Message;
-    Spinner spinner;
+    Spinner feedBackType;
     static final int REQUEST_ACCOUNT_PICKER = 1;
     static final int REQUEST_AUTHORIZATION = 4;
     static final int REQUEST_PHONE_VERIFICATION = 626;
@@ -73,11 +69,11 @@ public class FragmentFeedback extends Fragment{
         fullName = rootView.findViewById(R.id.fullNameET);
         contactNumber = rootView.findViewById(R.id.ContactNumberET);
         Message = rootView.findViewById(R.id.messageET);
-        spinner = rootView.findViewById(R.id.subject);
+        feedBackType = rootView.findViewById(R.id.subject);
 
         send.setOnClickListener(view -> {
             if (fieldVerifications()) {
-                chooseAccount();
+                phoneVerification();
             } else {
                 Toast.makeText(getActivity(), "Please Enter all details", Toast.LENGTH_LONG).show();
             }
@@ -107,51 +103,38 @@ public class FragmentFeedback extends Fragment{
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent event) {
-        if(event.status){
-            chooseAccount();
-        }
-        else {
+        if (event.status) {
+
+        } else {
 
         }
     }
 
     public void sendMessage() {
-        Needle.onBackgroundThread().execute(() -> {
-            Looper.prepare();
-            SendEmail sendEmail = new SendEmail(mCredential, "shahzaib.shahid414@gmail.com", spinner.getSelectedItem().toString(), Message.getText().toString());
-            try {
-                sendEmail.getDataFromApi();
-
-            } catch (IOException e) {
-                if (e instanceof UserRecoverableAuthIOException) {
-                    startActivityForResult(
-                            ((UserRecoverableAuthIOException) e).getIntent(),
-                            REQUEST_AUTHORIZATION);
-                }
-                Toast.makeText(getActivity(), "Failed, Please try again", Toast.LENGTH_LONG).show();
-                e.printStackTrace();
+        Toast.makeText(getActivity(),"Sending",Toast.LENGTH_LONG).show();
+        StringRequest postRequest = new StringRequest(Request.Method.POST, getString(R.string.sendEmailURL),
+                response -> {
+                    try {
+                        JSONObject jsonResponse = new JSONObject(response);
+                        String status = jsonResponse.getString("status");
+                        Toast.makeText(getActivity(),"Sent!",Toast.LENGTH_LONG).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> error.printStackTrace()
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("name", fullName.getText().toString());
+                params.put("contactNo", contactNumber.getText().toString());
+                params.put("feedbackType", feedBackType.getSelectedItem().toString());
+                params.put("message", Message.getText().toString());
+                return params;
             }
-        });
-        Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
-    }
-
-    private void chooseAccount() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED) {
-            user = User.getUserInstance(realm);
-            if (user.getEmail() != null) {
-                mCredential.setSelectedAccountName(user.getEmail());
-                phoneVerification();
-            } else {
-                startActivityForResult(
-                        mCredential.newChooseAccountIntent(),
-                        REQUEST_ACCOUNT_PICKER);
-            }
-        }
-        else {
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{android.Manifest.permission.GET_ACCOUNTS},
-                    REQUEST_PERMISSION_GET_ACCOUNTS);
-        }
+        };
+        mRequestQueue.add(postRequest);
     }
 
     @Override
@@ -178,8 +161,7 @@ public class FragmentFeedback extends Fragment{
         if (requestCode == REQUEST_AUTHORIZATION) {
             if (resultCode != RESULT_OK) {
                 Toast.makeText(getActivity(), "Failed to send your message Feedback", Toast.LENGTH_LONG).show();
-            }
-            else {
+            } else {
                 Toast.makeText(getActivity(), "Sent", Toast.LENGTH_LONG).show();
             }
         }

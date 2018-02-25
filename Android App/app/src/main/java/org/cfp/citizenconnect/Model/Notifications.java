@@ -5,6 +5,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 import org.cfp.citizenconnect.CustomCallBack;
 
@@ -22,6 +23,7 @@ import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;
 /**
  * Created by shahzaibshahid on 13/12/2017.
  */
+
 
 public class Notifications extends RealmObject {
 
@@ -72,9 +74,9 @@ public class Notifications extends RealmObject {
         this.tag = tag;
     }
 
-    public  static void setNotifications(Notifications notificationsObj,Realm mRealm){
+    public  static void setNotifications(Notifications notificationsObj,String key,Realm mRealm){
         mRealm.executeTransaction(realm -> {
-            Notifications notifications = realm.createObject(Notifications.class, UUID.randomUUID().toString());
+            Notifications notifications = realm.createObject(Notifications.class, key);
             notifications.setDate(notificationsObj.getDate());
             notifications.setDescription(notificationsObj.getDescription());
             notifications.setFilePath(notificationsObj.getFilePath());
@@ -87,7 +89,7 @@ public class Notifications extends RealmObject {
         getAFireBaseData(databaseReference, response -> {
             for (DataSnapshot data : response.getChildren()) {
                 Notifications notifications = data.getValue(Notifications.class);
-                Notifications.setNotifications(notifications, realm);
+                Notifications.setNotifications(notifications,data.getKey(), realm);
                 notificationsModel.add(notifications);
             }
             mResultListener.onResponse(notificationsModel);

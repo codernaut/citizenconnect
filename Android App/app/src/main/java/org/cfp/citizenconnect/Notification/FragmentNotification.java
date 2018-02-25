@@ -13,14 +13,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
-import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
@@ -37,13 +36,16 @@ import java.util.Collections;
 import java.util.List;
 
 import io.realm.Case;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
+import static org.cfp.citizenconnect.Constants.DESCRIPTION;
+import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
-import static org.cfp.citizenconnect.MyUtils.frescoImageRequest;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
 /**
@@ -75,10 +77,9 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         progressDialog.show();
         notificationUpdate = NotificationUpdate.getInstance(realm);
         mScrollStatus = (MainActivity) getActivity();
-        if(notificationUpdate.getNewNotification()>0 || !notificationUpdate.isLastStateRead()){
+        if (notificationUpdate.getNewNotification() > 0 || !notificationUpdate.isLastStateRead()) {
             loadFromFirebase();
-        }
-        else {
+        } else {
             loadFromRealm();
         }
 
@@ -89,6 +90,34 @@ public class FragmentNotification extends Fragment implements NotificationLayout
                 if (dy > 0) {
                     mScrollStatus.OnScrollStatusChanged(true);
                 }
+            }
+        });
+
+        FilesRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                //realm.executeTransaction(realm -> realm.where(Notifications.class).equalTo("id",dataSnapshot.getKey()).findAll().deleteAllFromRealm());
+                loadFromFirebase();
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
@@ -126,6 +155,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
         getActivity().unregisterReceiver(this.mNotificationReceiver);
     }
+
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -159,10 +189,12 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             progressDialog.dismiss();
         });
     }
+
     @Override
     public void ShareImageClickListener(int position, Drawable image) {
         try {
             if (notificationsModel.get(position).getFilePath() != null) {
+
                 Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), getActivity());
                 if (bmpUri != null) {
                     Intent shareIntent = new Intent();
@@ -181,26 +213,11 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath) {
-        frescoImageRequest(imagePath, getActivity(), response -> {
-            LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            View customView = inflater.inflate(R.layout.full_image_size_popup, null);
-            customView.setLayoutParams(params);
-            com.github.chrisbanes.photoview.PhotoView imageHolder = customView.findViewById(R.id.imageHolder);
-
-            Picasso.with(getActivity()).load(imagePath).into(imageHolder);
-
-            mBuilder = new BlurPopupWindow.Builder(getActivity());
-
-            mBuilder.setContentView(customView)
-                    .setGravity(Gravity.CENTER)
-                    .setDismissOnClickBack(true)
-                    .setDismissOnTouchBackground(true)
-                    .setBlurRadius(10)
-                    .setTintColor(0x30000000)
-                    .build().show();
-        }, error -> Toast.makeText(getActivity(), "Failed to load Image", Toast.LENGTH_LONG).show());
+    public void FullSizeImageClickListener(String imagePath, String description) {
+        Intent i = new Intent(getActivity(), FullImageActivity.class);
+        i.putExtra(FILE_URL, imagePath);
+        i.putExtra(DESCRIPTION, description);
+        startActivity(i);
     }
 
     @Override
@@ -216,7 +233,9 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(notificationListAdapter);
     }
-    public void updateRecyclerView(){
+
+    public void updateRecyclerView() {
+
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
 

@@ -13,10 +13,7 @@ import android.support.annotation.WorkerThread;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.facebook.common.executors.CallerThreadExecutor;
@@ -33,14 +30,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static org.cfp.citizenconnect.CitizenConnectApplication.FILE_PROVIDER_AUTHORITY;
 
 /**
@@ -70,16 +64,19 @@ public class MyUtils {
 
             }
         }, CallerThreadExecutor.getInstance());
-        Uri bmpUri;
+        Uri bmpUri = null;
         File file = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
         FileOutputStream out = new FileOutputStream(file);
-        bmp[0].compress(Bitmap.CompressFormat.PNG, 90, out);
-        out.close();
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            bmpUri = Uri.fromFile(file);
-        } else {
-            bmpUri = FileProvider.getUriForFile(mContext, FILE_PROVIDER_AUTHORITY, file);
+        if (out != null) {
+            bmp[0].compress(Bitmap.CompressFormat.PNG, 90, out);
+            out.close();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                bmpUri = Uri.fromFile(file);
+            } else {
+                bmpUri = FileProvider.getUriForFile(mContext, FILE_PROVIDER_AUTHORITY, file);
+            }
         }
+
         return bmpUri;
     }
 
@@ -104,7 +101,7 @@ public class MyUtils {
         });
     }
 
-    public static  void mSnakbar(String message,String actionText,int duration,int visibility,View view,View.OnClickListener listener){
+    public static void mSnakbar(String message, String actionText, int duration, int visibility, View view, View.OnClickListener listener) {
         Snackbar mySnackbar = Snackbar.make(view,
                 message, Snackbar.LENGTH_SHORT);
         mySnackbar.setAction(actionText, listener);
@@ -119,7 +116,7 @@ public class MyUtils {
         }
     }
 
-    public static void frescoImageRequest(String imagePath,Context mContext,CustomCallBack.Listener<Bitmap> onBitmapReceived,CustomCallBack.ErrorListener<DataSource> onFailure) {
+    public static void frescoImageRequest(String imagePath, Context mContext, CustomCallBack.Listener<Bitmap> onBitmapReceived, CustomCallBack.ErrorListener<DataSource> onFailure) {
         ImageRequest imageRequest = ImageRequestBuilder
                 .newBuilderWithSource(Uri.parse(imagePath))
                 .setAutoRotateEnabled(true)
@@ -155,6 +152,7 @@ public class MyUtils {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         return (networkInfo != null && networkInfo.isConnected());
     }
+
     public static boolean validatePhoneNumber(EditText mPhoneNumberField) {
         String phoneNumber = mPhoneNumberField.getText().toString();
         if (TextUtils.isEmpty(phoneNumber)) {
