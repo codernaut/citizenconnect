@@ -3,12 +3,9 @@ package org.cfp.citizenconnect;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -33,8 +30,6 @@ import static org.cfp.citizenconnect.MyUtils.mSnakbar;
 public class SplashScreen extends Activity {
     ProgressBar progressBar;
 
-    //static final int REQUEST_GOOGLE_PLAY_SERVICES = 2;
-    //static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
     User user;
 
     @Override
@@ -61,16 +56,18 @@ public class SplashScreen extends Activity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            getDataSet(response -> {
 
+            getDataSet(response -> {
                         runOnUiThread(() -> {
                             Toast.makeText(SplashScreen.this,
-                                    getString(R.string.completed_msg),Toast.LENGTH_LONG).show();
+                                    getString(R.string.completed_msg), Toast.LENGTH_LONG).show();
 
                             progressBar.setVisibility(View.GONE);
                         });
+
                         final Handler handler = new Handler();
                         handler.postDelayed(SplashScreen.this::launchMainActivity, 2000);
+
 
                     },
                     error -> launchMainActivity());
@@ -84,8 +81,12 @@ public class SplashScreen extends Activity {
     }
 
     private void launchMainActivity() {
-        startActivity(new Intent(SplashScreen.this, MainActivity.class));
-        finish();
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            finish();
+        }, 500);
+
     }
 
     @Override
