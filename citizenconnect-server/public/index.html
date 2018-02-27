@@ -1,153 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Firebase Hosting</title>
-
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/4.7.0/firebase-app.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/4.7.0/firebase-auth.js"></script>
-  <script defer src="/__/firebase/4.7.0/firebase-database.js"></script>
-  <script defer src="/__/firebase/4.7.0/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/4.7.0/firebase-storage.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
+  <title>Login</title>
+  <link href="bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular.js"></script>
+  <!-- Angular Route -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
 
-  <!-- initialize the SDK after all desired features are loaded -->
-  <script defer src="/__/firebase/init.js"></script>
-  <script>
-    angular.module('submitExample', [])
-      .controller('ExampleController', ['$scope', function ($scope) {
-        $scope.list = [];
-        $scope.text = 'hello';
-        $scope.submit = function () {
-          if ($scope.text) {
-            $scope.list.push(this.text);
-            $scope.text = '';
-          }
-        };
-      }]);
-  </script>
-  <style media="screen">
-    body {
-      background: #ECEFF1;
-      color: rgba(0, 0, 0, 0.87);
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    #message {
-      background: white;
-      max-width: 360px;
-      margin: 100px auto 16px;
-      padding: 32px 24px;
-      border-radius: 3px;
-    }
-
-    #message h2 {
-      color: #ffa100;
-      font-weight: bold;
-      font-size: 16px;
-      margin: 0 0 8px;
-    }
-
-    #message h1 {
-      font-size: 22px;
-      font-weight: 300;
-      color: rgba(0, 0, 0, 0.6);
-      margin: 0 0 16px;
-    }
-
-    #message p {
-      line-height: 140%;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-
-    #message a {
-      display: block;
-      text-align: center;
-      background: #039be5;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: white;
-      padding: 16px;
-      border-radius: 4px;
-    }
-
-    #mainDiv {
-      width: 200px;
-        height: 600px;
-
-        position:absolute; /*it can be fixed too*/
-        left:0; right:0;
-        top:0; bottom:0;
-        margin:auto;
-
-        /*this to solve "the content will not be cut when the window is smaller than the content": */
-
-        overflow:auto;
-    }
-
-    #message,
-    #message a {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-
-    #load {
-      color: rgba(0, 0, 0, 0.4);
-      text-align: center;
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-      body,
-      #message {
-        margin-top: 0;
-        background: white;
-        box-shadow: none;
-      }
-      body {
-        border-top: 16px solid #ffa100;
-      }
-    }
-  </style>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="loginController.js"></script>
+  <script src="homeController.js"></script>
+  <script src="loginService.js"></script>
+  <script src="angular-idle.min.js"></script>
+  <script type="text/javascript" src="fileModel.js"></script>
 </head>
 <html>
 
 <body>
-  <div id="mainDiv" class="panel panel-primary" align="center">
-    <div class="panel-heading">ICT - Zero Point</div>
-    <div class="panel-body">
+  <div class="container" width="100px">
+    <h2>ICT App</h2>
 
-      <form ref='uploadForm' id='uploadForm' action='https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/notifications/sendNotification'
-        method='post' encType="multipart/form-data">
-        <div class="form-group">
-          <label for="file">Select File:</label>
-          <input type="file" id="file" name="file" />
-        </div>
-
-        <div class="form-group">
-          <label for="description">Description:</label>
-          <input type="text" id="description" name="description" />
-        </div>
-
-        <div class="form-group">
-          <label for="tag">Notification Tag:</label>
-          <input type="text" id="tag" name="tag" />
-        </div>
-
-        <input type='submit' class="btn btn-info" value='Send Notification' />
-      </form>
-
-    </div>
+    <div ui-view></div>
   </div>
 </body>
 

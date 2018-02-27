@@ -1,0 +1,21 @@
+<div class="col-md-12" style="width:500px;">
+  <div align="right">
+    <a ng-click="logout()">Logout</a>
+  </div>
+  <h4>Notifications Panel </h4>
+  <form ng-submit="sendNotification()" class="form">
+    <div class="form-group">
+      <input type="file" class="form-control" file-model="file" required="" />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="description" placeholder="Notification Description" required="" />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="tag" placeholder="Notification Tag" required="" />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-action">Send</button>
+      <span class="text-danger" style="color:green">{{ message }}</span>
+    </div>
+  </form>
+</div>
