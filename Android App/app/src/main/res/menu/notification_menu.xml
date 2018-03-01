@@ -1,32 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/search"
-        android:title="Search"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
         android:icon="@drawable/ic_search_white_24dp"
-        app:showAsAction="collapseActionView|ifRoom"
-        app:actionViewClass="android.widget.SearchView" />
-    <item android:id="@+id/menu"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+    <item
+        android:id="@+id/emergency"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="Emergency number"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/aboutUS"
+        android:title="About us"
+        app:showAsAction="never" />
+    <!--<item
+        android:id="@+id/menu"
         android:icon="@drawable/ic_menu_filled"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_notification">
+        android:title="@string/menu_notification"
+        app:showAsAction="collapseActionView|ifRoom">
         <menu>
+        <item
+        android:id="@+id/aboutUS"
+        android:title="About us"/>
             <item
-                android:id="@+id/aboutUS"
-                android:title="About us">
-            </item>
-            <item
-                android:title="Emergency number"
-                android:enabled="true">
+                android:id="@+id/emergency"
+                android:enabled="true"
+                android:title="Emergency number">
                 <menu>
-                    <item android:id="@+id/police"
-                        android:title="Police"/>
-                    <item android:id="@+id/ambulance"
-                        android:title="Ambulance"/>
-                    <item android:id="@+id/FireBrigade"
-                        android:title="Fire Brigade"/>
+                    <item
+                        android:id="@+id/police"
+                        android:title="Police" />
+                    <item
+                        android:id="@+id/ambulance"
+                        android:title="Ambulance" />
+                    <item
+                        android:id="@+id/FireBrigade"
+                        android:title="Fire Brigade" />
                 </menu>
             </item>
         </menu>
-    </item>
+    </item>-->
 </menu>

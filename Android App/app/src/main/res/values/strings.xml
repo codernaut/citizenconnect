@@ -29,5 +29,9 @@
     <string name="no_internet_msg">No Internet Available</string>
     <string name="status_success">success</string>
     <string name="sendEmailURL">xxxx</string>
+    <string name="police_title">Police</string>
+    <string name="ambulance_title">Ambulance</string>
+    <string name="fire_brigade_title">Fire Brigade</string>
+
 </resources>
 
