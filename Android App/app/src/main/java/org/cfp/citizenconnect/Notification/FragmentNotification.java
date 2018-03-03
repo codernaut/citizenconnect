@@ -53,6 +53,7 @@ import static org.cfp.citizenconnect.Constants.DESCRIPTION;
 import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
+import com.google.firebase.database.*;
 
 /**
  * Created by shahzaibshahid on 18/01/2018.

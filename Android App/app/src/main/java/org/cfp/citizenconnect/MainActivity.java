@@ -34,6 +34,7 @@ import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
+import org.cfp.citizenconnect.Popups.EmergencyContactFragment;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 import org.greenrobot.eventbus.EventBus;
 
@@ -45,10 +46,16 @@ import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
 public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
 
+    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
     public Search mSearch;
     ProgressDialog progress;
     ActivityMainBinding binding;
     boolean clearNotificationCount;
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
     String phoneNo;
     ConstraintLayout mLayout;
     AHBottomNavigation bottomNavigation;
@@ -57,11 +64,9 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     int currentItem;
     MenuItem menuItem;
     NotificationUpdate notificationUpdate;
-    private BroadcastReceiver mNotificationReceiver;
     SearchView searchView;
     MenuItem searchMenu;
-
-    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
+    private BroadcastReceiver mNotificationReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +134,10 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 new KeyboardVisibilityEventListener() {
                     @Override
                     public void onVisibilityChanged(boolean isOpen) {
-                        if(isOpen){
+                        if (isOpen) {
                             binding.bottomNavigation.setVisibility(View.GONE);
                             bottomNavigation.hideBottomNavigation(true);
-                        }else {
+                        } else {
                             binding.bottomNavigation.setVisibility(View.VISIBLE);
                             bottomNavigation.restoreBottomNavigation(true);
                         }
@@ -208,7 +213,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             case R.id.aboutUS:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 return true;
-            case R.id.police:
+            case R.id.emergency:
+                showEmergencyPopup();
+//                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                return true;
+            /*case R.id.police:
                 phoneNo = getResources().getString(R.string.police);
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this,
@@ -237,11 +246,16 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
                     startActivity(intent);
                 }
-                return true;
+                return true;*/
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showEmergencyPopup() {
+        EmergencyContactFragment fragment = new EmergencyContactFragment();
+        fragment.show(getSupportFragmentManager(),"Emergency");
     }
 
     @Override
@@ -265,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             case CALL_PERMISSION_REQUEST: {
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
 
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNo));
                     startActivity(intent);
                 }
             }
