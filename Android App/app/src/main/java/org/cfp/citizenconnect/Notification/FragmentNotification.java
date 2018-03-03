@@ -88,7 +88,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             final Handler handler = new Handler();
             handler.postDelayed(() -> {
                 loadFromFirebase();
-                binding.swipeRefreshLayout.setRefreshing(false);
             }, 500);
 
         });
@@ -248,7 +247,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     public void updateRecyclerView() {
-
+        binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
 

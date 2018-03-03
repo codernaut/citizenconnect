@@ -108,6 +108,7 @@ function sendNotification(msg, res) {
       })
     }
     else {
+      console.log('Message Sent')
       res.json({
         "status": 200,
         "Response": response,
