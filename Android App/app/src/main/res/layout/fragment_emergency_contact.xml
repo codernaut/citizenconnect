@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.cfp.citizenconnect.Popups.EmergencyContactFragment">
+
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:scaleType="fitCenter"
+        android:padding="5dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:tint="@color/darkGrey" />
+
+    <LinearLayout
+        android:id="@+id/ll_police"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/police_title" />
+
+        <TextView
+            android:id="@+id/police_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/police" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_call"
+            android:tint="@color/darkGrey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_ambulance"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ambulance_title" />
+
+        <TextView
+            android:id="@+id/ambulance_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ambulance" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_call"
+            android:tint="@color/darkGrey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_fire_brigade"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fire_brigade_title" />
+
+        <TextView
+            android:id="@+id/fire_brigade_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fireBrigade" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_call"
+            android:tint="@color/darkGrey" />
+
+    </LinearLayout>
+</LinearLayout>
