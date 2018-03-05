@@ -14,6 +14,7 @@ admin.initializeApp({
   databaseURL: constants.DATABASE_URL,
 });
 
+exports.firebaseAdmin = admin;
 exports.storageBucket = storage.bucket(constants.STORAGE_BUCKET_NOTIFICATION);
 
 exports.FirebaseDatabaseRef = admin.database();
