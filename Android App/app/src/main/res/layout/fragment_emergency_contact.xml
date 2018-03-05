@@ -5,22 +5,9 @@
     android:orientation="vertical"
     tools:context="org.cfp.citizenconnect.Popups.EmergencyContactFragment">
 
-
-    <ImageButton
-        android:id="@+id/closeButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-        android:scaleType="fitCenter"
-        android:padding="5dp"
-        android:background="@android:color/transparent"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:tint="@color/darkGrey" />
-
     <LinearLayout
-        android:id="@+id/ll_police"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
@@ -30,6 +17,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/emergency_numbers"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@color/darkGrey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_police"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_police"
+            android:tint="@color/darkGrey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:text="@string/police_title" />
 
         <TextView
@@ -38,29 +63,30 @@
             android:layout_height="wrap_content"
             android:text="@string/police" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_call"
-            android:tint="@color/darkGrey" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_ambulance"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_ambulance"
+            android:tint="@color/darkGrey" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:text="@string/ambulance_title" />
 
         <TextView
@@ -69,29 +95,31 @@
             android:layout_height="wrap_content"
             android:text="@string/ambulance" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_call"
-            android:tint="@color/darkGrey" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_fire_brigade"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_fire_brigade"
+            android:tint="@color/darkGrey" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:text="@string/fire_brigade_title" />
 
         <TextView
@@ -100,13 +128,6 @@
             android:layout_height="wrap_content"
             android:text="@string/fireBrigade" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_call"
-            android:tint="@color/darkGrey" />
 
     </LinearLayout>
 </LinearLayout>

@@ -32,6 +32,7 @@
     <string name="police_title">Police</string>
     <string name="ambulance_title">Ambulance</string>
     <string name="fire_brigade_title">Fire Brigade</string>
+    <string name="emergency_numbers">Emergency Numbers</string>
 
 </resources>
 
