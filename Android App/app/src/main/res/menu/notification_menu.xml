@@ -9,7 +9,7 @@
         app:showAsAction="collapseActionView|always" />
     <item
         android:id="@+id/emergency"
-        android:icon="@android:drawable/ic_menu_call"
+        android:icon="@drawable/ic_action_phone"
         android:title="Emergency number"
         app:showAsAction="always" />
     <item
