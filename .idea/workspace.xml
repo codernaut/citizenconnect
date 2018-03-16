@@ -13,7 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b29615be-61c0-4f5e-ba2f-984791c81883" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android App/app/src/main/res/menu/notification_menu.xml" afterPath="$PROJECT_DIR$/Android App/app/src/main/res/menu/notification_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android App/app/build.gradle" afterPath="$PROJECT_DIR$/Android App/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android App/app/src/main/java/org/cfp/citizenconnect/Popups/EmergencyContactFragment.java" afterPath="$PROJECT_DIR$/Android App/app/src/main/java/org/cfp/citizenconnect/Popups/EmergencyContactFragment.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1106,7 +1107,7 @@
     <option name="height" value="1010" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1120,7 +1121,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1135,8 +1138,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -1227,7 +1228,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519882282885" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521201692100" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1327,7 +1328,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519882282885" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521201692100" />
       </method>
     </configuration>
     <list size="1">

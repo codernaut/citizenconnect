@@ -31,14 +31,12 @@ public class EmergencyContactFragment extends BaseFragment implements View.OnCli
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_emergency_contact, container, false);
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -63,7 +61,7 @@ public class EmergencyContactFragment extends BaseFragment implements View.OnCli
 
         switch (id) {
             case R.id.ll_police:
-                ((MainActivity)getActivity()).setPhoneNo(police.getText().toString());
+                ((MainActivity) getActivity()).setPhoneNo(police.getText().toString());
                 if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(),
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
@@ -73,7 +71,7 @@ public class EmergencyContactFragment extends BaseFragment implements View.OnCli
                 }
                 break;
             case R.id.ll_ambulance:
-                ((MainActivity)getActivity()).setPhoneNo(ambulance.getText().toString());
+                ((MainActivity) getActivity()).setPhoneNo(ambulance.getText().toString());
                 if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(),
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
@@ -83,7 +81,7 @@ public class EmergencyContactFragment extends BaseFragment implements View.OnCli
                 }
                 break;
             case R.id.ll_fire_brigade:
-                ((MainActivity)getActivity()).setPhoneNo(fireBrigade.getText().toString());
+                ((MainActivity) getActivity()).setPhoneNo(fireBrigade.getText().toString());
                 if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(),
                             new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);

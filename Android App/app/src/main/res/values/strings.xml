@@ -23,7 +23,7 @@
     <string-array name="countrySubjectItems">
         <item>Traffic Issues</item>
         <item>Government offices</item>
-        <item>Others</item>
+        <item>Other</item>
     </string-array>
 
     <string name="no_internet_msg">No Internet Available</string>
