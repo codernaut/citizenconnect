@@ -1,7 +1,5 @@
 package org.cfp.citizenconnect;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,9 +11,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.cfp.citizenconnect.Model.DataSet;
 import org.cfp.citizenconnect.Model.User;
@@ -52,6 +47,49 @@ public class SplashScreen extends AppCompatActivity {
         return sets.size() > 0;
     }
 
+    private void launchMainActivity() {
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            finish();
+        }, 500);
+
+    }
+
+    @Override
+    protected void onActivityResult(
+            int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        getResultsFromApi();
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+
+        getResultsFromApi();
+
+    }
+
+    public void getResultsFromApi() {
+
+        if (!isDeviceOnline(SplashScreen.this)) {
+            mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,
+                    findViewById(R.id.coordinator), null);
+            progressBar.setVisibility(View.GONE);
+        } else {
+            if (isObjectExist()) {
+                progressBar.setVisibility(View.GONE);
+                launchMainActivity();
+            } else {
+                progressBar.setVisibility(ProgressBar.VISIBLE);
+                new DownloadFilesTask().execute();
+            }
+        }
+    }
+
     private class DownloadFilesTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -65,8 +103,7 @@ public class SplashScreen extends AppCompatActivity {
 
             getDataSet(response -> {
                         runOnUiThread(() -> {
-                            Toast.makeText(SplashScreen.this,
-                                    getString(R.string.completed_msg), Toast.LENGTH_LONG).show();
+                            Toast.makeText(SplashScreen.this,getString(R.string.completed_msg), Toast.LENGTH_LONG).show();
 
                             progressBar.setVisibility(View.GONE);
                         });
@@ -84,49 +121,6 @@ public class SplashScreen extends AppCompatActivity {
         protected void onPostExecute(Void result) {
         }
 
-    }
-
-    private void launchMainActivity() {
-        final Handler handler = new Handler();
-        handler.postDelayed(() -> {
-            startActivity(new Intent(SplashScreen.this, MainActivity.class));
-            finish();
-        }, 500);
-
-    }
-
-    @Override
-    protected void onActivityResult(
-            int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-                    getResultsFromApi();
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-
-            getResultsFromApi();
-
-    }
-
-    public void getResultsFromApi() {
-
-      if (!isDeviceOnline(SplashScreen.this)) {
-            mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,
-                    findViewById(R.id.coordinator), null);
-            progressBar.setVisibility(View.GONE);
-        } else {
-            if (isObjectExist()) {
-                progressBar.setVisibility(View.GONE);
-                launchMainActivity();
-            } else {
-                progressBar.setVisibility(ProgressBar.VISIBLE);
-                new DownloadFilesTask().execute();
-         }
-        }
     }
 
 

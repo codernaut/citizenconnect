@@ -16,7 +16,7 @@
 
     <string name="feedback_msg">Do you have a feedback or a question? Send us a message and someone from our ICT team will get in touch with you shortly.</string>
     <string name="in_progress_msg">Please wait…</string>
-    <string name="completed_msg">Operation Completed!</string>
+    <string name="completed_msg">Data Synchronization Completed!</string>
 
     <string name="feedbackPrompt">Subject</string>
 

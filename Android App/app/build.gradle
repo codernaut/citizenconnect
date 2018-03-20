@@ -21,8 +21,8 @@ android {
         applicationId "org.cfp.citizenconnect"
         minSdkVersion 23
         targetSdkVersion 26
-        versionCode 21
-        versionName "3.2.3"
+        versionCode 22
+        versionName "3.2.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         renderscriptTargetApi 25
         renderscriptSupportModeEnabled true
