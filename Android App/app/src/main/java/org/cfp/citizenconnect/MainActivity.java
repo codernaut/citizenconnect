@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             }
         });
+
         KeyboardVisibilityEvent.setEventListener(
                 MainActivity.this,
                 new KeyboardVisibilityEventListener() {
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                         }
                     }
                 });
+
         bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
             mViewPager.setCurrentItem(position);
             return true;
