@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.Model.NotificationsTemplate;
@@ -49,6 +50,22 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         // this.map = createHashMap(NotificationList, notificationDate);
     }
 
+    public static HashMap<String, List<Notifications>> createHashMap(List<Notifications> fileModel, List<String> notificationDates) {
+        HashMap<String, List<Notifications>> map = new HashMap<>();
+        Collections.reverse(notificationDates);
+
+        for (String K : notificationDates) {
+            List<Notifications> V_list = new ArrayList<>();
+            for (Notifications V : fileModel) {
+                if (V.getDate().equals(K)) {
+                    V_list.add(V);
+                }
+            }
+            map.put(K, V_list);
+        }
+        return map;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -83,13 +100,18 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     @Override
     public void ShareImageClickListener(int position, Drawable Image) {
         try {
-            Uri bmpUri = getBitmapUri(Uri.parse(NotificationList.get(position).getFilePath()), mContext);
-            if (bmpUri != null) {
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-                shareIntent.setType("image/*");
-                mContext.startActivity(Intent.createChooser(shareIntent, "Share Image"));
+
+            if (NotificationList.get(position).getFilePath() != null) {
+                Uri bmpUri = getBitmapUri(Uri.parse(NotificationList.get(position).getFilePath()), mContext);
+                if (bmpUri != null) {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+                    shareIntent.setType("image/*");
+                    mContext.startActivity(Intent.createChooser(shareIntent, "Share Image"));
+                }
+            } else {
+                Toast.makeText(mContext, "Failed to Share. Please try again", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,7 +119,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath,String description) {
+    public void FullSizeImageClickListener(String imagePath, String description) {
 
     }
 
@@ -122,21 +144,5 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
             notificationLayout = itemView.findViewById(R.id.snapViewer);
 
         }
-    }
-
-    public static HashMap<String, List<Notifications>> createHashMap(List<Notifications> fileModel, List<String> notificationDates) {
-        HashMap<String, List<Notifications>> map = new HashMap<>();
-        Collections.reverse(notificationDates);
-
-        for (String K : notificationDates) {
-            List<Notifications> V_list = new ArrayList<>();
-            for (Notifications V : fileModel) {
-                if (V.getDate().equals(K)) {
-                    V_list.add(V);
-                }
-            }
-            map.put(K, V_list);
-        }
-        return map;
     }
 }

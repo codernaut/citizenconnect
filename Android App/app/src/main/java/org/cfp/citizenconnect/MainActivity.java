@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     ProgressDialog progress;
     ActivityMainBinding binding;
     boolean clearNotificationCount;
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
     String phoneNo;
     ConstraintLayout mLayout;
     AHBottomNavigation bottomNavigation;
@@ -67,6 +62,10 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     SearchView searchView;
     MenuItem searchMenu;
     private BroadcastReceiver mNotificationReceiver;
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +183,9 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         searchView.setIconified(false);
         searchView.setOnCloseListener(() -> {
             searchView.clearFocus();
-            menuItem.collapseActionView();
+            if (menuItem != null) {
+                menuItem.collapseActionView();
+            }
 
             return true;
         });
@@ -255,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
     private void showEmergencyPopup() {
         EmergencyContactFragment fragment = new EmergencyContactFragment();
-        fragment.show(getSupportFragmentManager(),"Emergency");
+        fragment.show(getSupportFragmentManager(), "Emergency");
     }
 
     @Override

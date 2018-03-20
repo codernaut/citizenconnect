@@ -250,7 +250,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
-
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(notificationListAdapter);
         progressDialog.dismiss();

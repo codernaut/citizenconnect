@@ -3,36 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="140dp"
     android:background="@color/backgroundGrey"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    android:paddingTop="8dp">
+    android:paddingTop="0dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardCornerRadius="1dp"
-        app:cardElevation="3dp"
+        app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="5">
+            android:weightSum="6">
+
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/notificationLayoutHolder"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3.5"
-                fresco:actualImageScaleType="centerInside" />
+                android:layout_weight="2"
+                android:adjustViewBounds="true"
+                fresco:actualImageScaleType="centerCrop" />
 
             <LinearLayout
                 android:id="@+id/descriptionLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
+                android:layout_weight="4"
                 android:orientation="vertical">
 
                 <TextView
@@ -40,10 +42,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:paddingTop="12dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
+                    android:paddingTop="12dp"
                     android:text="title"
+                    android:ellipsize="marquee"
+                    android:includeFontPadding="false"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -52,41 +56,50 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
-                    android:paddingTop="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
+                    android:paddingTop="4dp"
                     android:text="Date"
+                    android:includeFontPadding="false"
                     android:textColor="@color/darkGrey"
-                    android:textSize="14sp" />
+                    android:textSize="10sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="24dp"
-                    android:background="@color/backgroundGrey" />
+                    android:background="@color/backgroundGrey"
+                    android:visibility="gone"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/BtnShare"
                         android:layout_width="wrap_content"
-                        android:text="SHARE"
+                        android:layout_height="match_parent"
                         android:padding="12dp"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/darkGrey"
-                        android:layout_height="match_parent" />
+                        android:text="SHARE"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/view"
                         android:layout_width="wrap_content"
-                        android:text="VIEW"
+                        android:layout_height="match_parent"
                         android:padding="12dp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="18dp"
-                        android:textSize="16sp"
+                        android:text="VIEW"
                         android:textColor="@color/colorPrimary"
-                        android:layout_height="match_parent" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>

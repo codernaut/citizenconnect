@@ -31,15 +31,13 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
     public NotificationLayoutAdapter(Context mContext, List<Notifications> snapList, OnItemInteractionListener mListener) {
         this.notificationList = snapList;
         this.mContext = mContext;
-        inflater = LayoutInflater.from(mContext);
+//        inflater = LayoutInflater.from(mContext);
         this.mListener = mListener;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.notification_layout, parent, false);
-
+        View itemView = LayoutInflater.from(mContext).inflate(R.layout.notification_layout, parent, false);
         return new MyViewHolder(itemView);
     }
 
