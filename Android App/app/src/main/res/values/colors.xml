@@ -12,4 +12,5 @@
     <color name="red">#ff3d00</color>
     <color name="backgroundGrey">#E0E0E0</color>
     <color name="darkGrey">#9A9A9A</color>
+    <color name="tint">#5226A69A</color>
 </resources>

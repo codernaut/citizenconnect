@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,7 +31,7 @@ import static org.cfp.citizenconnect.MyUtils.mSnakbar;
  * Created by shahzaibshahid on 26/01/2018.
  */
 
-public class SplashScreen extends Activity {
+public class SplashScreen extends AppCompatActivity {
     ProgressBar progressBar;
 
     User user;

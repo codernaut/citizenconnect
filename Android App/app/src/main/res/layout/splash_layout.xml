@@ -8,8 +8,9 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:foreground="@color/tint"
         android:scaleType="fitXY"
-        android:src="@drawable/splash_background" />
+        android:src="@drawable/background"/>
 
     <TextView
         android:id="@+id/name"
@@ -21,6 +22,7 @@
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/logo"
         app:layout_constraintStart_toStartOf="@+id/logo"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
@@ -34,7 +36,7 @@
         android:layout_marginStart="8dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
