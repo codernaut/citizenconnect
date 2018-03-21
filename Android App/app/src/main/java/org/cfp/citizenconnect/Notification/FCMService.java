@@ -44,7 +44,7 @@ public class FCMService extends FirebaseMessagingService {
             Notification notification = new Notification.Builder(this)
                     .setContentIntent(pendingIntent)
                     .setSmallIcon(R.drawable.ic_notification_icon)
-                    .setLargeIcon(MyUtils.getBitmap(R.mipmap.connection, getApplicationContext()))
+                    .setLargeIcon(MyUtils.getBitmap(R.drawable.logo, getApplicationContext()))
                     .setContentTitle("ICT Citizen Connect")
                     .setContentText("New update added click to view")
                     .setPriority(Notification.PRIORITY_MAX)
