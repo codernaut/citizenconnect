@@ -45,8 +45,6 @@ import static org.cfp.citizenconnect.Constants.SCOPES;
 
 public class FragmentFeedback extends Fragment {
     static GoogleAccountCredential mCredential;
-
-
     User user;
     Button send;
     EditText fullName, contactNumber, Message;

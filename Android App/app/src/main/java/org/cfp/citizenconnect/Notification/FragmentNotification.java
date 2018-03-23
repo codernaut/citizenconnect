@@ -152,7 +152,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
                 boolean update = intent.getBooleanExtra("newUpdate", false);
                 if (update) {
                     loadFromFirebase();
-
                 }
             }
         };
@@ -162,9 +161,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
     @Override
     public void onPause() {
-
         super.onPause();
-
         getActivity().unregisterReceiver(this.mNotificationReceiver);
     }
 
@@ -187,7 +184,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         } else {
             loadFromFirebase();
         }
-
     }
 
     private void loadFromFirebase() {
@@ -250,7 +246,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
-
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(notificationListAdapter);
         progressDialog.dismiss();
