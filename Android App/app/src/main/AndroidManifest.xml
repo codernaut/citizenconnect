@@ -9,8 +9,8 @@
 
     <application
         android:name="org.cfp.citizenconnect.CitizenConnectApplication"
-        android:hardwareAccelerated="false"
-        android:icon="@mipmap/connection"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -29,8 +29,8 @@
         </provider>
 
         <activity
-            android:name=".SplashScreen"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation"
+            android:name=".SplashScreen" android:configChanges="orientation"
+            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,14 +16,14 @@
 
     <string name="feedback_msg">Do you have a feedback or a question? Send us a message and someone from our ICT team will get in touch with you shortly.</string>
     <string name="in_progress_msg">Please wait…</string>
-    <string name="completed_msg">Operation Completed!</string>
+    <string name="completed_msg">Data Synchronization Completed!</string>
 
     <string name="feedbackPrompt">Subject</string>
 
     <string-array name="countrySubjectItems">
         <item>Traffic Issues</item>
         <item>Government offices</item>
-        <item>Others</item>
+        <item>Other</item>
     </string-array>
 
     <string name="no_internet_msg">No Internet Available</string>
@@ -32,6 +32,7 @@
     <string name="police_title">Police</string>
     <string name="ambulance_title">Ambulance</string>
     <string name="fire_brigade_title">Fire Brigade</string>
+    <string name="emergency_numbers">Emergency Numbers</string>
 
 </resources>
 
