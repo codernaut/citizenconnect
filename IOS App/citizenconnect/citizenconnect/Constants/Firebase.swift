@@ -11,5 +11,8 @@ import Foundation
 struct Firebase {
     struct Database {
         static let NotificationPath = "Notifications"
+        static let LayoutServices = "project/services"
+        static let LayoutDataSets = "project/data_sets"
+        static let DataSetsPath = "dataset"
     }
 }

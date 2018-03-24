@@ -19,10 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp .configure()
-        UINavigationBar.appearance().barStyle = .blackOpaque
+        let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().backIndicatorImage = backImage
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
+        UINavigationBar.appearance().barStyle = .black
         application.statusBarStyle = .lightContent
         let config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if (oldSchemaVersion < 1) {
@@ -31,8 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // And will update the schema on disk automatically
                 }
         }
+            
         )
         Realm.Configuration.defaultConfiguration = config
+        
+        if DataSet.getRealmData().count != 0 {
+            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController");
+            
+            return true;
+        }
+        
         return true
     }
     

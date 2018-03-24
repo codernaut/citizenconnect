@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1564D2205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1564D1205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift */; };
+		1D1564D4205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1564D3205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift */; };
 		1D451EFA2040031200328551 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451EF92040031200328551 /* AppDelegate.swift */; };
 		1D451EFC2040031200328551 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451EFB2040031200328551 /* NotificationViewController.swift */; };
 		1D451EFE2040031200328551 /* DataSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451EFD2040031200328551 /* DataSetViewController.swift */; };
@@ -15,18 +17,34 @@
 		1D451F062040031200328551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D451F042040031200328551 /* LaunchScreen.storyboard */; };
 		1D451F112040031200328551 /* citizenconnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451F102040031200328551 /* citizenconnectTests.swift */; };
 		1D451F1C2040031200328551 /* citizenconnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451F1B2040031200328551 /* citizenconnectUITests.swift */; };
+		1D4717162061394000981B20 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4717152061394000981B20 /* AboutUsVC.swift */; };
+		1D49E6612057A3E700B088BE /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E6602057A3E700B088BE /* LaunchScreenViewController.swift */; };
+		1D49E6632057B56F00B088BE /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E6622057B56F00B088BE /* DataSet.swift */; };
+		1D4D82152051621B00D81F71 /* PdfViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4D82142051621B00D81F71 /* PdfViewer.swift */; };
+		1D55A90F2060F45700A9B81C /* VerifyPhoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A90E2060F45700A9B81C /* VerifyPhoneController.swift */; };
+		1D594B03205ED9390016EA1B /* NotificationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D594B02205ED9390016EA1B /* NotificationNC.swift */; };
+		1DA0F4D9206232C900807630 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA0F4DA206232C900807630 /* Alamofire.framework */; };
 		1DA88766204FD11500554C76 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA88765204FD11500554C76 /* ServicesViewController.swift */; };
 		1DA88768204FD47700554C76 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA88767204FD47700554C76 /* Services.swift */; };
 		1DA8876A204FDAA400554C76 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA88769204FDAA300554C76 /* Layout.swift */; };
 		1DA8876C204FDD1600554C76 /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA8876B204FDD1600554C76 /* MyUtils.swift */; };
+		1DB123AC20610FC700C6968A /* DataListNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB123AB20610FC700C6968A /* DataListNC.swift */; };
+		1DB123AE206112AA00C6968A /* ServicesNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB123AD206112AA00C6968A /* ServicesNC.swift */; };
+		1DBD37AE2059360600B13217 /* DataSetLsitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD37AD2059360600B13217 /* DataSetLsitViewController.swift */; };
+		1DBD37B02059392500B13217 /* DataSetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD37AF2059392500B13217 /* DataSetsTableViewCell.swift */; };
 		1DC7159B2046AA1F00D7C9F7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC7159A2046AA1F00D7C9F7 /* RealmSwift.framework */; };
 		1DC7159C2046AA1F00D7C9F7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC7159A2046AA1F00D7C9F7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DC7159E2046AA2A00D7C9F7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC7159D2046AA2A00D7C9F7 /* Realm.framework */; };
 		1DC7159F2046AA2A00D7C9F7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC7159D2046AA2A00D7C9F7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DC715A22046AF3200D7C9F7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC715A12046AF3200D7C9F7 /* Notification.swift */; };
 		1DC715A52046B4B700D7C9F7 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC715A42046B4B700D7C9F7 /* Firebase.swift */; };
-		1DC715A72046BBF000D7C9F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DC715A62046BBEF00D7C9F7 /* GoogleService-Info.plist */; };
+		1DD3EBE72056B2A30000CE11 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD3EBE62056B2A30000CE11 /* LaunchScreenController.swift */; };
+		1DD7B828205B88910094137A /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7B827205B88910094137A /* ImageViewer.swift */; };
+		1DDF2E662059A5AF0098185C /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF2E652059A5AF0098185C /* Spinner.swift */; };
+		1DEEA0A9205A61310078D764 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEEA0A8205A61310078D764 /* FeedbackViewController.swift */; };
 		1DFCEA382048941000078695 /* NotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFCEA372048941000078695 /* NotificationCollectionViewCell.swift */; };
+		1DFED7A220616DBE0060923A /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFED7A120616DBE0060923A /* PopUpViewController.swift */; };
+		1DFED7A420619BC50060923A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DFED7A320619BC50060923A /* GoogleService-Info.plist */; };
 		AD94AE88A3B8A26861419D35 /* Pods_citizenconnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15653F29B7175866F83FB0AE /* Pods_citizenconnectTests.framework */; };
 		B2880BB1228DF4CEEE891D13 /* Pods_citizenconnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71900A01402028B620234862 /* Pods_citizenconnect.framework */; };
 		D4389B6CBC34BBF4EC9DB9C9 /* Pods_citizenconnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B2D8489847CF80A2E08F56 /* Pods_citizenconnectUITests.framework */; };
@@ -67,10 +85,12 @@
 /* Begin PBXFileReference section */
 		0EE205844894EC3DDF5B88BE /* Pods-citizenconnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-citizenconnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-citizenconnect/Pods-citizenconnect.release.xcconfig"; sourceTree = "<group>"; };
 		15653F29B7175866F83FB0AE /* Pods_citizenconnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_citizenconnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D1564D1205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutServicesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D1564D3205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDataSetsCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D451EF62040031200328551 /* citizenconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = citizenconnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D451EF92040031200328551 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D451EFB2040031200328551 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = citizenconnect/Controller/Notifications/NotificationViewController.swift; sourceTree = SOURCE_ROOT; };
-		1D451EFD2040031200328551 /* DataSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetViewController.swift; sourceTree = "<group>"; };
+		1D451EFD2040031200328551 /* DataSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataSetViewController.swift; path = citizenconnect/Controller/DataSets/DataSetViewController.swift; sourceTree = SOURCE_ROOT; };
 		1D451F002040031200328551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D451F022040031200328551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D451F052040031200328551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,16 +101,34 @@
 		1D451F172040031200328551 /* citizenconnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = citizenconnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D451F1B2040031200328551 /* citizenconnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = citizenconnectUITests.swift; sourceTree = "<group>"; };
 		1D451F1D2040031200328551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D4717152061394000981B20 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsVC.swift; path = citizenconnect/Controller/AboutUsVC.swift; sourceTree = SOURCE_ROOT; };
+		1D49E6602057A3E700B088BE /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenViewController.swift; path = citizenconnect/Controller/LaunchScreenViewController.swift; sourceTree = SOURCE_ROOT; };
+		1D49E6622057B56F00B088BE /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
+		1D4D82142051621B00D81F71 /* PdfViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewer.swift; sourceTree = "<group>"; };
+		1D55A90D2060E59E00A9B81C /* citizenconnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = citizenconnect.entitlements; sourceTree = "<group>"; };
+		1D55A90E2060F45700A9B81C /* VerifyPhoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VerifyPhoneController.swift; path = citizenconnect/Controller/Feedback/VerifyPhoneController.swift; sourceTree = SOURCE_ROOT; };
+		1D594B02205ED9390016EA1B /* NotificationNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationNC.swift; path = citizenconnect/Controller/Notifications/NotificationNC.swift; sourceTree = SOURCE_ROOT; };
+		1DA0F4D620622FA700807630 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA0F4DA206232C900807630 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA88765204FD11500554C76 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		1DA88767204FD47700554C76 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		1DA88769204FDAA300554C76 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		1DA8876B204FDD1600554C76 /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		1DB123AB20610FC700C6968A /* DataListNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataListNC.swift; path = citizenconnect/Controller/DataSets/DataListNC.swift; sourceTree = SOURCE_ROOT; };
+		1DB123AD206112AA00C6968A /* ServicesNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServicesNC.swift; path = citizenconnect/Controller/Services/ServicesNC.swift; sourceTree = SOURCE_ROOT; };
+		1DBD37AD2059360600B13217 /* DataSetLsitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataSetLsitViewController.swift; path = citizenconnect/Controller/DataSets/DataSetLsitViewController.swift; sourceTree = SOURCE_ROOT; };
+		1DBD37AF2059392500B13217 /* DataSetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetsTableViewCell.swift; sourceTree = "<group>"; };
 		1DC7159A2046AA1F00D7C9F7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		1DC7159D2046AA2A00D7C9F7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		1DC715A12046AF3200D7C9F7 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1DC715A42046B4B700D7C9F7 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
-		1DC715A62046BBEF00D7C9F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1DD3EBE62056B2A30000CE11 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		1DD7B827205B88910094137A /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageViewer.swift; path = citizenconnect/Controller/Notifications/ImageViewer.swift; sourceTree = SOURCE_ROOT; };
+		1DDF2E652059A5AF0098185C /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		1DEEA0A8205A61310078D764 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackViewController.swift; path = citizenconnect/Controller/Feedback/FeedbackViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DFCEA372048941000078695 /* NotificationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCollectionViewCell.swift; path = citizenconnect/Views/NotificationCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1DFED7A120616DBE0060923A /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpViewController.swift; path = citizenconnect/Controller/PopUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		1DFED7A320619BC50060923A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70DD340F62B5A9FD9E8D5861 /* Pods-citizenconnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-citizenconnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-citizenconnect/Pods-citizenconnect.debug.xcconfig"; sourceTree = "<group>"; };
 		71900A01402028B620234862 /* Pods_citizenconnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_citizenconnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDC9F3F73A496F3F15DF165 /* Pods-citizenconnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-citizenconnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-citizenconnectUITests/Pods-citizenconnectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA0F4D9206232C900807630 /* Alamofire.framework in Frameworks */,
 				1DC7159E2046AA2A00D7C9F7 /* Realm.framework in Frameworks */,
 				1DC7159B2046AA1F00D7C9F7 /* RealmSwift.framework in Frameworks */,
 				B2880BB1228DF4CEEE891D13 /* Pods_citizenconnect.framework in Frameworks */,
@@ -134,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				1DFCEA372048941000078695 /* NotificationCollectionViewCell.swift */,
+				1D1564D1205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift */,
+				1D1564D3205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift */,
+				1DBD37AF2059392500B13217 /* DataSetsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +188,10 @@
 				1D451F2E204003E300328551 /* Services */,
 				1D451F2D204003DA00328551 /* Notifications */,
 				1DA8876B204FDD1600554C76 /* MyUtils.swift */,
+				1D49E6602057A3E700B088BE /* LaunchScreenViewController.swift */,
+				1DDF2E652059A5AF0098185C /* Spinner.swift */,
+				1D4717152061394000981B20 /* AboutUsVC.swift */,
+				1DFED7A120616DBE0060923A /* PopUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +199,7 @@
 		1D451EED2040031200328551 = {
 			isa = PBXGroup;
 			children = (
+				1DA0F4D620622FA700807630 /* Alamofire.framework */,
 				1DC7159D2046AA2A00D7C9F7 /* Realm.framework */,
 				1DC7159A2046AA1F00D7C9F7 /* RealmSwift.framework */,
 				1D451EF82040031200328551 /* citizenconnect */,
@@ -177,7 +224,8 @@
 		1D451EF82040031200328551 /* citizenconnect */ = {
 			isa = PBXGroup;
 			children = (
-				1DC715A62046BBEF00D7C9F7 /* GoogleService-Info.plist */,
+				1DFED7A320619BC50060923A /* GoogleService-Info.plist */,
+				1D55A90D2060E59E00A9B81C /* citizenconnect.entitlements */,
 				1DC715A32046B47900D7C9F7 /* Constants */,
 				1D12D1732041F68B00514754 /* Controller */,
 				1D12D1722041F67600514754 /* Views */,
@@ -187,6 +235,7 @@
 				1D451F022040031200328551 /* Assets.xcassets */,
 				1D451F042040031200328551 /* LaunchScreen.storyboard */,
 				1D451F072040031200328551 /* Info.plist */,
+				1DD3EBE62056B2A30000CE11 /* LaunchScreenController.swift */,
 			);
 			path = citizenconnect;
 			sourceTree = "<group>";
@@ -215,6 +264,7 @@
 				1DC715A12046AF3200D7C9F7 /* Notification.swift */,
 				1DA88767204FD47700554C76 /* Services.swift */,
 				1DA88769204FDAA300554C76 /* Layout.swift */,
+				1D49E6622057B56F00B088BE /* DataSet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				1D451EFB2040031200328551 /* NotificationViewController.swift */,
+				1DD7B827205B88910094137A /* ImageViewer.swift */,
+				1D594B02205ED9390016EA1B /* NotificationNC.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -231,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				1DA88765204FD11500554C76 /* ServicesViewController.swift */,
+				1D4D82142051621B00D81F71 /* PdfViewer.swift */,
+				1DB123AD206112AA00C6968A /* ServicesNC.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				1D451EFD2040031200328551 /* DataSetViewController.swift */,
+				1DBD37AD2059360600B13217 /* DataSetLsitViewController.swift */,
+				1DB123AB20610FC700C6968A /* DataListNC.swift */,
 			);
 			path = DataSets;
 			sourceTree = "<group>";
@@ -246,6 +302,8 @@
 		1D451F30204003FD00328551 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
+				1DEEA0A8205A61310078D764 /* FeedbackViewController.swift */,
+				1D55A90E2060F45700A9B81C /* VerifyPhoneController.swift */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -274,6 +332,7 @@
 		7852A452F212DEFEDC9BDE7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DA0F4DA206232C900807630 /* Alamofire.framework */,
 				71900A01402028B620234862 /* Pods_citizenconnect.framework */,
 				15653F29B7175866F83FB0AE /* Pods_citizenconnectTests.framework */,
 				87B2D8489847CF80A2E08F56 /* Pods_citizenconnectUITests.framework */,
@@ -292,10 +351,10 @@
 				1D451EF22040031200328551 /* Sources */,
 				1D451EF32040031200328551 /* Frameworks */,
 				1D451EF42040031200328551 /* Resources */,
-				1DC715912046A09100D7C9F7 /* ShellScript */,
 				1DC715992046A93900D7C9F7 /* Embed Frameworks */,
 				C4DAA11D945F95DABC859374 /* [CP] Embed Pods Frameworks */,
 				1504D5B04785F371C7E81EA5 /* [CP] Copy Pods Resources */,
+				1D1868E920665C010071A111 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -362,6 +421,14 @@
 					1D451EF52040031200328551 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1D451F0B2040031200328551 = {
 						CreatedOnToolsVersion = 9.2;
@@ -401,7 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D451F062040031200328551 /* LaunchScreen.storyboard in Resources */,
-				1DC715A72046BBF000D7C9F7 /* GoogleService-Info.plist in Resources */,
+				1DFED7A420619BC50060923A /* GoogleService-Info.plist in Resources */,
 				1D451F032040031200328551 /* Assets.xcassets in Resources */,
 				1D451F012040031200328551 /* Main.storyboard in Resources */,
 			);
@@ -439,7 +506,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-citizenconnect/Pods-citizenconnect-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1DC715912046A09100D7C9F7 /* ShellScript */ = {
+		1D1868E920665C010071A111 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -450,7 +517,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
 		};
 		1DC715A02046AB9000D7C9F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -586,17 +653,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-citizenconnect/Pods-citizenconnect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MIBlurPopup/MIBlurPopup.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBlurPopup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -615,13 +700,30 @@
 				1DC715A52046B4B700D7C9F7 /* Firebase.swift in Sources */,
 				1DA8876C204FDD1600554C76 /* MyUtils.swift in Sources */,
 				1DA88766204FD11500554C76 /* ServicesViewController.swift in Sources */,
+				1DEEA0A9205A61310078D764 /* FeedbackViewController.swift in Sources */,
+				1DB123AE206112AA00C6968A /* ServicesNC.swift in Sources */,
+				1D1564D2205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift in Sources */,
+				1DD3EBE72056B2A30000CE11 /* LaunchScreenController.swift in Sources */,
+				1DD7B828205B88910094137A /* ImageViewer.swift in Sources */,
 				1DFCEA382048941000078695 /* NotificationCollectionViewCell.swift in Sources */,
 				1DC715A22046AF3200D7C9F7 /* Notification.swift in Sources */,
+				1D594B03205ED9390016EA1B /* NotificationNC.swift in Sources */,
+				1DDF2E662059A5AF0098185C /* Spinner.swift in Sources */,
 				1D451EFE2040031200328551 /* DataSetViewController.swift in Sources */,
 				1DA8876A204FDAA400554C76 /* Layout.swift in Sources */,
 				1DA88768204FD47700554C76 /* Services.swift in Sources */,
 				1D451EFA2040031200328551 /* AppDelegate.swift in Sources */,
+				1DFED7A220616DBE0060923A /* PopUpViewController.swift in Sources */,
+				1D4D82152051621B00D81F71 /* PdfViewer.swift in Sources */,
 				1D451EFC2040031200328551 /* NotificationViewController.swift in Sources */,
+				1D49E6612057A3E700B088BE /* LaunchScreenViewController.swift in Sources */,
+				1DB123AC20610FC700C6968A /* DataListNC.swift in Sources */,
+				1D55A90F2060F45700A9B81C /* VerifyPhoneController.swift in Sources */,
+				1DBD37B02059392500B13217 /* DataSetsTableViewCell.swift in Sources */,
+				1DBD37AE2059360600B13217 /* DataSetLsitViewController.swift in Sources */,
+				1D49E6632057B56F00B088BE /* DataSet.swift in Sources */,
+				1D4717162061394000981B20 /* AboutUsVC.swift in Sources */,
+				1D1564D4205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +879,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -788,16 +891,20 @@
 			baseConfigurationReference = 70DD340F62B5A9FD9E8D5861 /* Pods-citizenconnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = citizenconnect/citizenconnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T43W8U7537;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = citizenconnect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cfp.citizenconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos11.2;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -808,18 +915,23 @@
 			baseConfigurationReference = 0EE205844894EC3DDF5B88BE /* Pods-citizenconnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = citizenconnect/citizenconnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T43W8U7537;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = citizenconnect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cfp.citizenconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos11.2;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

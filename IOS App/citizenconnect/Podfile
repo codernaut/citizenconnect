@@ -2,12 +2,21 @@
 # platform :ios, '9.0'
 
 target 'citizenconnect' do
-pod 'Firebase/Core'
+pod 'Firebase'
+pod 'FirebaseCore'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Firebase/Messaging'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 use_frameworks!
+pod 'Popover'
+pod 'MIBlurPopup'
 pod 'ObjectMapper', '~> 3.1'
 pod 'SDWebImage', '~> 4.0'
+pod 'UIColor_Hex_Swift', '~> 4.0.1'
+pod 'AlamofireImage', '~> 3.3'
+pod 'Toast-Swift', '~> 3.0.1'
+pod 'MBCircularProgressBar'
   # Pods for citizenconnect
 
   target 'citizenconnectTests' do

@@ -15,8 +15,7 @@ import ObjectMapper
 
 class Services : Object,Mappable{
     
-    @objc dynamic var id = ""
-    @objc dynamic var type = ""
+    @objc dynamic var name = ""
     @objc dynamic var fileUrl = ""
     
     required convenience init(map:Map) {
@@ -24,17 +23,20 @@ class Services : Object,Mappable{
     }
     
     func mapping(map: Map) {
-        id <- map["id"]
-        type <- map["type"]
+        name <- map["data_set_name"]
         fileUrl <- map["fileUrl"]
     }
     
-    public static func getNotificationList(completion: @escaping (Bool,Results<Services>) -> Void) {
-        let realm = try! Realm()
-    }
+   
     
     static func getRealmData() ->Results<Services> {
         let realm = try! Realm()
         return realm.objects(Services.self)
+    }
+    
+    static func getFilePath(serviceName:String) ->String {
+        let realm = try! Realm()
+        let service:Services = realm.objects(Services.self).filter("name = '\(serviceName)'").first!
+        return service.fileUrl
     }
 }

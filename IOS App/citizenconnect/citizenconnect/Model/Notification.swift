@@ -59,4 +59,9 @@ class Notification :  Object,Mappable{
         let realm = try! Realm()
         return realm.objects(Notification.self)
     }
+    static func searchNotificationList(query:String) ->Results<Notification> {
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "notificationDescription CONTAINS  [c] %@",query)
+        return realm.objects(Notification.self).filter(predicate)
+    }
 }

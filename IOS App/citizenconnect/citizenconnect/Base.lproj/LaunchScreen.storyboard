@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +17,56 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="V8W-IZ-yUQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cfp_logo_splash" translatesAutoresizingMaskIntoConstraints="NO" id="oPn-Ud-cKq">
+                                <rect key="frame" x="12" y="598" width="150" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="UmD-Gu-C1n"/>
+                                    <constraint firstAttribute="width" constant="150" id="s6Q-RT-zbc"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ict_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="tzL-uc-dXf">
+                                <rect key="frame" x="306" y="598" width="57" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="gNk-gg-sHU"/>
+                                    <constraint firstAttribute="height" constant="57" id="xtB-Ok-7hI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO ZP-1" translatesAutoresizingMaskIntoConstraints="NO" id="pLC-wh-Ofh">
+                                <rect key="frame" x="20" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tzL-uc-dXf" secondAttribute="bottom" constant="12" id="6K7-Jr-3Go"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V8W-IZ-yUQ" secondAttribute="trailing" id="Gdg-4r-gv9"/>
+                            <constraint firstItem="pLC-wh-Ofh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HlB-lq-NTr"/>
+                            <constraint firstItem="V8W-IZ-yUQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ReI-Qn-DYi"/>
+                            <constraint firstAttribute="bottom" secondItem="pLC-wh-Ofh" secondAttribute="bottom" id="bqd-6m-Gpe"/>
+                            <constraint firstItem="oPn-Ud-cKq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="cQa-CD-DeT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oPn-Ud-cKq" secondAttribute="bottom" constant="12" id="hAp-on-24h"/>
+                            <constraint firstAttribute="trailing" secondItem="pLC-wh-Ofh" secondAttribute="trailing" constant="-20" id="ht7-d4-n1r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tzL-uc-dXf" secondAttribute="trailing" constant="12" id="lCM-1O-ZXy"/>
+                            <constraint firstItem="pLC-wh-Ofh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="n7f-kM-OZx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V8W-IZ-yUQ" secondAttribute="bottom" id="wdd-aM-Q0W"/>
+                            <constraint firstItem="V8W-IZ-yUQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zNB-AB-UBW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LOGO ZP-1" width="1500" height="2667"/>
+        <image name="cfp_logo_splash" width="1532" height="527"/>
+        <image name="ict_logo_white" width="1728" height="1907"/>
+        <image name="splash_background" width="1500" height="2667"/>
+    </resources>
 </document>
