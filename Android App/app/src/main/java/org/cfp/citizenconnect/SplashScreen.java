@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -33,9 +34,9 @@ public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
         progressBar = findViewById(R.id.progressBar);
         user = User.getUserInstance(realm);
@@ -60,7 +61,6 @@ public class SplashScreen extends AppCompatActivity {
     protected void onActivityResult(
             int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         getResultsFromApi();
 
     }
@@ -68,7 +68,6 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-
         getResultsFromApi();
 
     }
@@ -76,8 +75,9 @@ public class SplashScreen extends AppCompatActivity {
     public void getResultsFromApi() {
 
         if (!isDeviceOnline(SplashScreen.this)) {
-            mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,
-                    findViewById(R.id.coordinator), null);
+//            if (findViewById(R.id.coordinator) != null) {
+                mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,findViewById(R.id.constraintLayout), null);
+//            }
             progressBar.setVisibility(View.GONE);
         } else {
             if (isObjectExist()) {
@@ -103,7 +103,7 @@ public class SplashScreen extends AppCompatActivity {
 
             getDataSet(response -> {
                         runOnUiThread(() -> {
-                            Toast.makeText(SplashScreen.this,getString(R.string.completed_msg), Toast.LENGTH_LONG).show();
+                            Toast.makeText(SplashScreen.this, getString(R.string.completed_msg), Toast.LENGTH_LONG).show();
 
                             progressBar.setVisibility(View.GONE);
                         });
