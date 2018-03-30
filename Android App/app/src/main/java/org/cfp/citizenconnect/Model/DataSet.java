@@ -31,13 +31,13 @@ public class DataSet extends RealmObject {
     @PrimaryKey
     private String id;
 
-    @PropertyName("dataSetType")
+    @PropertyName(zza = "dataSetType")
     private String dataSetType;
 
-    @PropertyName("Address")
+    @PropertyName(zza = "Address")
     private String address;
 
-    @PropertyName("Name")
+    @PropertyName(zza = "Name")
     private String name;
 
 

@@ -63,7 +63,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     NotificationFragmentBinding binding;
     List<Notifications> notificationsModel = new ArrayList<>();
     NotificationLayoutAdapter notificationListAdapter;
-    BlurPopupWindow.Builder mBuilder;
     ProgressDialog progressDialog;
     ScrollStatus mScrollStatus;
     NotificationUpdate notificationUpdate;

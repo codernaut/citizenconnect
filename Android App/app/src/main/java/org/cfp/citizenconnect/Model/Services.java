@@ -35,11 +35,11 @@ public class Services extends RealmObject {
         this.id = id;
     }
 
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public String getType() {
         return type;
     }
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public void setType(String type) {
         this.type = type;
     }

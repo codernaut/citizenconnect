@@ -65,12 +65,12 @@ public class Layout extends RealmObject {
         this.icon = icon;
     }
 
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public String getName() {
         return name;
     }
 
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public void setName(String name) {
         this.name = name;
     }
