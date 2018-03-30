@@ -13,7 +13,7 @@ import SDWebImage
 import AlamofireImage
 import  Alamofire
 import Popover
-import MIBlurPopup
+
 
 
 class NotificationViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UISearchBarDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
@@ -41,7 +41,7 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         addMenuButton()
         addSearchButton()
         initializeData()
-    
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,7 +136,7 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
         tableView.delegate = self
         tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 20, y: 55)
+        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
         popover = Popover()
         popover.show(tableView, point: startPoint)
     }
@@ -196,6 +196,7 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     }
     
     func initializeData(){
+        MyUtils.NotificationbadgeCount(sender: self, index: 0)
         self.notificationObjects.removeAll()
         Notification.getNotificationList(completion: { (results) in
             for notification in results {
@@ -223,7 +224,6 @@ extension NotificationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 1
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)

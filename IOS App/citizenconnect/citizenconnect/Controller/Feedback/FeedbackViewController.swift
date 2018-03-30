@@ -10,6 +10,7 @@ import UIKit
 import Toast_Swift
 import Firebase
 import Popover
+import Alamofire
 
 
 class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
@@ -18,14 +19,20 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var categoryTV: UITextField!
     @IBOutlet weak var fullNameTV: UITextField!
     @IBOutlet weak var message: UITextView!
+    
+    var alert:UIAlertView!
+    
     var popover:Popover!
     fileprivate var texts = ["About us"]
     @IBOutlet weak var phoneTV: UITextField!
     var keys: [String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        categoryTV.text = "Please Select"
         phoneTV.keyboardType = UIKeyboardType.phonePad
         self.navigationItem.title = "Feedback"
         self.navigationItem.backBarButtonItem?.title = ""
@@ -51,7 +58,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
-        
+        alert =   MyUtils.showAlert(title: nil, message: "Please wait", cancelBtnTitle: nil, sender: self)
     
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FeedbackViewController.donePicker))
         doneButton.tintColor = UIColor(hexString: "#26a69a")
@@ -67,17 +74,28 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "verifyCode"?:
+            let verifyPhoneC = segue.destination as! VerifyPhoneController
+            verifyPhoneC.result = self.result
+        default:
+            print("default")
+        }
+        
+    }
     @objc func showMenu() ->Void {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
         tableView.delegate = self
         tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 20, y: 55)
+        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
         popover = Popover()
         popover.show(tableView, point: startPoint)
     }
     
     @IBAction func sendMessage(_ sender: Any) {
+        alert.show()
         if Validate() == false {
             self.view.makeToast("Please provide all details")
         }
@@ -85,16 +103,18 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneTV.text!, uiDelegate: nil) { (verificationID, error) in
                 if let error = error {
                   print(error)
+                    self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
                     self.view.makeToast("Failed to verify")
                     return
                 }
                 else {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
-                    controller.phoneNumber = self.phoneTV.text
-                    controller.verificationId = verificationID
-                    
-                    self.present(controller, animated: true, completion: nil)
+                   // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  //  var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
+                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                    UserDefaults.standard.set(self.phoneTV.text, forKey: "userPhoneNo")
+                    self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
+                    self.performSegue(withIdentifier: "verifyCode", sender: self)
+                  //  self.present(controller, animated: true, completion: nil)
                 }
             }
         }
@@ -151,6 +171,34 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     @objc func dismissKeyboard() ->Void {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    func result(success: Bool) {
+        print(success)
+        alert =   MyUtils.showAlert(title: nil, message: "Sending", cancelBtnTitle: nil, sender: self)
+        alert.show()
+        if success {
+            let params:Parameters = [
+                "name": fullNameTV.text ?? String(),
+                "contactNo": phoneTV.text ?? String(),
+                "feedbackType": categoryTV.text ?? String(),
+                "message": message.text
+            ]
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer "+UserDefaults.standard.string(forKey: "userToken")!
+            ]
+            MyUtils.postData(url: ApiManager.sendfeedBack, headers: headers, parameters: params, completion: { (response) in
+                 self.view.makeToast("Sent")
+                self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
+                print(response as Any)
+                self.fullNameTV.text = nil
+                self.message.text = nil
+                self.categoryTV.text = nil
+                self.phoneTV.text = nil
+            })
+        }
+        else {
+            
+        }
     }
     /*
     // MARK: - Navigation

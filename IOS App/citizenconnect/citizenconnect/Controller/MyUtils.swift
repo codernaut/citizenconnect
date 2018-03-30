@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 import FirebaseDatabase
 import UIKit
+import Alamofire
 
 class MyUtils {
     
@@ -24,6 +25,41 @@ class MyUtils {
             failed(err)
             
         })
+    }
+    
+    static func NotificationbadgeCount (sender: AnyObject!,index:Int){
+        if let tabItems = sender!.tabBarController??.tabBar.items as NSArray!
+        {
+            let tabItem = tabItems[index] as! UITabBarItem
+            switch(index){
+            case(0):
+                let realm = try! Realm()
+                let status = realm.objects(NotificationStatus.self).first
+                if status?.notificationCount != nil{
+                    tabItem.badgeValue = status?.notificationCount
+                }
+            default:
+                print("xdsds")
+            }
+        }
+    }
+    
+    static func NotificationbadgeClear (sender: AnyObject!,index:Int){
+        if let tabItems = sender!.tabBarController??.tabBar.items as NSArray!
+        {
+            let tabItem = tabItems[index] as! UITabBarItem
+            switch(index){
+            case(0):
+                let realm = try! Realm()
+                let status = realm.objects(NotificationStatus.self).first
+                try! realm.write{
+                    status?.notificationCount = "0"
+                }
+                tabItem.badgeValue = nil
+            default:
+                print("default")
+            }
+        }
     }
     
     func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
@@ -49,6 +85,11 @@ class MyUtils {
         loadingIndicator.startAnimating()
         loadingIndicator.startAnimating()
         return alert
+    }
+    public static func postData(url:String,headers: HTTPHeaders, parameters: Parameters,completion: @escaping (AnyObject?) -> Void){
+        Alamofire.request(url, method: .post, parameters: parameters ,headers: headers).responseJSON { (response) in
+            completion(response as AnyObject)
+        }
     }
     
 }

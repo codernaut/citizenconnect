@@ -44,7 +44,7 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
         tableView.delegate = self
         tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 20, y: 55)
+        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
         popover = Popover()
         popover.show(tableView, point: startPoint)
     }

@@ -15,4 +15,7 @@ struct Firebase {
         static let LayoutDataSets = "project/data_sets"
         static let DataSetsPath = "dataset"
     }
+    struct Notification {
+        static var RegistrationToken:String?
+    }
 }

@@ -3,5 +3,8 @@ module.exports = Object.freeze({
     DATABASE_URL: 'https://citizenconnect-ed5fa.firebaseio.com',
     PROJECT_ID: 'citizenconnect-ed5fa',
     STORAGE_BUCKET_URL: 'citizenconnect-ed5fa.appspot.com/Notifications',
-    STORAGE_BUCKET_NOTIFICATION :'citizenconnect-ed5fa-notifications'
+    STORAGE_BUCKET_NOTIFICATION :'citizenconnect-ed5fa-notifications',
+    EMAIL_SENDER : 'raabta.ict@gmail.com',
+    PASSWORD_SENDER : 'raabta@ict@786',
+    EMAIL_RECEIVER : 'shahzaib.shahid414@gmail.com'
 });

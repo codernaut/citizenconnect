@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIColor_Hex_Swift
 
 class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITableViewDelegate,UISearchBarDelegate
 {
@@ -23,7 +22,7 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
         let cancelButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(ImageViewer.dismissController(_:)))
         cancelButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = cancelButton
-        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor("#26a69a")]
+        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor(hexString: "#26a69a")]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
         self.navigationItem.backBarButtonItem?.title = ""
         self.navigationItem.title = dataType

@@ -9,9 +9,11 @@
 import UIKit
 import RealmSwift
 import Firebase
-
+import UserNotifications
+import Fabric
+import Crashlytics
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
     
@@ -19,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp .configure()
+              Fabric.with([Crashlytics.self])
         let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorImage = backImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
@@ -32,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // Nothing to do!
                     // Realm will automatically detect new properties and removed properties
                     // And will update the schema on disk automatically
-                }
-        }
+                    }
+            }
             
         )
         Realm.Configuration.defaultConfiguration = config
@@ -44,13 +47,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return true;
         }
-        
+        initRemoteNotification(application: application)
+        Messaging.messaging().delegate = self
+        Firebase.Notification.RegistrationToken = Messaging.messaging().fcmToken
         return true
     }
     
+    func initRemoteNotification(application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+            
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            Messaging.messaging().delegate = self
+        }
+        application.registerForRemoteNotifications()
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+    
+    func application(application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken as Data
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -71,5 +95,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+}
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        // Print message ID.
+        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        
+        // Print full message.
+        print("%@", userInfo)
+        
+    }
+    
+}
+
+extension AppDelegate : MessagingDelegate {
+    // Receive data message on iOS 10 devices.
+   /* func application(received remoteMessage: MessagingRemoteMessage) {
+        print("%@", remoteMessage.appData)
+    }
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+         print("%@", remoteMessage.appData)
+    }*/
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        //Receive Message when App is in background
+        print("%@", "remoteMessage.appData")
+        
+    }
 }
 

@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var constants = require('../../../constants')
 exports.sendEmail = function (req, res) {
     var name = req.body.name;
     var contactNo = req.body.contactNo;
@@ -11,15 +12,15 @@ exports.sendEmail = function (req, res) {
             service: 'Gmail',
             auth: {
 
-                user: 'xxxxxx',
-                pass: 'xxxxxx'
+                user: constants.EMAIL_SENDER,
+                pass: constants.PASSWORD_SENDER
 
             }
         });
         
         var mailOptions = {
-            from: 'xxxxx', // sender address
-            to: 'xxxxxx', // list of receivers
+            from: constants.EMAIL_SENDER, // sender address
+            to: constants.EMAIL_RECEIVER, // list of receivers
             subject: 'Hello ✔', // Subject line
             text: 'Hello world ✔', // plaintext body
             html: '<b>'+name+'</b>' // html body
