@@ -40,7 +40,7 @@ android {
         maven { url "https://jitpack.io" }
 
     }
-    android{
+    android {
         dataBinding {
             enabled = true
         }
