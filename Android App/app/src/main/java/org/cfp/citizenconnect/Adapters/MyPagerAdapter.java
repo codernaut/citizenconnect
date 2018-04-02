@@ -12,7 +12,7 @@ import org.cfp.citizenconnect.Services.FragmentServices;
  * Created by shahzaibshahid on 18/01/2018.
  */
 
-public class MyPagerAdapter extends  FragmentStateAdapter {
+public class MyPagerAdapter extends FragmentStateAdapter {
     private static int NUM_ITEMS = 4;
 
     public MyPagerAdapter(FragmentManager fragmentManager) {

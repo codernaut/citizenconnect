@@ -12,10 +12,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +22,6 @@ import android.widget.Toast;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.kyleduo.blurpopupwindow.library.BlurPopupWindow;
 
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
@@ -33,7 +30,6 @@ import org.cfp.citizenconnect.MainActivity;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.R;
-import org.cfp.citizenconnect.SplashScreen;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
 
 import java.io.IOException;
@@ -42,10 +38,7 @@ import java.util.Collections;
 import java.util.List;
 
 import io.realm.Case;
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
-import io.realm.Sort;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
@@ -53,7 +46,6 @@ import static org.cfp.citizenconnect.Constants.DESCRIPTION;
 import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
-import com.google.firebase.database.*;
 
 /**
  * Created by shahzaibshahid on 18/01/2018.

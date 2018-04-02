@@ -65,7 +65,8 @@ public class GridViewAdapter extends BaseAdapter {
         mCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
         return view;
     }
-    public  interface OnItemClickListener{
+
+    public interface OnItemClickListener {
         void viewDataList(String type);
     }
 }

@@ -18,7 +18,6 @@ import org.cfp.citizenconnect.Adapters.DataSetAdapter;
 import org.cfp.citizenconnect.Model.DataSet;
 import org.cfp.citizenconnect.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Case;
@@ -64,7 +63,7 @@ public class DataSetListActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(type);
             list = fetchFromRealm(type);
             if (list.size() == 0) {
-                Toast.makeText(DataSetListActivity.this,"No data found",Toast.LENGTH_LONG).show();
+                Toast.makeText(DataSetListActivity.this, "No data found", Toast.LENGTH_LONG).show();
                 finish();
             } else {
                 updateAdapter();

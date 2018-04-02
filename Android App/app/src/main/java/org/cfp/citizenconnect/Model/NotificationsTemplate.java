@@ -1,7 +1,6 @@
 package org.cfp.citizenconnect.Model;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by shahzaibshahid on 03/01/2018.
