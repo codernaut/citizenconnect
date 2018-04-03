@@ -43,7 +43,23 @@ class MyUtils {
             }
         }
     }
-    
+    static func UpdateNotificationCount (index:Int) {
+        let realm = try! Realm()
+        let status = realm.objects(NotificationStatus.self).first
+        if status != nil {
+            let count:Int  = Int((status?.notificationCount)!)! + 1
+            try! realm.write {
+                 status?.notificationCount = String(count)
+            }
+        }
+        else
+        {   let obj = NotificationStatus()
+            obj.notificationCount = "1"
+           try! realm.write {
+                realm.add(obj)
+            }
+        }
+    }
     static func NotificationbadgeClear (sender: AnyObject!,index:Int){
         if let tabItems = sender!.tabBarController??.tabBar.items as NSArray!
         {
@@ -91,7 +107,6 @@ class MyUtils {
             completion(response as AnyObject)
         }
     }
-    
 }
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
@@ -120,4 +135,30 @@ extension UIColor {
         let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
         return String(format:"#%06x", rgb)
     }
+}
+extension UIImage {
+    
+    func maskWithColor(color: UIColor) -> UIImage? {
+        let maskImage = cgImage!
+        
+        let width = size.width
+        let height = size.height
+        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
+        
+        context.clip(to: bounds, mask: maskImage)
+        context.setFillColor(color.cgColor)
+        context.fill(bounds)
+        
+        if let cgImage = context.makeImage() {
+            let coloredImage = UIImage(cgImage: cgImage)
+            return coloredImage
+        } else {
+            return nil
+        }
+    }
+    
 }

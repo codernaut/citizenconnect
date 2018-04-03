@@ -17,18 +17,16 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
     fileprivate var texts = ["About us"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
+        menuButton.tintColor = UIColor.white
+        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
+        emergencyCallButton.tintColor = UIColor.white
+        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        
         SpinnerView = UIViewController.displaySpinner(onView: self.view)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Data Sets"
         self.navigationItem.backBarButtonItem?.title = ""
-        let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        
-        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = menuButton
-        // self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        
         Layout.getLayout(dataBaseReference: Firebase.Database.LayoutDataSets , Datatype: "dataSets", completion: { (LayoutServices) in
             for layout in LayoutServices {
                 self.layoutObjects.append(layout)
@@ -94,8 +92,8 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
         return cell
     }
     
-    @objc func emergencyCall() -> Void {
-        
+    @objc func emergencyCall() ->Void {
+        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     
 

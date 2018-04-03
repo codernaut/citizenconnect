@@ -10,5 +10,5 @@ import Foundation
 import RealmSwift
 
 class NotificationStatus: Object {
-    @objc var notificationCount = ""
+    @objc var notificationCount:String?
 }

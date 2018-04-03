@@ -40,8 +40,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = menuButton
-        // self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
         message.layer.borderWidth = 0.5
         message .layer.cornerRadius = 7.0
         message.layer.borderColor = UIColor.lightGray.cgColor
@@ -97,6 +96,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     @IBAction func sendMessage(_ sender: Any) {
         alert.show()
         if Validate() == false {
+            self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
             self.view.makeToast("Please provide all details")
         }
         else {
@@ -165,7 +165,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     }
     
     @objc func emergencyCall()->Void {
-        
+         performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     
     @objc func dismissKeyboard() ->Void {

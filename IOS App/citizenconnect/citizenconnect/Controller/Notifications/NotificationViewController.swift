@@ -17,7 +17,6 @@ import Popover
 
 
 class NotificationViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UISearchBarDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
-
     var notificationObjects = [Notification]()
     var SpinnerView:UIView!
     @IBOutlet weak var NotificationCollectionView: UICollectionView!
@@ -41,7 +40,7 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         addMenuButton()
         addSearchButton()
         initializeData()
-        
+        MyUtils.NotificationbadgeCount(sender: self, index: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,9 +87,9 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         searchBar.isHidden = true
         self.navigationItem.title = "Notifications"
         self.navigationItem.titleView = nil
-        //self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        //self.navigationItem.setRightBarButton(menuButton, animated: true)
-        addMenuButton()
+        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        self.navigationItem.setRightBarButton(menuButton, animated: true)
+        //addMenuButton()
         addSearchButton()
 
     }
@@ -122,15 +121,11 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
         self.navigationItem.titleView = searchBar
         self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
     }
     
     @objc func emergencyCall() ->Void {
-        let popup = UIStoryboard(name: "Main",bundle: nil).instantiateViewController(withIdentifier: "popUpView") as! PopUpViewController
-        self.addChildViewController(popup)
-        popup.view.frame = self.view.frame
-        self.view.addSubview(popup.view)
-        popup.didMove(toParentViewController: self)
+        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     @objc func showMenu() ->Void {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
@@ -149,9 +144,7 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = menuButton
-       // self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        
-        
+        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
     }
     func addSearchButton() -> Void {
         searchButton  = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(addSearchBar))

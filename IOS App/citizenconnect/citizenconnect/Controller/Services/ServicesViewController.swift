@@ -21,15 +21,13 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
     var SpinnerView:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Services"
-         SpinnerView = UIViewController.displaySpinner(onView: self.view)
         let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = menuButton
-        // self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        
+        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        self.navigationItem.title = "Services"
+         SpinnerView = UIViewController.displaySpinner(onView: self.view)
         Layout.getLayout(dataBaseReference: Firebase.Database.LayoutServices , Datatype: "services", completion: { (LayoutServices) in
             for layout in LayoutServices {
                 self.layoutObjects.append(layout)
@@ -96,7 +94,7 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     @objc func emergencyCall()->Void {
-        
+        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     
 }

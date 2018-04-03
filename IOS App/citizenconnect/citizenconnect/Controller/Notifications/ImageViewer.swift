@@ -7,23 +7,31 @@
 //
 
 import UIKit
-import SDWebImage
+import Alamofire
+import ImageScrollView
 
 class ImageViewer: UIViewController {
     var imagePath:String = ""
     var notificationDescription: String?
     @IBOutlet weak var descriptionLabel: UILabel?
-    @IBOutlet weak var imageView: UIImageView?
+    var imageView: UIImageView?
+    @IBOutlet weak var imageShow: ImageScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
         let cancelButton = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(ImageViewer.dismissController(_:)))
         cancelButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = cancelButton
-        imageView?.sd_setImage(with: URL(string: imagePath),placeholderImage:#imageLiteral(resourceName: "placeHolder"))
+        
+        Alamofire.request(imagePath).responseImage { response in
+            if let image:UIImage = response.result.value {
+                self.imageShow.display(image: image)
+            }
+        }
         descriptionLabel?.text = notificationDescription
         // Do any additional setup after loading the view.
     }

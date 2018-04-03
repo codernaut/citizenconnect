@@ -105,7 +105,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         // Print message ID.
         print("Message ID: \(userInfo["gcm.message_id"]!)")
-        
+        MyUtils.UpdateNotificationCount(index: 0)
         // Print full message.
         print("%@", userInfo)
         
@@ -115,15 +115,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 
 extension AppDelegate : MessagingDelegate {
     // Receive data message on iOS 10 devices.
-   /* func application(received remoteMessage: MessagingRemoteMessage) {
+    func application(received remoteMessage: MessagingRemoteMessage) {
         print("%@", remoteMessage.appData)
     }
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
          print("%@", remoteMessage.appData)
-    }*/
+    }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        //Receive Message when App is in background
         print("%@", "remoteMessage.appData")
+        MyUtils.UpdateNotificationCount(index: 0)
         
     }
 }

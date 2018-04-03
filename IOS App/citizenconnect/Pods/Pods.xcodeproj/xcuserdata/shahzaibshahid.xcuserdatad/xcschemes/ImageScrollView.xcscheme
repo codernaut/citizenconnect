@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "83D68821BD8324701D9218C2C967DBAF"
-               BlueprintName = "Popover"
+               BlueprintIdentifier = "DA7784E74D1BFF419790CC15877BB381"
+               BlueprintName = "ImageScrollView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Popover.framework">
+               BuildableName = "ImageScrollView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
