@@ -64,7 +64,7 @@ public class FCMService extends FirebaseMessagingService {
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
                         openApp, PendingIntent.FLAG_UPDATE_CURRENT);
                         builder.setContentIntent(pendingIntent)
-                        .setSmallIcon(R.drawable.ic_notification_icon)
+                        .setSmallIcon(R.drawable.ic_notification)
                         .setLargeIcon(MyUtils.getBitmap(R.drawable.logo, getApplicationContext()))
                         .setContentTitle("ICT Citizen Connect")
                         .setContentText("New update added click to view")
@@ -82,22 +82,20 @@ public class FCMService extends FirebaseMessagingService {
                 Intent openApp = new Intent(this, MainActivity.class);
                 openApp.putExtra("clearNotificationCount", true);
 
-                PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
-                        openApp, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,openApp, PendingIntent.FLAG_UPDATE_CURRENT);
                 Notification notification = new Notification.Builder(this)
                         .setContentIntent(pendingIntent)
-                        .setSmallIcon(R.drawable.ic_notification_icon)
-                        .setLargeIcon(MyUtils.getBitmap(R.drawable.logo, getApplicationContext()))
+                        .setSmallIcon(R.drawable.ic_notification)
+                        .setLargeIcon(MyUtils.getBitmap(R.drawable.ic_notification, getApplicationContext()))
                         .setContentTitle("ICT Citizen Connect")
                         .setContentText("New update added click to view")
                         .setPriority(Notification.PRIORITY_MAX)
                         .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                         .setAutoCancel(true)
                         .build();
-
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.notify(ICT_NOTIFICATION_ID, notification);
+
             }
 
         }
