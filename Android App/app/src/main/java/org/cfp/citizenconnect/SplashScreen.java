@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -76,7 +75,7 @@ public class SplashScreen extends AppCompatActivity {
 
         if (!isDeviceOnline(SplashScreen.this)) {
 //            if (findViewById(R.id.coordinator) != null) {
-                mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1,findViewById(R.id.constraintLayout), null);
+            mSnakbar(getString(R.string.no_internet_msg), null, 5000, 1, findViewById(R.id.constraintLayout), null);
 //            }
             progressBar.setVisibility(View.GONE);
         } else {

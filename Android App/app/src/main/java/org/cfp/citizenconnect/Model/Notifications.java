@@ -1,17 +1,13 @@
 package org.cfp.citizenconnect.Model;
 
-import com.facebook.datasource.DataSource;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.IgnoreExtraProperties;
 
 import org.cfp.citizenconnect.CustomCallBack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
@@ -33,6 +29,31 @@ public class Notifications extends RealmObject {
     String date;
     String description;
     String tag;
+
+    public static void setNotifications(Notifications notificationsObj, String key, Realm mRealm) {
+        mRealm.executeTransaction(realm -> {
+            Notifications notifications = realm.createObject(Notifications.class, key);
+            notifications.setDate(notificationsObj.getDate());
+            notifications.setDescription(notificationsObj.getDescription());
+            notifications.setFilePath(notificationsObj.getFilePath());
+            notifications.setTag(notificationsObj.getTag());
+        });
+    }
+
+    public static void fetchFirebaseNotifications(DatabaseReference databaseReference, CustomCallBack.Listener<List<Notifications>> mResultListener, CustomCallBack.ErrorListener<DatabaseError> mError) {
+        List<Notifications> notificationsModel = new ArrayList<>();
+        realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
+        getAFireBaseData(databaseReference, response -> {
+            for (DataSnapshot data : response.getChildren()) {
+                Notifications notifications = data.getValue(Notifications.class);
+                Notifications.setNotifications(notifications, data.getKey(), realm);
+                notificationsModel.add(notifications);
+            }
+            mResultListener.onResponse(notificationsModel);
+        }, (DatabaseError error) -> {
+            mError.onErrorResponse(error);
+        });
+    }
 
     public String getId() {
         return id;
@@ -72,30 +93,6 @@ public class Notifications extends RealmObject {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public  static void setNotifications(Notifications notificationsObj,String key,Realm mRealm){
-        mRealm.executeTransaction(realm -> {
-            Notifications notifications = realm.createObject(Notifications.class, key);
-            notifications.setDate(notificationsObj.getDate());
-            notifications.setDescription(notificationsObj.getDescription());
-            notifications.setFilePath(notificationsObj.getFilePath());
-            notifications.setTag(notificationsObj.getTag());
-        });
-    }
-    public static  void  fetchFirebaseNotifications(DatabaseReference databaseReference, CustomCallBack.Listener<List<Notifications>> mResultListener, CustomCallBack.ErrorListener<DatabaseError> mError){
-        List<Notifications> notificationsModel = new ArrayList<>();
-        realm.executeTransaction(realm -> realm.where(Notifications.class).findAll().deleteAllFromRealm());
-        getAFireBaseData(databaseReference, response -> {
-            for (DataSnapshot data : response.getChildren()) {
-                Notifications notifications = data.getValue(Notifications.class);
-                Notifications.setNotifications(notifications,data.getKey(), realm);
-                notificationsModel.add(notifications);
-            }
-            mResultListener.onResponse(notificationsModel);
-        }, (DatabaseError error) -> {
-            mError.onErrorResponse(error);
-        });
     }
 
 }

@@ -9,7 +9,7 @@ public class MessageEvent {
     public final String message;
     public final boolean status;
 
-    public MessageEvent(String message,boolean status) {
+    public MessageEvent(String message, boolean status) {
         this.message = message;
         this.status = status;
     }

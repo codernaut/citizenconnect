@@ -26,6 +26,7 @@ import static org.cfp.citizenconnect.Constants.REALM_SCHEMA_VERSION;
  */
 
 public class CitizenConnectApplication extends Application {
+    public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
     public static FirebaseRemoteConfig mFirebaseRemoteConfig;
     public static FirebaseStorage firebaseStorage;
     public static StorageReference firebaseStorageRef;
@@ -34,10 +35,7 @@ public class CitizenConnectApplication extends Application {
     public static FirebaseAuth mAuth;
     public static Realm realm;
     public static RealmConfiguration config;
-
     public static RequestQueue mRequestQueue;
-
-    public static final String FILE_PROVIDER_AUTHORITY = "org.cfp.citizenconnect.fileprovider";
 
     @Override
     public void onCreate() {

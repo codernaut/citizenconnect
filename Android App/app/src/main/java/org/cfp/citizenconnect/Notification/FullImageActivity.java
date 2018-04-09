@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.R;
-import org.w3c.dom.Text;
 
 import static org.cfp.citizenconnect.Constants.DESCRIPTION;
 import static org.cfp.citizenconnect.Constants.FILE_URL;
@@ -37,13 +35,12 @@ public class FullImageActivity extends Activity {
         ImageHolder = findViewById(R.id.imageHolder);
         backBtn = findViewById(R.id.backButton);
         description = findViewById(R.id.description);
-        
+
         ImageHolder.setOnClickListener(view -> {
-            if(backBtn.getVisibility()==View.VISIBLE && description.getVisibility()==View.VISIBLE){
+            if (backBtn.getVisibility() == View.VISIBLE && description.getVisibility() == View.VISIBLE) {
                 backBtn.setVisibility(View.GONE);
                 description.setVisibility(View.GONE);
-            }
-            else {
+            } else {
                 backBtn.setVisibility(View.VISIBLE);
                 description.setVisibility(View.VISIBLE);
             }

@@ -27,31 +27,6 @@ public class Services extends RealmObject {
     String type;
     String fileUrl;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @PropertyName("data_set_name")
-    public String getType() {
-        return type;
-    }
-    @PropertyName("data_set_name")
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getFileUrl() {
-        return fileUrl;
-    }
-
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
-
     public static void getServices(CustomCallBack.Listener<Boolean> status, CustomCallBack.ErrorListener<DatabaseError> mErr) {
         getAFireBaseData(database.getReference(SERVICES_REFFERENCE), response -> {
             for (DataSnapshot _child : response.getChildren()) {
@@ -70,6 +45,32 @@ public class Services extends RealmObject {
 
         return realm.where(Services.class).equalTo("type", type).findFirst();
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @PropertyName(zza = "data_set_name")
+    public String getType() {
+        return type;
+    }
+
+    @PropertyName(zza = "data_set_name")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
     }
 
 }

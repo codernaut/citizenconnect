@@ -34,6 +34,40 @@ public class Layout extends RealmObject {
     private String name;
     private String type;
 
+    public static void getLayout(String type, DatabaseReference databaseReference,
+                                 CustomCallBack.Listener<List<Layout>> mList,
+                                 CustomCallBack.ErrorListener<DatabaseError> mErr) {
+        List<Layout> list = new ArrayList<>();
+        RealmResults<Layout> results = realm.where(Layout.class)
+                .equalTo("type", type).findAll();
+        if (results.size() > 0) {
+            list.addAll(results);
+            mList.onResponse(list);
+        } else {
+            getAFireBaseData(databaseReference, response -> {
+                for (DataSnapshot _child : response.getChildren()) {
+                    Layout mLayout = _child.getValue(Layout.class);
+                    Layout realmDataSetlayout = Layout.getInstance(realm);
+                    realm.executeTransaction(realm -> {
+                        realmDataSetlayout.setColor(mLayout.getColor());
+                        realmDataSetlayout.setIcon(mLayout.getIcon());
+                        realmDataSetlayout.setName(mLayout.getName());
+                        realmDataSetlayout.setType(type);
+                    });
+                    list.add(mLayout);
+                }
+                mList.onResponse(list);
+            }, mErr);
+        }
+    }
+
+    public static Layout getInstance(Realm realm) {
+        realm.beginTransaction();
+        Layout layout = realm.createObject(Layout.class, UUID.randomUUID().toString());
+        realm.commitTransaction();
+        return layout;
+    }
+
     public String getType() {
         return type;
     }
@@ -41,6 +75,7 @@ public class Layout extends RealmObject {
     public void setType(String type) {
         this.type = type;
     }
+
     public String getId() {
         return id;
     }
@@ -65,47 +100,13 @@ public class Layout extends RealmObject {
         this.icon = icon;
     }
 
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public String getName() {
         return name;
     }
 
-    @PropertyName("data_set_name")
+    @PropertyName(zza = "data_set_name")
     public void setName(String name) {
         this.name = name;
-    }
-
-    public static void getLayout(String type,DatabaseReference databaseReference,
-                                 CustomCallBack.Listener<List<Layout>> mList,
-                                 CustomCallBack.ErrorListener<DatabaseError> mErr) {
-        List<Layout> list = new ArrayList<>();
-        RealmResults<Layout> results = realm.where(Layout.class)
-                .equalTo("type",type).findAll();
-        if(results.size()>0){
-            list.addAll(results);
-            mList.onResponse(list);
-        } else {
-            getAFireBaseData(databaseReference, response -> {
-                for (DataSnapshot _child : response.getChildren()) {
-                    Layout mLayout = _child.getValue(Layout.class);
-                    Layout realmDataSetlayout = Layout.getInstance(realm);
-                    realm.executeTransaction(realm -> {
-                        realmDataSetlayout.setColor(mLayout.getColor());
-                        realmDataSetlayout.setIcon(mLayout.getIcon());
-                        realmDataSetlayout.setName(mLayout.getName());
-                        realmDataSetlayout.setType(type);
-                    });
-                    list.add(mLayout);
-                }
-                mList.onResponse(list);
-            }, mErr);
-        }
-    }
-
-    public static Layout getInstance(Realm realm){
-        realm.beginTransaction();
-        Layout layout = realm.createObject(Layout.class, UUID.randomUUID().toString());
-        realm.commitTransaction();
-        return layout;
     }
 }
