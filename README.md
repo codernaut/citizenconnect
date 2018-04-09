@@ -169,22 +169,6 @@ mso-fareast-font-family:"Times New Roman";color:#24292E'>Versioning</span></b></
 
 
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;margin-bottom:12.0pt'><span
-style='font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
-color:#24292E'>We use </span><span style='mso-fareast-font-family:"Times New Roman"'><a
-href="http://semver.org/"><span class=SpellE><span class=spelle><span
-style='font-family:"Arial","sans-serif";color:#0366D6;text-decoration:none;
-text-underline:none'>SemVer</span></span></span></a></span><span
-style='font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
-color:#24292E'> for versioning. For the versions available, see the </span><span
-style='mso-fareast-font-family:"Times New Roman"'><a
-href="https://github.com/your/project/tags"><span style='font-family:"Arial","sans-serif";
-color:#0366D6;text-decoration:none;text-underline:none'>tags on this repository</span></a></span><span
-style='font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
-color:#24292E'>.</span></p>
-
-
-
 <p class=MsoNormal style='margin-top:.25in;margin-right:0in;margin-bottom:12.0pt;
 margin-left:0in'><b><span style='font-size:18.0pt;font-family:"Arial","sans-serif";
 mso-fareast-font-family:"Times New Roman";color:#24292E'>Authors</span></b></p>
