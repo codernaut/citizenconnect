@@ -37,7 +37,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
         setContentView(R.layout.phone_verification_activity);
         verify = findViewById(R.id.submitCode);
         code = findViewById(R.id.code);
-        progressDialog =  new ProgressDialog(PhoneVerificationActivity.this);
+        progressDialog = new ProgressDialog(PhoneVerificationActivity.this);
         progressDialog.setTitle(getString(R.string.in_progress_msg));
         progressDialog.setMessage("Verifying...");
         getSupportActionBar().setTitle("Phone Verification");
@@ -55,7 +55,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Phone Verification failed"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Phone Verification failed" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -72,10 +72,9 @@ public class PhoneVerificationActivity extends AppCompatActivity {
                 progressDialog.show();
                 if (!code.getText().toString().equals("")) {
                     verifyPhoneNumberWithCode(mVerificationId, code.getText().toString());
-                }
-                else {
+                } else {
                     progressDialog.dismiss();
-                    Toast.makeText(PhoneVerificationActivity.this,"Please Enter valid Code",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PhoneVerificationActivity.this, "Please Enter valid Code", Toast.LENGTH_LONG).show();
                 }
             } else {
                 progressDialog.show();
@@ -85,12 +84,11 @@ public class PhoneVerificationActivity extends AppCompatActivity {
 
 
         });
-        if(getIntent().getExtras()!=null){
-            phoneNumber =  getIntent().getStringExtra(BUNDLE_PHONE_VERIFY);
+        if (getIntent().getExtras() != null) {
+            phoneNumber = getIntent().getStringExtra(BUNDLE_PHONE_VERIFY);
             startPhoneNumberVerification(phoneNumber);
-        }
-        else {
-            Toast.makeText(PhoneVerificationActivity.this,"Invalid Phone No",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(PhoneVerificationActivity.this, "Invalid Phone No", Toast.LENGTH_LONG).show();
             setResult(RESULT_CANCELED);
             finish();
         }
@@ -139,6 +137,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
                 mCallbacks,
                 token);
     }
+
     private void startPhoneNumberVerification(String phoneNumber) {
         progressDialog.show();
         PhoneAuthProvider.getInstance().verifyPhoneNumber(

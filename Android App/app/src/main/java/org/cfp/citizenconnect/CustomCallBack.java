@@ -5,11 +5,11 @@ package org.cfp.citizenconnect;
  */
 
 public class CustomCallBack {
-    public interface Listener<T>{
+    public interface Listener<T> {
         void onResponse(T response);
     }
 
-    public interface ErrorListener<T>{
+    public interface ErrorListener<T> {
         void onErrorResponse(T error);
     }
 }

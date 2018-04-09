@@ -12,25 +12,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 
 public class NotificationUpdate extends RealmObject {
     int newNotification;
-
-    public boolean isLastStateRead() {
-        return lastStateRead;
-    }
-
-    public void setLastStateRead(boolean lastStateRead) {
-        this.lastStateRead = lastStateRead;
-    }
-
-    boolean lastStateRead ;
-
-    public int getNewNotification() {
-
-        return newNotification;
-    }
-
-    public void setNewNotification(int _newNotification) {
-        newNotification = _newNotification;
-    }
+    boolean lastStateRead;
 
     public static NotificationUpdate getInstance(Realm realm) {
         final NotificationUpdate[] notificationUpdate = {realm.where(NotificationUpdate.class).findFirst()};
@@ -42,13 +24,30 @@ public class NotificationUpdate extends RealmObject {
         }
         return notificationUpdate[0];
     }
-    public static  boolean clearNotification(){
-        NotificationUpdate notificationStatus  = getInstance(realm);
-        if(notificationStatus.getNewNotification()==0){
+
+    public static boolean clearNotification() {
+        NotificationUpdate notificationStatus = getInstance(realm);
+        if (notificationStatus.getNewNotification() == 0) {
             return true;
+        } else {
+            return false;
         }
-        else {
-            return  false;
-        }
+    }
+
+    public boolean isLastStateRead() {
+        return lastStateRead;
+    }
+
+    public void setLastStateRead(boolean lastStateRead) {
+        this.lastStateRead = lastStateRead;
+    }
+
+    public int getNewNotification() {
+
+        return newNotification;
+    }
+
+    public void setNewNotification(int _newNotification) {
+        newNotification = _newNotification;
     }
 }

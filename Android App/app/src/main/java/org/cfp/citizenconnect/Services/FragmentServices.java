@@ -53,7 +53,7 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
         progressDialog.setCancelable(false);
         mGridView = rootView.findViewById(R.id.dataSet_GridView);
         mList = new ArrayList<>();
-        getLayout("SERVICES",database.getReference(SERVICES_REFFERENCE), response -> {
+        getLayout("SERVICES", database.getReference(SERVICES_REFFERENCE), response -> {
             gridViewAdapter = new GridViewAdapter(getActivity(), response, this);
             mGridView.setAdapter(gridViewAdapter);
             progressDialog.dismiss();

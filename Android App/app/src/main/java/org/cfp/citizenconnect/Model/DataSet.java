@@ -31,13 +31,13 @@ public class DataSet extends RealmObject {
     @PrimaryKey
     private String id;
 
-    @PropertyName("dataSetType")
+    @PropertyName(zza = "dataSetType")
     private String dataSetType;
 
-    @PropertyName("Address")
+    @PropertyName(zza = "Address")
     private String address;
 
-    @PropertyName("Name")
+    @PropertyName(zza = "Name")
     private String name;
 
 
@@ -82,18 +82,18 @@ public class DataSet extends RealmObject {
                                   CustomCallBack.ErrorListener<DatabaseError> mErr) {
         getAFireBaseData(database.getReference(DATA_MEDICAL_STORE), response ->
                 realm.executeTransactionAsync(realm -> {
-                            for (DataSnapshot _child : response.getChildren()) {
-                                DataSnapshot snapshot = _child.child("data");
-                                for (DataSnapshot _snapshot : snapshot.getChildren()) {
-                                    final DataSet dataSet = _snapshot.getValue(DataSet.class);
-                                    final DataSet object = realm.createObject(DataSet.class,
-                                            UUID.randomUUID().toString());
-                                    object.setName(dataSet.getName());
-                                    object.setAddress(dataSet.getAddress());
-                                    object.setDataSetType(_child.child("type").getValue().toString());
-                                }
-                            }
-                        }, () -> _response.onResponse(true)), mErr);
+                    for (DataSnapshot _child : response.getChildren()) {
+                        DataSnapshot snapshot = _child.child("data");
+                        for (DataSnapshot _snapshot : snapshot.getChildren()) {
+                            final DataSet dataSet = _snapshot.getValue(DataSet.class);
+                            final DataSet object = realm.createObject(DataSet.class,
+                                    UUID.randomUUID().toString());
+                            object.setName(dataSet.getName());
+                            object.setAddress(dataSet.getAddress());
+                            object.setDataSetType(_child.child("type").getValue().toString());
+                        }
+                    }
+                }, () -> _response.onResponse(true)), mErr);
 
     }
 
