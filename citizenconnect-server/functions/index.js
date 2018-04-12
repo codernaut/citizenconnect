@@ -1,8 +1,10 @@
 var express = require('express')
 const cors = require('cors')({origin: true});
 const app = express();
+const appV2 = express();
 var bodyParser = require('body-parser')
 var routes = require('./api/routes/routes')
+var openRoute  = require('./api/routes/openRoute')
 var constants = require('./constants')
 const cookieParser = require('cookie-parser')()
 var util = require('util')
@@ -43,12 +45,17 @@ const validateFirebaseIdToken = (req, res, next) => {
     });
   };
  
-// parse application/json
+  //Authenticated Endpoint
 app.use(bodyParser.json())
 app.use(cookieParser)
 app.use(cors)
 app.use(validateFirebaseIdToken);
 routes(app)
-
-// Expose Express API as a single Cloud Function:
 exports.notifications = functions.https.onRequest(app);
+
+//endpoint without Authentication 
+appV2.use(bodyParser.json())
+appV2.use(cookieParser)
+appV2.use(cors)
+openRoute(appV2)
+exports.openEndpoints = functions.https.onRequest(appV2)

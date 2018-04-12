@@ -12,18 +12,22 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
     var layoutObjects = [Layout]()
     @IBOutlet weak var CollectionView: UICollectionView!
     var mSegue:UIStoryboardSegue!
-    var SpinnerView:UIView!
+    
+    var container:UIView!
+    var showIndicator:UIActivityIndicatorView!
+    
     var popover:Popover!
     fileprivate var texts = ["About us"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        container = MyUtils.getContainerView(uiView: self.view)
+        showIndicator = MyUtils.showActivityIndicatory(container: container, uiView: self.view)
+        showIndicator.startAnimating()
         let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
         self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        
-        SpinnerView = UIViewController.displaySpinner(onView: self.view)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Data Sets"
         self.navigationItem.backBarButtonItem?.title = ""
@@ -32,7 +36,8 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
                 self.layoutObjects.append(layout)
             }
             self.CollectionView.reloadData()
-            UIViewController.removeSpinner(spinner: self.SpinnerView)
+            self.showIndicator.stopAnimating()
+            self.container.removeFromSuperview()
         }) { (error) in
             
         }
@@ -72,11 +77,12 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LayoutDataSets", for: indexPath) as! LayoutDataSetsCollectionViewCell
-        cell.imageView.sd_setImage(with: URL(string: layoutObjects[indexPath.row].icon),placeholderImage:#imageLiteral(resourceName: "placeHolder"))
+        cell.imageView.sd_setImage(with: URL(string: layoutObjects[indexPath.row].icon)) { (image, error, cache, urk) in
+            //Do code on completion 
+        }
         cell.dataSetName.text = layoutObjects[indexPath.row].name
         cell.viewBg.backgroundColor = UIColor(hexString: layoutObjects[indexPath.row].color)
-        
-        
+
         cell.backgroundColor = UIColor.white
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0

@@ -14,11 +14,8 @@ import AlamofireImage
 import  Alamofire
 import Popover
 
-
-
 class NotificationViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UISearchBarDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
     var notificationObjects = [Notification]()
-    var SpinnerView:UIView!
     @IBOutlet weak var NotificationCollectionView: UICollectionView!
     var menuButton:UIBarButtonItem!
     var searchButton:UIBarButtonItem!
@@ -27,21 +24,27 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     fileprivate var texts = ["About us"]
     var mSegue:UIStoryboardSegue!
     var imageArr = [UIImage]()
-    
+    var showIndicator:UIActivityIndicatorView!
+    var container:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        container = MyUtils.getContainerView(uiView: self.view)
+        showIndicator = MyUtils.showActivityIndicatory(container:container, uiView: self.view)
+        showIndicator.startAnimating()
         let notificationView = NotificationCollectionViewCell()
         notificationView.delegate = self
         NotificationCollectionView.delegate = self
         NotificationCollectionView.dataSource = self
-        SpinnerView = UIViewController.displaySpinner(onView: self.view)
         self.navigationItem.title = "Notifications"
         addMenuButton()
         addSearchButton()
         initializeData()
-        MyUtils.NotificationbadgeCount(sender: self, index: 0)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(NotificationViewController.updateNotificationCount), name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: nil)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             self.mSegue = segue
@@ -57,11 +60,19 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return notificationObjects.count
     }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        MyUtils.NotificationbadgeClear(sender: self, index: 0)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "notificationLayout", for: indexPath) as! NotificationCollectionViewCell
         cell.rowAt = indexPath.row
         cell.delegate = self
-        cell.imageView.sd_setImage(with: URL(string: notificationObjects[indexPath.row].filePath),placeholderImage:#imageLiteral(resourceName: "placeHolder"))
+        let imageView = UIImageView()
+        cell.imageView.sd_setImage(with: URL(string: notificationObjects[indexPath.row].filePath)) { (image, error, cache, url) in
+            if cell.imageView.image != nil {
+                self.imageArr.append(cell.imageView.image!)
+            }
+        }
         cell.notificationDescription.text = notificationObjects[indexPath.row].notificationDescription
         cell.notificationDate.text = notificationObjects[indexPath.row].date
         cell.backgroundColor = UIColor.white
@@ -75,8 +86,6 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
-        imageArr.append(cell.imageView.image!)
         return cell
     }
     
@@ -167,25 +176,28 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         if mSegue.identifier == "imageViewNav" {
             let imageNC = mSegue.destination as! NotificationNC
             let imageVC =  imageNC.viewControllers.first as! ImageViewer
-            imageVC.imagePath = notificationObjects[imageAt].filePath
-            imageVC.notificationDescription = notificationObjects[imageAt].notificationDescription
-            performSegue(withIdentifier: "imageViewNav",
-                         sender: self)
+            if imageArr[imageAt] != nil {
+                imageVC.imageView =  self.imageArr[imageAt]
+                imageVC.notificationDescription = notificationObjects[imageAt].notificationDescription
+                performSegue(withIdentifier: "imageViewNav",
+                             sender: self)
+            }
         }
     }
     
     func shareImage(imageAt: Int) {
         let alert:UIAlertView! =   MyUtils.showAlert(title: nil, message: "Please wait", cancelBtnTitle: nil, sender: self)
         alert.show()
-        Alamofire.request(notificationObjects[imageAt].filePath).responseImage { response in
-            if let image:UIImage = response.result.value {
-                let imageToShare = [ image]
-                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                alert.dismiss(withClickedButtonIndex: -1, animated: true) 
-                self.present(activityViewController, animated: true, completion: nil)
-            }
+        if imageArr[imageAt] == nil{
+            alert.dismiss(withClickedButtonIndex: -1, animated: true)
+        }else{
+            let imageToShare = [ self.imageArr[imageAt]]
+            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            alert.dismiss(withClickedButtonIndex: -1, animated: true)
+            self.present(activityViewController, animated: true, completion: nil)
         }
+        
     }
     
     func initializeData(){
@@ -195,12 +207,20 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
             for notification in results {
                 self.notificationObjects.append(notification)
             }
+            self.notificationObjects.reverse()
             self.NotificationCollectionView.reloadData()
-            UIViewController.removeSpinner(spinner: self.SpinnerView)
+            self.showIndicator.stopAnimating()
+            self.container.removeFromSuperview()
             
         }) { (error) in
             
         }
+    }
+    @objc func updateNotificationCount(){
+        MyUtils.NotificationbadgeCount(sender: self, index: 0)
+        Notification.clearNotifications()
+        showIndicator.startAnimating()
+        initializeData()
     }
 }
 

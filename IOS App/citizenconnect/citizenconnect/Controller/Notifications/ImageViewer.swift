@@ -14,7 +14,7 @@ class ImageViewer: UIViewController {
     var imagePath:String = ""
     var notificationDescription: String?
     @IBOutlet weak var descriptionLabel: UILabel?
-    var imageView: UIImageView?
+    var imageView: UIImage = UIImage()
     @IBOutlet weak var imageShow: ImageScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,7 @@ class ImageViewer: UIViewController {
         let cancelButton = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(ImageViewer.dismissController(_:)))
         cancelButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = cancelButton
-        
-        Alamofire.request(imagePath).responseImage { response in
-            if let image:UIImage = response.result.value {
-                self.imageShow.display(image: image)
-            }
-        }
+        self.imageShow.display(image: imageView)
         descriptionLabel?.text = notificationDescription
         // Do any additional setup after loading the view.
     }

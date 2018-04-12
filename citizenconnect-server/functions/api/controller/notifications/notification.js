@@ -53,7 +53,7 @@ exports.sendNotification = function (req, res) {
             ])
           })
           .then(() => {
-            sendNotification(firebaseFileURL, res)
+           sendNotification(firebaseFileURL, res)
           })
           .catch(err => {
             console.error('ERROR:', err);
@@ -98,6 +98,29 @@ function sendNotification(msg, res) {
     data: {
       serveMessage: msg
     },
+  };
+
+  fcm.send(message, function (err, response) {
+    if (err) {
+      res.json({
+        "status": 403,
+        "Error": err
+      })
+    }
+    else {
+      sendNotificationToIphone(msg, res)
+    }
+  });
+}
+function sendNotificationToIphone(msg,res ){
+  var message = {
+    to: '/topics/iphoneNotification',
+    priority: "high",
+    content_available: true,
+    "notification":{
+      "title":"ICT Citizen Connect",
+      "body":"New update added click to view"
+    }
   };
 
   fcm.send(message, function (err, response) {

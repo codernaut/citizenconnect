@@ -13,8 +13,9 @@ import Popover
 import Alamofire
 
 
-class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource{
 
+    @IBOutlet weak var sendMessage_Btn: UIButton!
     var picker: UIPickerView!
     @IBOutlet weak var categoryTV: UITextField!
     @IBOutlet weak var fullNameTV: UITextField!
@@ -41,6 +42,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
         self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        sendMessage_Btn.layer.cornerRadius = 5
         message.layer.borderWidth = 0.5
         message .layer.cornerRadius = 7.0
         message.layer.borderColor = UIColor.lightGray.cgColor
@@ -48,7 +50,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         keys = ["Traffic Issues" , "Government Issues" , "Others"]
         picker = UIPickerView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 220)))
         picker.backgroundColor = UIColor.white
-        
         picker.showsSelectionIndicator = true
         picker.delegate = self
         picker.dataSource = self
@@ -108,8 +109,8 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
                     return
                 }
                 else {
-                   // let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                  //  var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
+                   //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  //var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                     UserDefaults.standard.set(self.phoneTV.text, forKey: "userPhoneNo")
                     self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
@@ -183,11 +184,10 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
                 "feedbackType": categoryTV.text ?? String(),
                 "message": message.text
             ]
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer "+UserDefaults.standard.string(forKey: "userToken")!
-            ]
-            MyUtils.postData(url: ApiManager.sendfeedBack, headers: headers, parameters: params, completion: { (response) in
-                 self.view.makeToast("Sent")
+            
+            MyUtils.postData(url: ApiManager.sendfeedBack, parameters: params, completion: { (response) in
+    
+                self.view.makeToast("Sent")
                 self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
                 print(response as Any)
                 self.fullNameTV.text = nil

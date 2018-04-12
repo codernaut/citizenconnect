@@ -55,6 +55,13 @@ class Notification :  Object,Mappable{
         }
     }
     
+    static func clearNotifications() -> Void {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(getRealmData())
+        }
+    }
+    
     static func getRealmData() ->Results<Notification> {
         let realm = try! Realm()
         return realm.objects(Notification.self)

@@ -15,25 +15,32 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
     var layoutObjects = [Layout]()
     var pdfViewer: PdfViewer!
     var popover:Popover!
+    
+    var container:UIView!
+    var showIndicator:UIActivityIndicatorView!
+    
     fileprivate var texts = ["About us"]
     @IBOutlet weak var CollectionView: UICollectionView!
     var mSegue:UIStoryboardSegue!
-    var SpinnerView:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        container = MyUtils.getContainerView(uiView: self.view)
+        showIndicator = MyUtils.showActivityIndicatory(container: container, uiView: self.view)
+        showIndicator.startAnimating()
         let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
         self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
         self.navigationItem.title = "Services"
-         SpinnerView = UIViewController.displaySpinner(onView: self.view)
         Layout.getLayout(dataBaseReference: Firebase.Database.LayoutServices , Datatype: "services", completion: { (LayoutServices) in
             for layout in LayoutServices {
                 self.layoutObjects.append(layout)
             }
             self.CollectionView.reloadData()
-            UIViewController.removeSpinner(spinner: self.SpinnerView)
+            self.showIndicator.stopAnimating()
+            self.container.removeFromSuperview()
         }) { (error) in
             
         }
@@ -72,10 +79,11 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LayoutServices", for: indexPath) as! LayoutServicesCollectionViewCell
-        cell.imageView.sd_setImage(with: URL(string: layoutObjects[indexPath.row].icon),placeholderImage:#imageLiteral(resourceName: "placeHolder"))
+        cell.imageView.sd_setImage(with: URL(string: layoutObjects[indexPath.row].icon)) { (image, error, cache, url) in
+            //On completion event
+        }
         cell.DataSetName.text = layoutObjects[indexPath.row].name
         cell.ViewBg.backgroundColor = UIColor(hexString: layoutObjects[indexPath.row].color)
-        
         
         cell.backgroundColor = UIColor.white
         cell.contentView.layer.cornerRadius = 4.0

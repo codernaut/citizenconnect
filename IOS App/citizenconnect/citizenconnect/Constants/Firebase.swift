@@ -17,5 +17,6 @@ struct Firebase {
     }
     struct Notification {
         static var RegistrationToken:String?
+        static let ictNotificationTopic = "/topics/iphoneNotification"
     }
 }

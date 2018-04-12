@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0D66170708664CDA38FBCFBF1201BF5"
+               BlueprintIdentifier = "424C398F88A857336BF5BAC62B7CCA47"
                BuildableName = "Pods_citizenconnect.framework"
                BlueprintName = "Pods-citizenconnect"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0D66170708664CDA38FBCFBF1201BF5"
+            BlueprintIdentifier = "424C398F88A857336BF5BAC62B7CCA47"
             BuildableName = "Pods_citizenconnect.framework"
             BlueprintName = "Pods-citizenconnect"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,9 @@ class VerifyPhoneController: UIViewController, UITextFieldDelegate {
     var verificationCode:String?
     var verificationId:String?
     var alert:UIAlertView!
+    @IBOutlet weak var sendCode_Btn: UIButton!
     var result: ((Bool)->())?
+    @IBOutlet weak var verify_Btn: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBAction func sendCode(_ sender: Any) {
         sendCode()
@@ -32,6 +34,8 @@ class VerifyPhoneController: UIViewController, UITextFieldDelegate {
         cancelButton.tintColor = UIColor.white
         navItem.leftBarButtonItem = cancelButton
         navItem.title = " "
+        sendCode_Btn.layer.cornerRadius = 5
+        verify_Btn.layer.cornerRadius = 5
         alert =   MyUtils.showAlert(title: nil, message: "Please wait", cancelBtnTitle: nil, sender: self)
         verifCode.keyboardType = UIKeyboardType.numberPad
         verificationId = UserDefaults.standard.string(forKey: "authVerificationID")
@@ -65,13 +69,10 @@ class VerifyPhoneController: UIViewController, UITextFieldDelegate {
                 return
             }
             else{
-                user?.getIDToken(completion: { (userToken, error) in
-                    UserDefaults.standard.set(userToken, forKey: "userToken")
-                    self.result?(true)
-                    self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
-                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true, completion: nil)
-                })
+                self.result?(true)
+                self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

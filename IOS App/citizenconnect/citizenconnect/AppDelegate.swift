@@ -19,16 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //Firebase
         FirebaseApp .configure()
-              Fabric.with([Crashlytics.self])
+        Messaging.messaging().delegate = self
+        initRemoteNotification(application: application)
+        Firebase.Notification.RegistrationToken = Messaging.messaging().fcmToken
+        Messaging.messaging().shouldEstablishDirectChannel = true
+        Fabric.with([Crashlytics.self])
+        
         let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorImage = backImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
         UINavigationBar.appearance().barStyle = .black
+        
         application.statusBarStyle = .lightContent
+        
+        //Realm Configuration
         let config = Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: UInt64(App.config.realmSchemaVersion),
             migrationBlock: { migration, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if (oldSchemaVersion < 1) {
@@ -40,30 +48,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             
         )
         Realm.Configuration.defaultConfiguration = config
-        
         if DataSet.getRealmData().count != 0 {
             let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main);
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController");
             
             return true;
         }
-        initRemoteNotification(application: application)
-        Messaging.messaging().delegate = self
-        Firebase.Notification.RegistrationToken = Messaging.messaging().fcmToken
         return true
     }
     
     func initRemoteNotification(application: UIApplication) {
         if #available(iOS 10.0, *) {
-            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_,_ in })
-            
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
-            // For iOS 10 data message (sent via FCM)
-            Messaging.messaging().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        }
+        else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
     }
@@ -72,9 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
     
-    func application(application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken as Data
+        Messaging.messaging().subscribe(toTopic: Firebase.Notification.ictNotificationTopic)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -87,44 +93,94 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UNUserNotificationCenter.current().getDeliveredNotifications { (notifications) in
+            for noti in notifications {
+                if noti.request.content.title == "ICT Citizen Connect" {
+                    
+                }
+            }
+        }
+    }
+
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Registration failed!")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+       // Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        print(userInfo)
+    }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        
+        if Auth.auth().canHandleNotification(userInfo) {
+            completionHandler(.noData)
+            return
+        }
+        
+        //Will Trigger if you send Notification Message
+        //Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        let state: UIApplicationState = UIApplication.shared.applicationState
+        if state == .background {
+       //     MyUtils.UpdateNotificationCount(index: 0)
+       //     NotificationCenter.default.post(name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: self)
+            completionHandler(UIBackgroundFetchResult.newData)
+        }
+    }
     
 }
+
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     // Receive displayed notifications for iOS 10 devices.
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        // Print message ID.
-        print("Message ID: \(userInfo["gcm.message_id"]!)")
+
         MyUtils.UpdateNotificationCount(index: 0)
-        // Print full message.
-        print("%@", userInfo)
-        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: self)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        //This callback is no longer required
+      //  print("\(response.notification.request.content.userInfo)")
+        MyUtils.UpdateNotificationCount(index: 0)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: self)
     }
     
 }
 
 extension AppDelegate : MessagingDelegate {
-    // Receive data message on iOS 10 devices.
-    func application(received remoteMessage: MessagingRemoteMessage) {
-        print("%@", remoteMessage.appData)
-    }
+
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-         print("%@", remoteMessage.appData)
-    }
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("%@", "remoteMessage.appData")
+        //Will Trigger if you send Data Message
+       // MyUtils.generateLocalNotification(title: "ICT Citizen Connect", subtitle: nil, body: "New update added click to view")
         MyUtils.UpdateNotificationCount(index: 0)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: self)
         
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
 

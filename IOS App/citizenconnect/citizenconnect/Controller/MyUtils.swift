@@ -10,7 +10,9 @@ import Foundation
 import RealmSwift
 import FirebaseDatabase
 import UIKit
+import UserNotifications
 import Alamofire
+
 
 class MyUtils {
     
@@ -28,6 +30,7 @@ class MyUtils {
     }
     
     static func NotificationbadgeCount (sender: AnyObject!,index:Int){
+        
         if let tabItems = sender!.tabBarController??.tabBar.items as NSArray!
         {
             let tabItem = tabItems[index] as! UITabBarItem
@@ -35,8 +38,11 @@ class MyUtils {
             case(0):
                 let realm = try! Realm()
                 let status = realm.objects(NotificationStatus.self).first
-                if status?.notificationCount != nil{
-                    tabItem.badgeValue = status?.notificationCount
+                
+                if status?.notificationCount != nil {
+                    if status?.notificationCount != "0" {
+                        tabItem.badgeValue = status?.notificationCount
+                    }
                 }
             default:
                 print("xdsds")
@@ -78,6 +84,22 @@ class MyUtils {
         }
     }
     
+    public static func generateLocalNotification(title:String!, subtitle:String!,body:String!) -> Void {
+        let notification = UNMutableNotificationContent()
+        if title != nil {
+            notification.title = title
+        }
+        if subtitle != nil {
+            notification.subtitle = subtitle
+        }
+        if body != nil {
+            notification.body = body
+        }
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "ictAlert", content: notification, trigger: notificationTrigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
     func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
         let label:UILabel = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)))
         label.numberOfLines = 0
@@ -102,10 +124,45 @@ class MyUtils {
         loadingIndicator.startAnimating()
         return alert
     }
-    public static func postData(url:String,headers: HTTPHeaders, parameters: Parameters,completion: @escaping (AnyObject?) -> Void){
-        Alamofire.request(url, method: .post, parameters: parameters ,headers: headers).responseJSON { (response) in
+    public static func postData(url:String, parameters: Parameters,completion: @escaping (AnyObject?) -> Void){
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON {
+            (response) in
             completion(response as AnyObject)
         }
+    }
+    public static func showActivityIndicatory(container: UIView,uiView:UIView)-> UIActivityIndicatorView {
+        let loadingView: UIView = UIView()
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+        actInd.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        actInd.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        actInd.center = CGPoint(x: loadingView.frame.size.width / 2,
+                                y: loadingView.frame.size.height / 2);
+        loadingView.addSubview(actInd)
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        actInd.hidesWhenStopped = true
+        return actInd;
+        
+    }
+    public static func getContainerView(uiView: UIView)->UIView{
+        let container: UIView = UIView()
+        container.frame = uiView.frame
+        container.center = uiView.center
+        //container.backgroundColor = UIColorFromHex(rgbValue: 0xffffff, alpha: 0.3)
+        return container
+    }
+    public static func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
 }
 extension UIColor {

@@ -8,5 +8,5 @@
 
 import Foundation
 struct ApiManager {
-    static let sendfeedBack = "https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/notifications/sendEmail"
+    static let sendfeedBack = "https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/openEndpoints/sendEmail"
 }
