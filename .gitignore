@@ -9,6 +9,9 @@
 **/*.log
 **/.idea
 **/build
+**/constants.js
+**/ServiceKey.json
+**/GoogleService-Info.plist
 =======
 .DS_Store
 >>>>>>> .gitignore added for parent dir to avoid DS_Store

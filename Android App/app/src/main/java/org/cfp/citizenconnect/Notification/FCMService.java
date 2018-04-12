@@ -55,16 +55,16 @@ public class FCMService extends FirebaseMessagingService {
 
                 int importance = NotificationManager.IMPORTANCE_HIGH;
                 if (mChannel == null) {
-                    mChannel = new NotificationChannel
-                            ("0", "oreo", importance);
+                    mChannel = new NotificationChannel(getResources().getString(R.string.default_notification_channel_id), "oreo", importance);
                     mChannel.enableVibration(true);
                     notifManager.createNotificationChannel(mChannel);
                 }
-                builder = new NotificationCompat.Builder(this, "ICT_NOTIFICATION_ID");
+
+                builder = new NotificationCompat.Builder(this, mChannel.getId());
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
                         openApp, PendingIntent.FLAG_UPDATE_CURRENT);
-                builder.setContentIntent(pendingIntent)
-                        .setSmallIcon(R.drawable.ic_notification_icon)
+                        builder.setContentIntent(pendingIntent)
+                        .setSmallIcon(R.drawable.ic_notification)
                         .setLargeIcon(MyUtils.getBitmap(R.drawable.logo, getApplicationContext()))
                         .setContentTitle("ICT Citizen Connect")
                         .setContentText("New update added click to view")
@@ -72,7 +72,7 @@ public class FCMService extends FirebaseMessagingService {
                         .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                         .setAutoCancel(true)
                         .setSound(RingtoneManager.getDefaultUri
-                                (RingtoneManager.TYPE_NOTIFICATION));
+                        (RingtoneManager.TYPE_NOTIFICATION));
                 Notification notification = builder.build();
                 notifManager.notify(ICT_NOTIFICATION_ID, notification);
             } else {
@@ -82,22 +82,20 @@ public class FCMService extends FirebaseMessagingService {
                 Intent openApp = new Intent(this, MainActivity.class);
                 openApp.putExtra("clearNotificationCount", true);
 
-                PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,
-                        openApp, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 1,openApp, PendingIntent.FLAG_UPDATE_CURRENT);
                 Notification notification = new Notification.Builder(this)
                         .setContentIntent(pendingIntent)
-                        .setSmallIcon(R.drawable.ic_notification_icon)
-                        .setLargeIcon(MyUtils.getBitmap(R.drawable.logo, getApplicationContext()))
+                        .setSmallIcon(R.drawable.ic_notification)
+                        .setLargeIcon(MyUtils.getBitmap(R.drawable.ic_notification, getApplicationContext()))
                         .setContentTitle("ICT Citizen Connect")
                         .setContentText("New update added click to view")
                         .setPriority(Notification.PRIORITY_MAX)
                         .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                         .setAutoCancel(true)
                         .build();
-
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.notify(ICT_NOTIFICATION_ID, notification);
+
             }
 
         }

@@ -1,6 +1,0 @@
-framework module Pods_citizenconnect {
-  umbrella header "Pods-citizenconnect-umbrella.h"
-
-  export *
-  module * { export * }
-}

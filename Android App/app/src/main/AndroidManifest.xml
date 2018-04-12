@@ -72,6 +72,10 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="bfae663fa9eebd9d18d5aa4902482cb8c6a7dff9" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id"/>
     </application>
 
 

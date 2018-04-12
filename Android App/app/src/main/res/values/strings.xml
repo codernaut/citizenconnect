@@ -33,6 +33,7 @@
     <string name="ambulance_title">Ambulance</string>
     <string name="fire_brigade_title">Fire Brigade</string>
     <string name="emergency_numbers">Emergency Numbers</string>
+    <string name="default_notification_channel_id">0</string>
 
 </resources>
 
