@@ -8,7 +8,6 @@
 
 import Foundation
 import RealmSwift
-import FirebaseDatabase
 import UIKit
 import ObjectMapper
 

@@ -11,9 +11,6 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.cfp.citizenconnect.R;
-
-import static org.cfp.citizenconnect.Constants.DESCRIPTION;
-import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.MyUtils.frescoImageRequest;
 
 /**
@@ -47,8 +44,8 @@ public class FullImageActivity extends Activity {
         });
         backBtn.setOnClickListener(view -> finish());
         if (getIntent().getExtras() != null) {
-            filePath = getIntent().getExtras().getString(FILE_URL);
-            description.setText(getIntent().getExtras().getString(DESCRIPTION));
+            filePath = getIntent().getExtras().getString(getString(R.string.FILE_URL));
+            description.setText(getIntent().getExtras().getString(getString(R.string.DESCRIPTION)));
             frescoImageRequest(filePath, this, response -> {
                 Picasso.with(this).load(filePath).into(ImageHolder);
 

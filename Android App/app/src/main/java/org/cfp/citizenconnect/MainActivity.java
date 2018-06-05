@@ -17,6 +17,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,14 +40,13 @@ import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 import org.greenrobot.eventbus.EventBus;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
-import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
-import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
 
 
 public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
 
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
+    static  final int CALL_PERMISSION_REQUEST = 1;
     public Search mSearch;
     ProgressDialog progress;
     ActivityMainBinding binding;
@@ -79,20 +79,21 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         mLayout = findViewById(R.id.mainLayout);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         mViewPager = findViewById(R.id.viewpager);
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.ic_notifications_white_24dp, R.color.colorPrimary);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_documents_filled, R.color.colorPrimary);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_storage_white_24dp, R.color.colorPrimary);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.baseline_notifications_white_48dp, R.color.colorPrimary);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_service, R.color.colorPrimary);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_data_list, R.color.colorPrimary);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.bottom_item4, R.drawable.ic_feedback_white_24dp, R.color.colorPrimary);
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
         bottomNavigation.addItem(item4);
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
         if (notificationUpdate.getNewNotification() != 0) {
             changeNotificationStatus(notificationUpdate.getNewNotification() + "", ContextCompat.getColor(MainActivity.this, R.color.red));
         }
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
         bottomNavigation.setAccentColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
-        bottomNavigation.setInactiveColor(ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
+        bottomNavigation.setInactiveColor(ContextCompat.getColor(MainActivity.this, R.color.blueGrey));
         bottomNavigation.setForceTint(true);
         bottomNavigation.setTranslucentNavigationEnabled(true);
         mPageAdapter = new MyPagerAdapter(getSupportFragmentManager());
@@ -106,22 +107,33 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public void onPageSelected(int position) {
+              /*  switch (position){
+                    case 0: getSupportActionBar().setTitle("Notifications");
+                    break;
+                    case 1: getSupportActionBar().setTitle("Services");
+                    break;
+                    case 2: getSupportActionBar().setTitle("Data Sets");
+                    break;
+                    case 3: getSupportActionBar().setTitle("Feedback");
+                }*/
                 bottomNavigation.setCurrentItem(position);
                 String count;
-                count = notificationUpdate.getNewNotification() == 0 ? "" : notificationUpdate.getNewNotification() + "";
+                count = notificationUpdate.getNewNotification() == 0 ? "" : 1 + "";
                 if (position == 0) {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.red));
                     searchMenu.setVisible(true);
 
                 } else {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
-                    searchMenu.setVisible(false);
-
+                    if (searchMenu!=null) {
+                        searchMenu.setVisible(false);
+                    }
                 }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
                 if (menuItem != null) {
                     menuItem.collapseActionView();
                 }
@@ -182,14 +194,20 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
+
         searchView.setIconified(false);
         searchView.setOnCloseListener(() -> {
             searchView.clearFocus();
             if (menuItem != null) {
                 menuItem.collapseActionView();
+
             }
 
             return true;
+        });
+        searchView.setOnSearchClickListener(view -> {
+            setItemsVisibility(menu, searchMenu, false);
+
         });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -201,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public boolean onQueryTextChange(String query) {
+
                 mSearch.OnSearchNotification(query);
                 return true;
             }
@@ -218,38 +237,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 return true;
             case R.id.emergency:
                 showEmergencyPopup();
-//                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 return true;
-            /*case R.id.police:
-                phoneNo = getResources().getString(R.string.police);
-                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
-                    startActivity(intent);
-                }
-                return true;
-            case R.id.ambulance:
-                phoneNo = getResources().getString(R.string.ambulance);
-                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
-                    startActivity(intent);
-                }
-                return true;
-            case R.id.FireBrigade:
-                phoneNo = getResources().getString(R.string.fireBrigade);
-                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{android.Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST);
-                } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNo));
-                    startActivity(intent);
-                }
-                return true;*/
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -312,12 +300,18 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             NotificationManager notificationManager = (NotificationManager)
                     getSystemService(Context.
                             NOTIFICATION_SERVICE);
-            notificationManager.cancel(ICT_NOTIFICATION_ID);
+            notificationManager.cancel(Integer.parseInt(getString(R.string.ICT_NOTIFICATION_ID)));
             changeNotificationStatus("", ContextCompat.getColor(MainActivity.this, R.color.red));
             realm.executeTransaction(realm -> {
                 notificationUpdate.setLastStateRead(true);
                 notificationUpdate.setNewNotification(0);
             });
+        }
+    }
+    private void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
+        for (int i=0; i<menu.size(); ++i) {
+            MenuItem item = menu.getItem(i);
+            if (item != exception) item.setVisible(visible);
         }
     }
 }

@@ -27,10 +27,7 @@ public class BaseFragment extends DialogFragment {
             window.setGravity(Gravity.CENTER);
             window.addFlags(Window.FEATURE_NO_TITLE);
             View decorView = window.getDecorView();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                        View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-            }
+
         }
     }
 }

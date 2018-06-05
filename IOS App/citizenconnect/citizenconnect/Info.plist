@@ -20,6 +20,8 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.1</string>
+	<key>CFBundleSignature</key>
+	<string></string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -32,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>11</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -62,9 +64,16 @@
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To take advantage of business locator functionality where we will be able to show you outlets of your preferred category around you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To take advantage of business locator functionality where we will be able to show you outlets of your preferred category around you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To take advantage of business locator functionality where we will be able to show you outlets of your preferred category around you</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

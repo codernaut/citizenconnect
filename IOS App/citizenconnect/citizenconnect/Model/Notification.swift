@@ -32,10 +32,10 @@ class Notification :  Object,Mappable{
         tag <- map["tag"]
     }
     
-    public static func getNotificationList(completion: @escaping (Results<Notification>) -> Void, fail: @escaping (Error?) -> Void) {
+    public static func getNotificationList(fetchFromServer: Bool, completion: @escaping (Results<Notification>) -> Void, fail: @escaping (Error?) -> Void) {
         let realm = try! Realm()
         let notificationList = getRealmData()
-        if notificationList.count == 0 {
+        if notificationList.count == 0 || fetchFromServer {
             MyUtils.getFirebaseData(ref: Database.database().reference(withPath : Firebase.Database.NotificationPath), completion: { (snapshot) in
                 let mSnapshot  = snapshot.children
                 while let notificationObject =  mSnapshot.nextObject() as? DataSnapshot {

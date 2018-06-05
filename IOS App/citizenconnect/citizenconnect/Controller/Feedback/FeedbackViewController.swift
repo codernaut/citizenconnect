@@ -37,7 +37,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         phoneTV.keyboardType = UIKeyboardType.phonePad
         self.navigationItem.title = "Feedback"
         self.navigationItem.backBarButtonItem?.title = ""
-        let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
+        let menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
@@ -86,12 +86,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         
     }
     @objc func showMenu() ->Void {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
-        tableView.delegate = self
-        tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
-        popover = Popover()
-        popover.show(tableView, point: startPoint)
+       performSegue(withIdentifier: "aboutUs", sender: self)
     }
     
     @IBAction func sendMessage(_ sender: Any) {
@@ -124,19 +119,15 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     func Validate() -> Bool {
         var valid:Bool = true
         if (fullNameTV.text?.isEmpty)! {
-           /*  fullNameTV.attributedPlaceholder = NSAttributedString(string: "Please enter Full name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (phoneTV.text?.isEmpty)!{
-            /*phoneTV.attributedPlaceholder = NSAttributedString(string: "Please enter Phone Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (categoryTV.text?.isEmpty)!{
-           /* phoneTV.attributedPlaceholder = NSAttributedString(string: "Please select Category", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (message.text?.isEmpty)!{
-          /*  message.attributedPlaceholder = NSAttributedString(string: "Please enter your Message", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         return valid
@@ -200,15 +191,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
             
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension FeedbackViewController: UITableViewDelegate {

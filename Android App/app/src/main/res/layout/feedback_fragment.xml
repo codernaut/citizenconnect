@@ -107,10 +107,11 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_round_corner"
             android:paddingLeft="18dp"
             android:paddingRight="18dp"
             android:text="Send Message"
+            android:elevation="4dp"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import FirebaseDatabase
 import  Popover
 
 class ServicesViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
@@ -28,7 +27,7 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         container = MyUtils.getContainerView(uiView: self.view)
         showIndicator = MyUtils.showActivityIndicatory(container: container, uiView: self.view)
         showIndicator.startAnimating()
-        let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
+        let menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
         menuButton.tintColor = UIColor.white
         let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
         emergencyCallButton.tintColor = UIColor.white
@@ -46,12 +45,7 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         }
     }
     @objc func showMenu() ->Void {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
-        tableView.delegate = self
-        tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
-        popover = Popover()
-        popover.show(tableView, point: startPoint)
+        performSegue(withIdentifier: "aboutUs", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       mSegue = segue

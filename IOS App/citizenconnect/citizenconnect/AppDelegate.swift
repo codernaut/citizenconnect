@@ -12,6 +12,9 @@ import Firebase
 import UserNotifications
 import Fabric
 import Crashlytics
+import GoogleMaps
+import GooglePlaces
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
@@ -27,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         Messaging.messaging().shouldEstablishDirectChannel = true
         Fabric.with([Crashlytics.self])
         
+        GMSServices.provideAPIKey(Firebase.mapAPI_KEY)
+        GMSPlacesClient.provideAPIKey(Firebase.mapAPI_KEY)
         let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorImage = backImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
@@ -51,9 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         if DataSet.getRealmData().count != 0 {
             let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main);
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController");
-            
-            return true;
         }
+        
+        let tabBarController = self.window?.rootViewController as? UITabBarController
+        tabBarController?.setupSwipeGestureRecognizers()
+        tabBarController?.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         return true
     }
     

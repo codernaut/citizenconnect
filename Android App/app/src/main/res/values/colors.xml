@@ -13,4 +13,6 @@
     <color name="backgroundGrey">#E0E0E0</color>
     <color name="darkGrey">#9A9A9A</color>
     <color name="tint">#5226A69A</color>
+    <color name="locationMarker_red">#CA2A29</color>
+    <color name="fAb">#e0f2f1</color>
 </resources>

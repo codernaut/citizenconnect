@@ -42,8 +42,6 @@ import io.realm.RealmResults;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
-import static org.cfp.citizenconnect.Constants.DESCRIPTION;
-import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
@@ -214,8 +212,8 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     @Override
     public void FullSizeImageClickListener(String imagePath, String description) {
         Intent i = new Intent(getActivity(), FullImageActivity.class);
-        i.putExtra(FILE_URL, imagePath);
-        i.putExtra(DESCRIPTION, description);
+        i.putExtra(getString(R.string.FILE_URL), imagePath);
+        i.putExtra(getString(R.string.DESCRIPTION), description);
         startActivity(i);
     }
 

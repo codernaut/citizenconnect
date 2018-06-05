@@ -8,14 +8,14 @@
 
 import Foundation
 import RealmSwift
-import FirebaseDatabase
+import Firebase
 import UIKit
 import UserNotifications
 import Alamofire
 
 
 class MyUtils {
-    
+
     static func getFirebaseData(ref: DatabaseReference!, completion: @escaping (DataSnapshot)->Void,failed: @escaping (Error?)->Void){
     
         ref?.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -218,4 +218,28 @@ extension UIImage {
         }
     }
     
+}
+var handle: Int = 0
+extension UIButton {
+    func addTarget(forControlEvents controlEvents : UIControlEvents, withClosure closure : @escaping (UIButton) -> Void) {
+        let closureSelector = ClosureSelector<UIButton>(withClosure: closure)
+        objc_setAssociatedObject(self, &handle, closureSelector, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        self.addTarget(closureSelector, action: closureSelector.selector, for: controlEvents)
+    }
+}
+
+public class ClosureSelector<Parameter> {
+    
+    public let selector : Selector
+    private let closure : ( Parameter ) -> ()
+    
+    init(withClosure closure : @escaping ( Parameter ) -> ()){
+        self.selector = #selector(target(param:))
+        self.closure = closure
+    }
+    
+    // Unfortunately we need to cast to AnyObject here
+    @objc func target( param : AnyObject) {
+        closure(param as! Parameter)
+    }
 }

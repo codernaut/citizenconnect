@@ -28,12 +28,37 @@
 
     <string name="no_internet_msg">No Internet Available</string>
     <string name="status_success">success</string>
-    <string name="sendEmailURL">xxxx</string>
+    <!--Production Server -->
+    <string name="sendFeedbackURL">https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/openEndpoints/sendFeedback</string>
+    <string name="sendComplainURL">https://us-central1-citizenconnect-ed5fa.cloudfunctions.net/openEndpoints/sendComplain</string>
+    <string name="TOPIC">notification</string>
+
+
+    <!--Stagging Server Server -->
+    <!-- <string name="sendFeedbackURL">https://us-central1-zero-point-stagging.cloudfunctions.net/openEndpoints/sendFeedback</string> -->
+   <!-- <string name="sendComplainURL">https://us-central1-zero-point-stagging.cloudfunctions.net/openEndpoints/sendComplain</string> -->
+    <!-- <string name="TOPIC">StagingNotification</string> -->
+
     <string name="police_title">Police</string>
     <string name="ambulance_title">Ambulance</string>
     <string name="fire_brigade_title">Fire Brigade</string>
     <string name="emergency_numbers">Emergency Numbers</string>
     <string name="default_notification_channel_id">0</string>
 
+    <string name="FILE_URL">filePath</string>
+    <string name="ICT_NOTIFICATION_ID">0</string>
+    <string name="DESCRIPTION">Notification Description</string>
+    <string name="REALM_SCHEMA_VERSION">4</string>
+
+
+    <string name="complain_dialog_title">Feedback</string>
+    <string name="complain_dialog_subTitile">Please enter your Suggestion</string>
+
+    <string name="tos">Terms and Conditions</string>
+    <string name="credits">Credits</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBAphEJDxieF1uh9IgYJ5l9WP3xqH3YxPE</string>
 </resources>
+
+
 

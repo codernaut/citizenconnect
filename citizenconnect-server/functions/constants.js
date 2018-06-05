@@ -6,5 +6,7 @@ module.exports = Object.freeze({
     STORAGE_BUCKET_NOTIFICATION :'citizenconnect-ed5fa-notifications',
     EMAIL_SENDER : 'raabta.ict@gmail.com',
     PASSWORD_SENDER : 'raabta@ict@786',
-    EMAIL_RECEIVER : 'shahzaib.shahid414@gmail.com'
+    EMAIL_RECEIVER : 'shahzaib.shahid414@gmail.com',
+    TOPIC_ANDROID : '/topics/notification',
+    TOPIC_IOS : '/topics/iphoneNotification'
 });

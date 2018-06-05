@@ -8,9 +8,9 @@
 
 import UIKit
 import MBCircularProgressBar
-import FirebaseDatabase
 import ObjectMapper
 import RealmSwift
+import FirebaseDatabase
 
 class LaunchScreenViewController: UIViewController {
 

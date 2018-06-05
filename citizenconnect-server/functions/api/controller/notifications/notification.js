@@ -53,7 +53,7 @@ exports.sendNotification = function (req, res) {
             ])
           })
           .then(() => {
-           sendNotification(firebaseFileURL, res)
+            sendNotification(firebaseFileURL, res)
           })
           .catch(err => {
             console.error('ERROR:', err);
@@ -93,8 +93,8 @@ function saveFileURL(fileUrl) {
 
 function sendNotification(msg, res) {
   var message = {
-    to: '/topics/notification',
-    priority: "high",
+   to: constants.TOPIC_ANDROID,
+   priority: "high",
     data: {
       serveMessage: msg
     },
@@ -112,11 +112,10 @@ function sendNotification(msg, res) {
     }
   });
 }
-function sendNotificationToIphone(msg,res ){
+function sendNotificationToIphone(msg, res) {
   var message = {
-    to: '/topics/iphoneNotification',
+    to: constants.TOPIC_IOS,
     priority: "high",
-    content_available: true,
     "notification":{
       "title":"ICT Citizen Connect",
       "body":"New update added click to view"

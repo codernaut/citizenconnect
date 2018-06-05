@@ -116,10 +116,6 @@ public class SplashScreen extends AppCompatActivity {
             return null;
         }
 
-        @Override
-        protected void onPostExecute(Void result) {
-        }
-
     }
 
 
