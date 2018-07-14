@@ -13,13 +13,11 @@ import AlamofireImage
 import  Alamofire
 import Popover
 
-class NotificationViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UISearchBarDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
+class NotificationViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
     var notificationObjects = [Notification]()
+    var baseVC = BaseViewController()
     @IBOutlet weak var NotificationCollectionView: UICollectionView!
-    var menuButton:UIBarButtonItem!
     @IBOutlet weak var notificationCV: UICollectionView!
-    var searchButton:UIBarButtonItem!
-    var emergencyCallButton:UIBarButtonItem!
     var popover:Popover!
     fileprivate var texts = ["About us"]
     var mSegue:UIStoryboardSegue!
@@ -47,10 +45,8 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         NotificationCollectionView.dataSource = self
         self.navigationItem.title = "Notifications"
         self.notificationCV.addSubview(refreshControl)
-        addMenuButton()
-        addSearchButton()
         initializeData(fetchFromServer: false)
-        
+        self.addSearchButton()
          NotificationCenter.default.addObserver(self, selector: #selector(NotificationViewController.updateNotificationCount), name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: nil)
     }
     
@@ -107,10 +103,10 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         searchBar.isHidden = true
         self.navigationItem.title = "Notifications"
         self.navigationItem.titleView = nil
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        self.navigationItem.setRightBarButton(menuButton, animated: true)
+        self.navigationItem.setRightBarButtonItems([self.menuButton, self.emergencyCallButton], animated: true)
+        self.navigationItem.setRightBarButton(self.menuButton, animated: true)
         //addMenuButton()
-        addSearchButton()
+        self.addSearchButton()
 
     }
 
@@ -130,47 +126,6 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.search(searchText: searchBar.text!)
-    }
-    
-    @objc func addSearchBar() -> Void {
-        let searchBar = UISearchBar()
-        searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.placeholder = "Enter your search here"
-        searchBar.delegate = self
-        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
-        self.navigationItem.titleView = searchBar
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItems = nil
-    }
-    
-    @objc func emergencyCall() ->Void {
-        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
-    }
-    @objc func showMenu() ->Void {
-       /* let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
-        tableView.delegate = self
-        tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
-        popover = Popover()
-        popover.show(tableView, point: startPoint)*/
-        performSegue(withIdentifier: "aboutUs", sender: self)
-    }
-    
-    func addMenuButton() -> Void {
-        
-        menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        
-        emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = menuButton
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-    }
-    func addSearchButton() -> Void {
-        searchButton  = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(addSearchBar))
-        searchButton.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = searchButton
     }
     
     func search(searchText:String) -> Void {

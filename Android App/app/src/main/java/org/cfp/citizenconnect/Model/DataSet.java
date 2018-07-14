@@ -15,7 +15,6 @@ import io.realm.Case;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
-
 import static org.cfp.citizenconnect.CitizenConnectApplication.database;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.MyUtils.getAFireBaseData;

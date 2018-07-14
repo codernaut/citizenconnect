@@ -5,15 +5,19 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -69,6 +73,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
     DividerItemDecoration dividerItemDecoration;
     MapView mapView;
     FloatingActionButton fab;
+    MenuItem mapViewMenu;
     private GoogleMap mMap;
     private ClusterManager<MyItem> mClusterManager;
     Location mCurrentLocation;
@@ -83,6 +88,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         mapView.getMapAsync(this);
         mapView.setVisibility(View.GONE);
         fab = findViewById(R.id.fAb);
+        fab.setVisibility(View.GONE);
         CONTEXT_DATA = DataSetListActivity.this;
         progressDialog = new ProgressDialog(DataSetListActivity.this);
         progressDialog.setMessage(getString(R.string.in_progress_msg));
@@ -120,7 +126,8 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
             case android.R.id.home:
                 this.onBackPressed();
                 return true;
-
+            case R.id.mapView:
+                switchToMapView();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -161,6 +168,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
+        mapViewMenu = menu.findItem(R.id.mapView);
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView =
@@ -203,8 +211,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
             mClusterManager.clearItems();
             if (query.length() == 0) {
                 plotMarkers(false);
-            }
-            else {
+            } else {
                 plotMarkers(true);
             }
         }
@@ -223,32 +230,53 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         dataSetComplainDialog.show(getSupportFragmentManager(), "complain");
     }
 
-    public void switchToMapView(View view) {
-        if (mapView.getVisibility() == View.VISIBLE) {
-            mapView.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
-            fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_map_marker));
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(DataSetListActivity.this, PermissionsRequest.LOCATION_PERMISSIONS, PermissionsRequest.LOCATION_REQUEST_CODE);
-                } else {
-                    getLocationUpdates();
-                }
+    private void switchToMapView() {
+        fab.setVisibility(View.VISIBLE);
+        mapViewMenu.setVisible(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(DataSetListActivity.this, PermissionsRequest.LOCATION_PERMISSIONS, PermissionsRequest.LOCATION_REQUEST_CODE);
             } else {
                 getLocationUpdates();
             }
+        } else {
+            getLocationUpdates();
         }
     }
+    public   void switchToListView(View view){
+        mapView.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.GONE);
+        mapViewMenu.setVisible(true);
+    }
 
-    @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PermissionsRequest.LOCATION_REQUEST_CODE:
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    boolean showRationale = shouldShowRequestPermissionRationale( permissions[0] );
+                    if (!showRationale) {
+                        new AlertDialog.Builder(this).setTitle("Allow Location Access")
+                                .setMessage("You must allow app to access location to use map View")
+                                .setPositiveButton("OKAY", (dialogInterface, i) -> {
+                                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                            Uri.parse("package:" + getPackageName()));
+                                    intent.addCategory(Intent.CATEGORY_DEFAULT);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                }).show();
+                        return;
+                    }
+
+                    ActivityCompat.requestPermissions(DataSetListActivity.this, PermissionsRequest.LOCATION_PERMISSIONS, PermissionsRequest.LOCATION_REQUEST_CODE);
+
+                    return;
+                }
                 mMap.setMyLocationEnabled(true);
                 getLocationUpdates();
+
                 break;
         }
     }
@@ -278,7 +306,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
     private void getLocationUpdates() {
         if (isDeviceOnline(this)) {
             if (canGetLocation(this)) {
-                fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_list_view));
                 mapView.setVisibility(View.VISIBLE);
                 mMap.clear();
                 recyclerView.setVisibility(View.GONE);
@@ -303,7 +330,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         mClusterManager = new ClusterManager<>(this, mMap);
         mMap.setOnCameraIdleListener(mClusterManager);
         mMap.setOnMarkerClickListener(mClusterManager);
-
         plotMarkers(false);
     }
 }

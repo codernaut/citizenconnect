@@ -8,7 +8,7 @@
 
 import UIKit
 import Popover
-class DataSetViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
+class DataSetViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
     var layoutObjects = [Layout]()
     @IBOutlet weak var CollectionView: UICollectionView!
     var mSegue:UIStoryboardSegue!
@@ -23,11 +23,7 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
         container = MyUtils.getContainerView(uiView: self.view)
         showIndicator = MyUtils.showActivityIndicatory(container: container, uiView: self.view)
         showIndicator.startAnimating()
-        let menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Data Sets"
         self.navigationItem.backBarButtonItem?.title = ""
@@ -42,10 +38,7 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
             
         }
     }
-    
-    @objc func showMenu() ->Void {
-        performSegue(withIdentifier: "aboutUs", sender: self)
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.mSegue = segue
     }
@@ -92,12 +85,6 @@ class DataSetViewController: UIViewController,UICollectionViewDataSource,UIColle
         
         return cell
     }
-    
-    @objc func emergencyCall() ->Void {
-        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
-    }
-    
-
 }
 extension DataSetViewController: UITableViewDelegate {
     

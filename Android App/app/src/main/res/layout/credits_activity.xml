@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_margin="12dp"
+            android:text="@string/header"
+            android:textStyle="bold"
+            android:textColor="@color/darkGrey"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/asim"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:onClick="asimProfile"
+            android:background="@null"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/hamid"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:onClick="hamidProfile"
+            android:background="@null"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/kiran"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:onClick="kiranProfile"
+            android:background="@null"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/yusra"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:background="@null"
+            android:onClick="yusraProfile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/Wahib"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:background="@null"
+            android:onClick="wahibProfile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/ayesha1"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:onClick="ayeshaMProfile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/ayesha2"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:background="@null"
+            android:onClick="ayeshaAProfile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/gulzaib"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:background="@null"
+            android:onClick="gulzaibProfile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <Button
+            android:id="@+id/talha"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            android:paddingLeft="12dp"
+            android:background="@null"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:onClick="talhaProfile"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="@string/footer"
+            android:layout_margin="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/darkGrey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

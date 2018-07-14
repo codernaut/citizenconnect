@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import  Popover
 
-class ServicesViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
+class ServicesViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
     var layoutObjects = [Layout]()
     var pdfViewer: PdfViewer!
     var popover:Popover!
@@ -27,11 +27,6 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         container = MyUtils.getContainerView(uiView: self.view)
         showIndicator = MyUtils.showActivityIndicatory(container: container, uiView: self.view)
         showIndicator.startAnimating()
-        let menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
         self.navigationItem.title = "Services"
         Layout.getLayout(dataBaseReference: Firebase.Database.LayoutServices , Datatype: "services", completion: { (LayoutServices) in
             for layout in LayoutServices {
@@ -43,9 +38,6 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         }) { (error) in
             
         }
-    }
-    @objc func showMenu() ->Void {
-        performSegue(withIdentifier: "aboutUs", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       mSegue = segue
@@ -93,10 +85,6 @@ class ServicesViewController: UIViewController,UICollectionViewDataSource,UIColl
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
         return cell
-    }
-    
-    @objc func emergencyCall()->Void {
-        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     
 }

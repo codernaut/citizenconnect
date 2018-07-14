@@ -1,8 +1,10 @@
 package org.cfp.citizenconnect;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Created by shahzaibshahid on 04/01/2018.
@@ -28,5 +30,11 @@ public class AboutActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    public  void gotoTermsAndConditions(View view){
+        startActivity(new Intent(AboutActivity.this,TermAndConditionsActivity.class));
+    }
+    public void gotoCredits(View view){
+        startActivity(new Intent(AboutActivity.this,CreditsActivity.class));
     }
 }

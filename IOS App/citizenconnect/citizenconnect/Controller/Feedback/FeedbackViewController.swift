@@ -13,7 +13,7 @@ import Popover
 import Alamofire
 
 
-class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource{
+class FeedbackViewController: BaseViewController,UIPickerViewDelegate, UIPickerViewDataSource{
 
     @IBOutlet weak var sendMessage_Btn: UIButton!
     var picker: UIPickerView!
@@ -37,11 +37,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         phoneTV.keyboardType = UIKeyboardType.phonePad
         self.navigationItem.title = "Feedback"
         self.navigationItem.backBarButtonItem?.title = ""
-        let menuButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
         sendMessage_Btn.layer.cornerRadius = 5
         message.layer.borderWidth = 0.5
         message .layer.cornerRadius = 7.0
@@ -85,10 +80,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         }
         
     }
-    @objc func showMenu() ->Void {
-       performSegue(withIdentifier: "aboutUs", sender: self)
-    }
-    
     @IBAction func sendMessage(_ sender: Any) {
         alert.show()
         if Validate() == false {
@@ -154,10 +145,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     
    @objc func donePicker()-> Void{
         categoryTV.resignFirstResponder()
-    }
-    
-    @objc func emergencyCall()->Void {
-         performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
     }
     
     @objc func dismissKeyboard() ->Void {

@@ -50,28 +50,31 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
+
+        android:padding="10dp"
         android:text="@string/tos"
+        android:onClick="gotoTermsAndConditions"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ict_logo" />
+        app:layout_constraintBottom_toTopOf="@+id/credits" />
 
     <TextView
         android:id="@+id/credits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginEnd="8dp"
+        android:padding="10dp"
         android:layout_marginStart="8dp"
         android:text="@string/credits"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
+        android:onClick="gotoCredits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tos"
         app:layout_constraintVertical_bias="0.038" />
 </android.support.constraint.ConstraintLayout>

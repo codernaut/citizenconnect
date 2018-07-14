@@ -17,7 +17,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
 
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
-    static  final int CALL_PERMISSION_REQUEST = 1;
+    static final int CALL_PERMISSION_REQUEST = 1;
     public Search mSearch;
     ProgressDialog progress;
     ActivityMainBinding binding;
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
                 } else {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.lightGreen));
-                    if (searchMenu!=null) {
+                    if (searchMenu != null) {
                         searchMenu.setVisible(false);
                     }
                 }
@@ -308,8 +307,9 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             });
         }
     }
+
     private void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
-        for (int i=0; i<menu.size(); ++i) {
+        for (int i = 0; i < menu.size(); ++i) {
             MenuItem item = menu.getItem(i);
             if (item != exception) item.setVisible(visible);
         }

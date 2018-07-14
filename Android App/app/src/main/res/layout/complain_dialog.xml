@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="12dp"
+    app:layout_constraintCircleRadius="3dp"
     android:background="@color/white"
     android:layout_height="wrap_content">
 
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
+        android:visibility="gone"
         android:text="@string/complain_dialog_subTitile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/broder_round_corner"
         android:gravity="top"
         android:lines="3"

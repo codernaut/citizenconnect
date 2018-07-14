@@ -11,6 +11,7 @@
 		1D0618D12068DB0D002C1F11 /* NotificationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0618D02068DB0D002C1F11 /* NotificationStatus.swift */; };
 		1D1564D2205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1564D1205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift */; };
 		1D1564D4205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1564D3205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift */; };
+		1D1F2FC920CFE77900CE6393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2FC820CFE77900CE6393 /* BaseViewController.swift */; };
 		1D31F69F20B7F2CA00261BBD /* DataContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D31F69E20B7F2CA00261BBD /* DataContainerViewController.swift */; };
 		1D451EFA2040031200328551 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451EF92040031200328551 /* AppDelegate.swift */; };
 		1D451EFC2040031200328551 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D451EFB2040031200328551 /* NotificationViewController.swift */; };
@@ -27,6 +28,8 @@
 		1D55A90F2060F45700A9B81C /* VerifyPhoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A90E2060F45700A9B81C /* VerifyPhoneController.swift */; };
 		1D594B03205ED9390016EA1B /* NotificationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D594B02205ED9390016EA1B /* NotificationNC.swift */; };
 		1D677EC420BE8D9F00A0A739 /* PopUpDataFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D677EC320BE8D9F00A0A739 /* PopUpDataFeedbackViewController.swift */; };
+		1D6A74F620DCF7EB00E1B814 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A74F520DCF7EB00E1B814 /* TermsAndConditionsViewController.swift */; };
+		1D6A74F820DD174500E1B814 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A74F720DD174500E1B814 /* CreditsViewController.swift */; };
 		1DA0F4D9206232C900807630 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA0F4DA206232C900807630 /* Alamofire.framework */; };
 		1DA5053A20C148AF009695EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DA5053920C148AE009695EE /* GoogleService-Info.plist */; };
 		1DA5059020C14DE1009695EE /* GMUClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA5054B20C14DDD009695EE /* GMUClusterManager.m */; };
@@ -96,6 +99,7 @@
 		1D0618D02068DB0D002C1F11 /* NotificationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStatus.swift; sourceTree = "<group>"; };
 		1D1564D1205116E300A2EE64 /* LayoutServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutServicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D1564D3205131B800A2EE64 /* LayoutDataSetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDataSetsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D1F2FC820CFE77900CE6393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1D31F69E20B7F2CA00261BBD /* DataContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainerViewController.swift; sourceTree = "<group>"; };
 		1D451EF62040031200328551 /* citizenconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = citizenconnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D451EF92040031200328551 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		1D594B02205ED9390016EA1B /* NotificationNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationNC.swift; path = citizenconnect/Controller/Notifications/NotificationNC.swift; sourceTree = SOURCE_ROOT; };
 		1D5EEAE020BD415A00801CD8 /* citizenconnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "citizenconnect-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D677EC320BE8D9F00A0A739 /* PopUpDataFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDataFeedbackViewController.swift; sourceTree = "<group>"; };
+		1D6A74F520DCF7EB00E1B814 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
+		1D6A74F720DD174500E1B814 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		1DA0F4D620622FA700807630 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA0F4DA206232C900807630 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA5053920C148AE009695EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -265,6 +271,9 @@
 				1DDF2E652059A5AF0098185C /* Spinner.swift */,
 				1D4717152061394000981B20 /* AboutUsVC.swift */,
 				1DFED7A120616DBE0060923A /* PopUpViewController.swift */,
+				1D1F2FC820CFE77900CE6393 /* BaseViewController.swift */,
+				1D6A74F520DCF7EB00E1B814 /* TermsAndConditionsViewController.swift */,
+				1D6A74F720DD174500E1B814 /* CreditsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -843,6 +852,7 @@
 				1DEEA0A9205A61310078D764 /* FeedbackViewController.swift in Sources */,
 				1DB123AE206112AA00C6968A /* ServicesNC.swift in Sources */,
 				1DA5059120C14DE1009695EE /* GMUGridBasedClusterAlgorithm.m in Sources */,
+				1D1F2FC920CFE77900CE6393 /* BaseViewController.swift in Sources */,
 				1DA5059A20C14DE1009695EE /* GMUGeometryCollection.m in Sources */,
 				1DA5059220C14DE1009695EE /* GMUWrappingDictionaryKey.m in Sources */,
 				1DA5059620C14DE1009695EE /* GMUDefaultClusterIconGenerator.m in Sources */,
@@ -850,6 +860,7 @@
 				1DA5059320C14DE1009695EE /* GMUSimpleClusterAlgorithm.m in Sources */,
 				1DD3EBE72056B2A30000CE11 /* LaunchScreenController.swift in Sources */,
 				1DA5059520C14DE1009695EE /* GMUDefaultClusterRenderer.m in Sources */,
+				1D6A74F820DD174500E1B814 /* CreditsViewController.swift in Sources */,
 				1DD7B828205B88910094137A /* ImageViewer.swift in Sources */,
 				1DAE9FD82092F0F900C42FA6 /* TabBarControllerSwipeExtension.swift in Sources */,
 				1DA5059F20C14DE1009695EE /* GMUStyle.m in Sources */,
@@ -866,6 +877,7 @@
 				1DA5059820C14DE1009695EE /* GMUKMLParser.m in Sources */,
 				1DA505A020C14DE1009695EE /* GMUPoint.m in Sources */,
 				1D0618D12068DB0D002C1F11 /* NotificationStatus.swift in Sources */,
+				1D6A74F620DCF7EB00E1B814 /* TermsAndConditionsViewController.swift in Sources */,
 				1DC2202620A2F3AC00A9F006 /* ConstantManager.swift in Sources */,
 				1DA88768204FD47700554C76 /* Services.swift in Sources */,
 				1DA5059720C14DE1009695EE /* GMUStaticCluster.m in Sources */,

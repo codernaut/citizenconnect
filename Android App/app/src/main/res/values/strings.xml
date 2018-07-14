@@ -36,7 +36,7 @@
 
     <!--Stagging Server Server -->
     <!-- <string name="sendFeedbackURL">https://us-central1-zero-point-stagging.cloudfunctions.net/openEndpoints/sendFeedback</string> -->
-   <!-- <string name="sendComplainURL">https://us-central1-zero-point-stagging.cloudfunctions.net/openEndpoints/sendComplain</string> -->
+    <!-- <string name="sendComplainURL">https://us-central1-zero-point-stagging.cloudfunctions.net/openEndpoints/sendComplain</string> -->
     <!-- <string name="TOPIC">StagingNotification</string> -->
 
     <string name="police_title">Police</string>
@@ -51,14 +51,63 @@
     <string name="REALM_SCHEMA_VERSION">4</string>
 
 
-    <string name="complain_dialog_title">Feedback</string>
+    <string name="complain_dialog_title">Suggestion</string>
     <string name="complain_dialog_subTitile">Please enter your Suggestion</string>
 
     <string name="tos">Terms and Conditions</string>
     <string name="credits">Credits</string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBAphEJDxieF1uh9IgYJ5l9WP3xqH3YxPE</string>
+
+    <!-- Terms and Conditions Content -->
+    <string name="TOC_heading_1">Links To Other Web Sites</string>
+    <string name="links_to_other_websites">
+        Our Service may contain links to third-party web sites or services that are not owned or
+        controlled by Code For Pakistan.\n
+        Code For Pakistan has no control over, and assumes no responsibility for, the content,
+        privacy policies, or practices of any third party web sites or services. You further
+        acknowledge and agree that Code For Pakistan shall not be responsible or liable, directly or
+        indirectly, for any damage or loss caused or alleged to be caused by or in connection with
+        use of or reliance on any such content, goods or services available on or through any such
+        web sites or services.
+        We strongly advise you to read the terms and conditions and privacy policies of any third-
+        party web sites or services that you visit.
+    </string>
+
+    <string name="TOC_heading_2">Governing Law</string>
+    <string name="governing_law">These Terms shall be governed and construed in accordance with the laws of Pakistan,
+        without regard to its conflict of law provisions.
+        Our failure to enforce any right or provision of these Terms will not be considered a waiver
+        of those rights. If any provision of these Terms is held to be invalid or unenforceable by a
+        court, the remaining provisions of these Terms will remain in effect. These Terms constitute
+        the entire agreement between us regarding our Service, and supersede and replace any
+        prior agreements we might have between us regarding the Service.</string>
+    <string name="TOC_heading_3">Changes</string>
+    <string name="changes">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If
+        a revision is material we will try to provide at least 30 days notice prior to any new terms
+        taking effect. What constitutes a material change will be determined at our sole discretion.
+        By continuing to access or use our Service after those revisions become effective, you agree
+        to be bound by the revised terms. If you do not agree to the new terms, please stop using the
+        Service.</string>
+    <string name="TOC_heading_4">Contact Us</string>
+    <string name="contact_us">
+        If you have any questions about these Terms, please contact us.
+    </string>
+
+    <!-- Credits -->
+    <string name="header">Made Possible due to following volunteers of Code for Pakistan:</string>
+    <string name="asim">http://pk.linkedin.com/in/aghaffar</string>
+    <string name="Hamid">https://www.linkedin.com/in/engineeredvirus/</string>
+    <string name="kiran">https://www.linkedin.com/in/kiran-majeed-89b75a39</string>
+    <string name="yusra">https://www.linkedin.com/in/yusra-dar-b4378661</string>
+    <string name="wahib">https://www.linkedin.com/in/wahibhaq/</string>
+    <string name="ayeshaMehmood">https://www.linkedin.com/in/ayesha-mehmood-2b1bb4146</string>
+    <string name="ayeshaAkhtar">https://www.linkedin.com/in/ayesha-akhtar-336033119/</string>
+    <string name="gulZaib">https://www.linkedin.com/in/codernaut/</string>
+    <string name="talhaKhan">http://linkedin.com/in/talhaahmadkhanjang</string>
+    <string name="footer">Effort was spearheaded by Sidra Jalil and Shahzaib Shahid from Code for Pakistan team</string>
 </resources>
+
 
 
 

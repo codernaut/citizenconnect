@@ -40,8 +40,14 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
     var togleViewBtn:UIButton?
     var dataSetobjects = [DataSet]()
     var mSegue:UIStoryboardSegue!
+    
+    var mapView:UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView = UIBarButtonItem(image: UIImage(named: "location_white"), style: .plain, target: self, action: #selector(switchToMapView))
+        mapView.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = mapView
         
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         
@@ -72,9 +78,10 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
         self.navigationItem.backBarButtonItem?.title = ""
         self.navigationItem.title = dataType
         togleViewBtn = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width - 70, y: self.view.frame.height-100), size: CGSize(width: 50, height: 50)))
-        togleViewBtn?.setImage(#imageLiteral(resourceName: "map_marker"), for: UIControlState.normal)
+        togleViewBtn?.setImage(#imageLiteral(resourceName: "ic_list_view"), for: UIControlState.normal)
+        togleViewBtn?.isHidden = true
         self.navigationController?.view.addSubview(togleViewBtn!)
-        togleViewBtn?.addTarget(self, action: #selector(toggleView), for: .touchUpInside)
+        togleViewBtn?.addTarget(self, action: #selector(switchToListView), for: .touchUpInside)
         initializeData()
         
     }
@@ -82,18 +89,6 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
         self.mSegue = segue
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollViewHeight = scrollView.frame.size.height;
-        let scrollContentSizeHeight = scrollView.contentSize.height;
-        let scrollOffset = scrollView.contentOffset.y;
-        if scrollOffset + scrollViewHeight-5 >= scrollContentSizeHeight-5
-        {
-            togleViewBtn?.isHidden = true
-        }
-        else {
-            togleViewBtn?.isHidden = false
-        }
-    }
     
     func clusterManager(clusterManager: GMUClusterManager, didTapCluster cluster: GMUCluster) {
         let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
@@ -103,10 +98,14 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let item:POIItem = marker.userData as! POIItem;
-        marker.title = item.name;
-        marker.snippet = item.address
-        mapView.selectedMarker = marker
+        
+        if marker.userData is POIItem {
+            let item:POIItem = marker.userData as! POIItem;
+            marker.title = item.name;
+            marker.snippet = item.address
+            mapView.selectedMarker = marker
+            return true
+        }
         return true
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -202,19 +201,18 @@ class DataSetLsitViewController: UIViewController,UITableViewDataSource ,UITable
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    @objc func toggleView(){
-       
-        if dataTable.isHidden {
-            dataTable.isHidden = false
-            togleViewBtn?.setImage(#imageLiteral(resourceName: "map_marker"), for: UIControlState.normal)
-            googleMap.isHidden = true
-        }
-        else{
-            googleMap.isHidden = false
-            togleViewBtn?.setImage(#imageLiteral(resourceName: "ic_list_view"), for: UIControlState.normal)
-            dataTable.isHidden = true
-        }
+    @objc func switchToMapView(){
+        googleMap.isHidden = false
+        togleViewBtn?.isHidden = false
+        dataTable.isHidden = true
         
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    @objc func switchToListView(){
+        dataTable.isHidden = false
+        googleMap.isHidden = true
+        togleViewBtn?.isHidden = true
+        self.navigationItem.rightBarButtonItem = mapView
     }
 }
 
