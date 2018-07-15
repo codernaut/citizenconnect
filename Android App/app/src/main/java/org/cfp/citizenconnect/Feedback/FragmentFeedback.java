@@ -156,7 +156,7 @@ public class FragmentFeedback extends Fragment {
 
     public void sendMessage() {
         Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, getString(R.string.sendEmailURL),
+        StringRequest postRequest = new StringRequest(Request.Method.POST, getString(R.string.sendFeedbackURL),
                 response -> {
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
@@ -173,7 +173,7 @@ public class FragmentFeedback extends Fragment {
                 Map<String, String> params = new HashMap<>();
                 params.put("name", fullName.getText().toString());
                 params.put("contactNo", countryCode.getText().toString() + contactNumber.getText().toString());
-                params.put("feedbackType", feedBackType.getSelectedItem().toString());
+                params.put("subject", feedBackType.getSelectedItem().toString());
                 params.put("message", Message.getText().toString());
                 return params;
             }

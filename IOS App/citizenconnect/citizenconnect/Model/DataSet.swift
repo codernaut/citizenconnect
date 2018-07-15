@@ -8,15 +8,18 @@
 
 import Foundation
 import RealmSwift
-import FirebaseDatabase
 import UIKit
 import ObjectMapper
+import FirebaseDatabase
 
 class DataSet: Object, Mappable {
     @objc dynamic var id  = UUID().uuidString
     @objc dynamic var dataSetType = ""
     @objc dynamic var address = ""
     @objc dynamic var name = ""
+    @objc dynamic var latitude = 0.0
+    @objc dynamic var longitude = 0.0
+    @objc dynamic var mapAddress = ""
     
     required convenience init(map:Map) {
         self.init()
@@ -26,6 +29,9 @@ class DataSet: Object, Mappable {
         dataSetType <- map["dataSetType"]
         address <- map["Address"]
         name <- map["Name"]
+        latitude <- map["Latitude"]
+        longitude <- map["Longitude"]
+        mapAddress <- map["MapAddress"]
     }
     
     override static func primaryKey() -> String? {

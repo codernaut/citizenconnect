@@ -8,9 +8,9 @@
 
 import UIKit
 import MBCircularProgressBar
-import FirebaseDatabase
 import ObjectMapper
 import RealmSwift
+import FirebaseDatabase
 
 class LaunchScreenViewController: UIViewController {
 
@@ -39,7 +39,7 @@ class LaunchScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         UIView.animate(withDuration: 1.0) {
             if self.progressView.value <= 100{
-                self.progressView.value += 0.002
+                self.progressView.value += 0.005
             }
         }
     }

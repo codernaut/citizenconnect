@@ -19,7 +19,6 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-import static org.cfp.citizenconnect.Constants.REALM_SCHEMA_VERSION;
 
 /**
  * Created by root on 05/12/2017.
@@ -46,14 +45,14 @@ public class CitizenConnectApplication extends Application {
         MultiDex.install(this);
         config = new RealmConfiguration.Builder()
                 .deleteRealmIfMigrationNeeded()
-                .schemaVersion(REALM_SCHEMA_VERSION).build();
+                .schemaVersion(Long.parseLong(getString(R.string.REALM_SCHEMA_VERSION))).build();
         realm = Realm.getInstance(config);
         database = FirebaseDatabase.getInstance();
         FilesRef = database.getReference("Notifications");
         mAuth = FirebaseAuth.getInstance();
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-        FirebaseMessaging.getInstance().subscribeToTopic("notification");
+        FirebaseMessaging.getInstance().subscribeToTopic(getString(R.string.TOPIC));
 
         firebaseStorage = FirebaseStorage.getInstance();
         firebaseStorageRef = firebaseStorage.getReference();

@@ -70,7 +70,9 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
             descriptionLayout = itemView.findViewById(R.id.descriptionLayout);
             view = itemView.findViewById(R.id.view);
 
-            BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable()));
+            BtnShare.setOnClickListener((View view) -> {
+                mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable());
+            });
             view.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));
             descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));
             snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));

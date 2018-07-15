@@ -14,7 +14,7 @@ class ImageViewer: UIViewController {
     var imagePath:String = ""
     var notificationDescription: String?
     @IBOutlet weak var descriptionLabel: UILabel?
-    var imageView: UIImageView?
+    var imageView: UIImage = UIImage()
     @IBOutlet weak var imageShow: ImageScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,9 @@ class ImageViewer: UIViewController {
         let cancelButton = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(ImageViewer.dismissController(_:)))
         cancelButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = cancelButton
-        
-        Alamofire.request(imagePath).responseImage { response in
-            if let image:UIImage = response.result.value {
-                self.imageShow.display(image: image)
-            }
-        }
+        self.view.layoutIfNeeded()
+        self.imageShow.display(image: imageView)
+    
         descriptionLabel?.text = notificationDescription
         // Do any additional setup after loading the view.
     }
@@ -47,14 +44,5 @@ class ImageViewer: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
