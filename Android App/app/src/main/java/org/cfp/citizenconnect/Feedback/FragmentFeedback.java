@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,17 +157,21 @@ public class FragmentFeedback extends Fragment {
 
     public void sendMessage() {
         Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, getString(R.string.sendEmailURL),
-                response -> {
-                    try {
-                        JSONObject jsonResponse = new JSONObject(response);
-                        String status = jsonResponse.getString("status");
-                        Toast.makeText(getActivity(), "Sent!", Toast.LENGTH_LONG).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                error -> error.printStackTrace()
+        StringRequest postRequest = new StringRequest(Request.Method.POST, getString(R.string.sendEmailURL), response -> {
+            try {
+                Log.i("response123 = ", response);
+                JSONObject jsonResponse = new JSONObject(response);
+                String status = jsonResponse.getString("status");
+                Toast.makeText(getActivity(), "Sent!", Toast.LENGTH_LONG).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            clearToDefaults();
+        },
+                error -> {
+                    error.printStackTrace();
+                    clearToDefaults();
+                }
         ) {
             @Override
             protected Map<String, String> getParams() {
@@ -179,6 +184,13 @@ public class FragmentFeedback extends Fragment {
             }
         };
         mRequestQueue.add(postRequest);
+    }
+
+    private void clearToDefaults() {
+        fullName.getText().clear();
+        contactNumber.getText().clear();
+        Message.getText().clear();
+        feedBackType.setSelection(0);
     }
 
     @Override
