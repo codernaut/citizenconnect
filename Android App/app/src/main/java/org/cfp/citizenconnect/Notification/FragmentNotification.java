@@ -11,9 +11,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +79,10 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             final Handler handler = new Handler();
             handler.postDelayed(() -> {
                 loadFromFirebase();
+                if (notificationListAdapter != null && notificationsModel != null) {
+                    notificationsModel.clear();
+                    notificationListAdapter.notifyDataSetChanged();
+                }
             }, 500);
 
         });
@@ -190,7 +196,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     @Override
     public void ShareImageClickListener(int position, Drawable image) {
         try {
-            if (notificationsModel.get(position).getFilePath() != null) {
+            if (notificationsModel.get(position).getFilePath() != null &&!TextUtils.isEmpty(notificationsModel.get(position).getFilePath())) {
 
                 Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), getActivity());
                 if (bmpUri != null) {
@@ -210,11 +216,20 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }
 
     @Override
-    public void FullSizeImageClickListener(String imagePath, String description) {
-        Intent i = new Intent(getActivity(), FullImageActivity.class);
-        i.putExtra(getString(R.string.FILE_URL), imagePath);
-        i.putExtra(getString(R.string.DESCRIPTION), description);
-        startActivity(i);
+    public void FullSizeImageClickListener(int position, String imagePath, String description) {
+        /*Intent i = new Intent(getActivity(), FullImageActivity.class);
+        i.putExtra(FILE_URL, imagePath);
+        i.putExtra(DESCRIPTION, description);
+        startActivity(i);*/
+
+        FullNewsViewFragment fullNewsViewFragment = new FullNewsViewFragment();
+        fullNewsViewFragment.setNotifications(notificationsModel);
+        fullNewsViewFragment.setPosition(position);
+        fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
+        fullNewsViewFragment.show(getFragmentManager(), "FullScreenNews");
+
+
+
     }
 
     @Override

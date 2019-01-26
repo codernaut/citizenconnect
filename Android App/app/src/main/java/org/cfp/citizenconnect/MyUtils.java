@@ -71,8 +71,11 @@ public class MyUtils {
         }, CallerThreadExecutor.getInstance());
         Uri bmpUri = null;
         File file = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
+        if (file == null) {
+            return null;
+        }
         FileOutputStream out = new FileOutputStream(file);
-        if (out != null) {
+        if (out != null && bmp[0]!=null) {
             bmp[0].compress(Bitmap.CompressFormat.PNG, 90, out);
             out.close();
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {

@@ -7,7 +7,7 @@
     <string name="fireBrigade">051-16</string>
     <string name="playStoreUrl">https://play.google.com/store/apps/details?id=org.cfp.citizenconnect</string>
 
-    <string name="bottom_item1">Notification</string>
+    <string name="bottom_item1">News</string>
     <string name="bottom_item2">Services</string>
     <string name="bottom_item3">Data</string>
     <string name="bottom_item4">Feedback</string>
@@ -23,7 +23,7 @@
     <string-array name="countrySubjectItems">
         <item>Traffic Issues</item>
         <item>Government offices</item>
-        <item>Other</item>
+        <item>Others</item>
     </string-array>
 
     <string name="no_internet_msg">No Internet Available</string>
@@ -44,6 +44,11 @@
     <string name="fire_brigade_title">Fire Brigade</string>
     <string name="emergency_numbers">Emergency Numbers</string>
     <string name="default_notification_channel_id">0</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_image_found">No Image Found</string>
 
     <string name="FILE_URL">filePath</string>
     <string name="ICT_NOTIFICATION_ID">0</string>
@@ -106,6 +111,7 @@
     <string name="gulZaib">https://www.linkedin.com/in/codernaut/</string>
     <string name="talhaKhan">http://linkedin.com/in/talhaahmadkhanjang</string>
     <string name="footer">Effort was spearheaded by Sidra Jalil and Shahzaib Shahid from Code for Pakistan team</string>
+
 </resources>
 
 
