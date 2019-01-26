@@ -93,11 +93,33 @@ function saveFileURL(fileUrl) {
 
 function sendNotification(msg, res) {
   var message = {
-    to: '/topics/notification',
-    priority: "high",
+   to: constants.TOPIC_ANDROID,
+   priority: "high",
     data: {
       serveMessage: msg
     },
+  };
+
+  fcm.send(message, function (err, response) {
+    if (err) {
+      res.json({
+        "status": 403,
+        "Error": err
+      })
+    }
+    else {
+      sendNotificationToIphone(msg, res)
+    }
+  });
+}
+function sendNotificationToIphone(msg, res) {
+  var message = {
+    to: constants.TOPIC_IOS,
+    priority: "high",
+    "notification":{
+      "title":"ICT Citizen Connect",
+      "body":"New update added click to view"
+    }
   };
 
   fcm.send(message, function (err, response) {

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mapView"
+        android:title="Map"
+        android:icon="@drawable/baseline_location_on_white_24"
+        android:iconTint="@color/white"
+        app:showAsAction="collapseActionView|ifRoom"/>
     <item android:id="@+id/search"
         android:title="Search"
         android:icon="@drawable/ic_search_white_24dp"

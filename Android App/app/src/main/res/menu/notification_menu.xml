@@ -14,33 +14,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/aboutUS"
-        android:title="About us"
-        app:showAsAction="never" />
-    <!--<item
-        android:id="@+id/menu"
-        android:icon="@drawable/ic_menu_filled"
-        android:title="@string/menu_notification"
-        app:showAsAction="collapseActionView|ifRoom">
-        <menu>
-        <item
-        android:id="@+id/aboutUS"
-        android:title="About us"/>
-            <item
-                android:id="@+id/emergency"
-                android:enabled="true"
-                android:title="Emergency number">
-                <menu>
-                    <item
-                        android:id="@+id/police"
-                        android:title="Police" />
-                    <item
-                        android:id="@+id/ambulance"
-                        android:title="Ambulance" />
-                    <item
-                        android:id="@+id/FireBrigade"
-                        android:title="Fire Brigade" />
-                </menu>
-            </item>
-        </menu>
-    </item>-->
+        android:icon="@drawable/info"
+        android:title="About Us"
+        app:showAsAction="always" />
 </menu>

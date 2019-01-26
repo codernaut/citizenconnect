@@ -7,40 +7,47 @@
 //
 
 import UIKit
-import FirebaseDatabase
 import RealmSwift
 import SDWebImage
 import AlamofireImage
 import  Alamofire
 import Popover
 
-
-
-class NotificationViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UISearchBarDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
+class NotificationViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UIGestureRecognizerDelegate, delegateNotificationCV  {
     var notificationObjects = [Notification]()
-    var SpinnerView:UIView!
+    var baseVC = BaseViewController()
     @IBOutlet weak var NotificationCollectionView: UICollectionView!
-    var menuButton:UIBarButtonItem!
-    var searchButton:UIBarButtonItem!
-    var emergencyCallButton:UIBarButtonItem!
+    @IBOutlet weak var notificationCV: UICollectionView!
     var popover:Popover!
     fileprivate var texts = ["About us"]
     var mSegue:UIStoryboardSegue!
     var imageArr = [UIImage]()
-    
+    var showIndicator:UIActivityIndicatorView!
+    var container:UIView!
+    var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(NotificationViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor(hexString: Colors.colorPrimary)
+        
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        container = MyUtils.getContainerView(uiView: self.view)
+        showIndicator = MyUtils.showActivityIndicatory(container:container, uiView: self.view)
+        showIndicator.startAnimating()
         let notificationView = NotificationCollectionViewCell()
         notificationView.delegate = self
         NotificationCollectionView.delegate = self
         NotificationCollectionView.dataSource = self
-        SpinnerView = UIViewController.displaySpinner(onView: self.view)
         self.navigationItem.title = "Notifications"
-        addMenuButton()
-        addSearchButton()
-        initializeData()
-        MyUtils.NotificationbadgeCount(sender: self, index: 0)
+        self.notificationCV.addSubview(refreshControl)
+        initializeData(fetchFromServer: false)
+        self.addSearchButton()
+         NotificationCenter.default.addObserver(self, selector: #selector(NotificationViewController.updateNotificationCount), name: NSNotification.Name(rawValue: App.NotificationKeys.ictNotificiationKey), object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,11 +64,22 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return notificationObjects.count
     }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        MyUtils.NotificationbadgeClear(sender: self, index: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewFullImage(imageAt: indexPath.row)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "notificationLayout", for: indexPath) as! NotificationCollectionViewCell
         cell.rowAt = indexPath.row
         cell.delegate = self
-        cell.imageView.sd_setImage(with: URL(string: notificationObjects[indexPath.row].filePath),placeholderImage:#imageLiteral(resourceName: "placeHolder"))
+        let imageView = UIImageView()
+        cell.imageView.sd_setImage(with: URL(string: notificationObjects[indexPath.row].filePath)) { (image, error, cache, url) in
+            if cell.imageView.image != nil {
+                self.imageArr.append(cell.imageView.image!)
+            }
+        }
         cell.notificationDescription.text = notificationObjects[indexPath.row].notificationDescription
         cell.notificationDate.text = notificationObjects[indexPath.row].date
         cell.backgroundColor = UIColor.white
@@ -75,22 +93,20 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
-        imageArr.append(cell.imageView.image!)
         return cell
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        initializeData()
+        initializeData(fetchFromServer: false)
         NotificationCollectionView.reloadData()
         searchBar.showsCancelButton = false
         searchBar.isHidden = true
         self.navigationItem.title = "Notifications"
         self.navigationItem.titleView = nil
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-        self.navigationItem.setRightBarButton(menuButton, animated: true)
+        self.navigationItem.setRightBarButtonItems([self.menuButton, self.emergencyCallButton], animated: true)
+        self.navigationItem.setRightBarButton(self.menuButton, animated: true)
         //addMenuButton()
-        addSearchButton()
+        self.addSearchButton()
 
     }
 
@@ -104,52 +120,12 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     }
     */
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        initializeData()
+        initializeData(fetchFromServer: false)
         NotificationCollectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.search(searchText: searchBar.text!)
-    }
-    
-    @objc func addSearchBar() -> Void {
-        let searchBar = UISearchBar()
-        searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.placeholder = "Enter your search here"
-        searchBar.delegate = self
-        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
-        self.navigationItem.titleView = searchBar
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItems = nil
-    }
-    
-    @objc func emergencyCall() ->Void {
-        performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
-    }
-    @objc func showMenu() ->Void {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
-        tableView.delegate = self
-        tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
-        popover = Popover()
-        popover.show(tableView, point: startPoint)
-    }
-    
-    func addMenuButton() -> Void {
-        
-        menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        
-        emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = menuButton
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
-    }
-    func addSearchButton() -> Void {
-        searchButton  = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(addSearchBar))
-        searchButton.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = searchButton
     }
     
     func search(searchText:String) -> Void {
@@ -164,48 +140,72 @@ class NotificationViewController: UIViewController,UICollectionViewDataSource,UI
     }
     
     func viewFullImage(imageAt: Int) {
+        let imageNC = mSegue.destination as! NotificationNC
+        let imageVC =  imageNC.viewControllers.first as! ImageViewer
         if mSegue.identifier == "imageViewNav" {
-            let imageNC = mSegue.destination as! NotificationNC
-            let imageVC =  imageNC.viewControllers.first as! ImageViewer
-            imageVC.imagePath = notificationObjects[imageAt].filePath
-            imageVC.notificationDescription = notificationObjects[imageAt].notificationDescription
-            performSegue(withIdentifier: "imageViewNav",
-                         sender: self)
+            if imageArr[imageAt] != nil {
+                imageVC.imageView =  self.imageArr[imageAt]
+        
+                imageVC.notificationDescription = notificationObjects[imageAt].notificationDescription
+                performSegue(withIdentifier: "imageViewNav",
+                             sender: self)
+            }
+        }
+        if mSegue.identifier == "collectionViewSelected"{
+            if imageArr[imageAt] != nil {
+                imageVC.imageView =  self.imageArr[imageAt]
+                imageVC.notificationDescription = notificationObjects[imageAt].notificationDescription
+                performSegue(withIdentifier: "collectionViewSelected",
+                             sender: self)
+            }
         }
     }
     
     func shareImage(imageAt: Int) {
         let alert:UIAlertView! =   MyUtils.showAlert(title: nil, message: "Please wait", cancelBtnTitle: nil, sender: self)
         alert.show()
-        Alamofire.request(notificationObjects[imageAt].filePath).responseImage { response in
-            if let image:UIImage = response.result.value {
-                let imageToShare = [ image]
-                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                alert.dismiss(withClickedButtonIndex: -1, animated: true) 
-                self.present(activityViewController, animated: true, completion: nil)
-            }
+        if imageArr[imageAt] == nil{
+            alert.dismiss(withClickedButtonIndex: -1, animated: true)
+        }else{
+            let imageToShare = [ self.imageArr[imageAt]]
+            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            alert.dismiss(withClickedButtonIndex: -1, animated: true)
+            self.present(activityViewController, animated: true, completion: nil)
         }
+        
     }
     
-    func initializeData(){
+    func initializeData(fetchFromServer: Bool){
         MyUtils.NotificationbadgeCount(sender: self, index: 0)
-        self.notificationObjects.removeAll()
-        Notification.getNotificationList(completion: { (results) in
+        Notification.getNotificationList(fetchFromServer: fetchFromServer, completion: { (results) in
+            self.notificationObjects.removeAll()
             for notification in results {
                 self.notificationObjects.append(notification)
             }
+            self.notificationObjects.reverse()
             self.NotificationCollectionView.reloadData()
-            UIViewController.removeSpinner(spinner: self.SpinnerView)
+            self.showIndicator.stopAnimating()
+            if fetchFromServer { self.refreshControl.endRefreshing()}
+            self.container.removeFromSuperview()
             
         }) { (error) in
             
         }
     }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        initializeData(fetchFromServer: true)
+    
+    }
+    @objc func updateNotificationCount(){
+        MyUtils.NotificationbadgeCount(sender: self, index: 0)
+        Notification.clearNotifications()
+        showIndicator.startAnimating()
+        initializeData(fetchFromServer: true)
+    }
 }
 
 extension NotificationViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.popover.dismiss()
          performSegue(withIdentifier: "aboutUs", sender: self)

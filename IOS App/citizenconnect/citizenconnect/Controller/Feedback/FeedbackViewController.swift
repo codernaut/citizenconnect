@@ -13,8 +13,9 @@ import Popover
 import Alamofire
 
 
-class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class FeedbackViewController: BaseViewController,UIPickerViewDelegate, UIPickerViewDataSource{
 
+    @IBOutlet weak var sendMessage_Btn: UIButton!
     var picker: UIPickerView!
     @IBOutlet weak var categoryTV: UITextField!
     @IBOutlet weak var fullNameTV: UITextField!
@@ -36,11 +37,7 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         phoneTV.keyboardType = UIKeyboardType.phonePad
         self.navigationItem.title = "Feedback"
         self.navigationItem.backBarButtonItem?.title = ""
-        let menuButton = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: #selector(showMenu))
-        menuButton.tintColor = UIColor.white
-        let emergencyCallButton  = UIBarButtonItem(image: UIImage(named: "phone_filled"), style: .plain, target: self, action: #selector(emergencyCall))
-        emergencyCallButton.tintColor = UIColor.white
-        self.navigationItem.setRightBarButtonItems([menuButton, emergencyCallButton], animated: true)
+        sendMessage_Btn.layer.cornerRadius = 5
         message.layer.borderWidth = 0.5
         message .layer.cornerRadius = 7.0
         message.layer.borderColor = UIColor.lightGray.cgColor
@@ -48,7 +45,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         keys = ["Traffic Issues" , "Government Issues" , "Others"]
         picker = UIPickerView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 220)))
         picker.backgroundColor = UIColor.white
-        
         picker.showsSelectionIndicator = true
         picker.delegate = self
         picker.dataSource = self
@@ -84,15 +80,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         }
         
     }
-    @objc func showMenu() ->Void {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 35))
-        tableView.delegate = self
-        tableView.dataSource = self
-        let startPoint = CGPoint(x: self.view.frame.width - 10, y: 55)
-        popover = Popover()
-        popover.show(tableView, point: startPoint)
-    }
-    
     @IBAction func sendMessage(_ sender: Any) {
         alert.show()
         if Validate() == false {
@@ -108,8 +95,8 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
                     return
                 }
                 else {
-                   // let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                  //  var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
+                   //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  //var controller = storyboard.instantiateViewController(withIdentifier: "verifyCode") as! VerifyPhoneController
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                     UserDefaults.standard.set(self.phoneTV.text, forKey: "userPhoneNo")
                     self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
@@ -123,19 +110,15 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     func Validate() -> Bool {
         var valid:Bool = true
         if (fullNameTV.text?.isEmpty)! {
-           /*  fullNameTV.attributedPlaceholder = NSAttributedString(string: "Please enter Full name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (phoneTV.text?.isEmpty)!{
-            /*phoneTV.attributedPlaceholder = NSAttributedString(string: "Please enter Phone Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (categoryTV.text?.isEmpty)!{
-           /* phoneTV.attributedPlaceholder = NSAttributedString(string: "Please select Category", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         if (message.text?.isEmpty)!{
-          /*  message.attributedPlaceholder = NSAttributedString(string: "Please enter your Message", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])*/
             valid = false
         }
         return valid
@@ -164,10 +147,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         categoryTV.resignFirstResponder()
     }
     
-    @objc func emergencyCall()->Void {
-         performSegue(withIdentifier: "popUpEmergencyCalls", sender: self)
-    }
-    
     @objc func dismissKeyboard() ->Void {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -183,11 +162,10 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
                 "feedbackType": categoryTV.text ?? String(),
                 "message": message.text
             ]
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer "+UserDefaults.standard.string(forKey: "userToken")!
-            ]
-            MyUtils.postData(url: ApiManager.sendfeedBack, headers: headers, parameters: params, completion: { (response) in
-                 self.view.makeToast("Sent")
+            
+            MyUtils.postData(url: ApiManager.sendfeedBack, parameters: params, completion: { (response) in
+    
+                self.view.makeToast("Sent")
                 self.alert.dismiss(withClickedButtonIndex: -1, animated: true)
                 print(response as Any)
                 self.fullNameTV.text = nil
@@ -200,15 +178,6 @@ class FeedbackViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
             
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension FeedbackViewController: UITableViewDelegate {

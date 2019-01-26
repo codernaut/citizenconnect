@@ -22,7 +22,6 @@ import org.cfp.citizenconnect.R;
 import io.realm.Realm;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.config;
-import static org.cfp.citizenconnect.Constants.ICT_NOTIFICATION_ID;
 
 /**
  * Created by root on 05/12/2017.
@@ -74,7 +73,7 @@ public class FCMService extends FirebaseMessagingService {
                         .setSound(RingtoneManager.getDefaultUri
                         (RingtoneManager.TYPE_NOTIFICATION));
                 Notification notification = builder.build();
-                notifManager.notify(ICT_NOTIFICATION_ID, notification);
+                notifManager.notify(Integer.parseInt(getString(R.string.ICT_NOTIFICATION_ID)), notification);
             } else {
                 Intent i = new Intent("android.intent.action.MAIN").putExtra("newUpdate", true);
                 this.sendBroadcast(i);
@@ -94,7 +93,7 @@ public class FCMService extends FirebaseMessagingService {
                         .setAutoCancel(true)
                         .build();
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.notify(ICT_NOTIFICATION_ID, notification);
+                notificationManager.notify(Integer.parseInt(getString(R.string.ICT_NOTIFICATION_ID)), notification);
 
             }
 

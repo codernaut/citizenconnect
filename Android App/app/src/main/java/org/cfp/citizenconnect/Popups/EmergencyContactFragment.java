@@ -17,13 +17,12 @@ import android.widget.TextView;
 import org.cfp.citizenconnect.MainActivity;
 import org.cfp.citizenconnect.R;
 
-import static org.cfp.citizenconnect.Constants.CALL_PERMISSION_REQUEST;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class EmergencyContactFragment extends BaseFragment implements View.OnClickListener {
 
+    static final int CALL_PERMISSION_REQUEST = 1;
     private LinearLayout linearLayoutPolice, linearLayoutAmbulance, linearLayoutFireBrigade;
     private TextView police, ambulance, fireBrigade;
 

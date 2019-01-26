@@ -3,14 +3,19 @@ package org.cfp.citizenconnect;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.View;
@@ -163,5 +168,51 @@ public class MyUtils {
         }
 
         return true;
+    }
+
+    public static boolean canGetLocation(Context context) {
+        boolean result = true;
+        LocationManager lm = null;
+        boolean gpsEnabled = false;
+        boolean networkEnabled = false;
+        if (lm == null)
+
+            lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+
+        // exceptions will be thrown if provider is not permitted.
+        try {
+            gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch (Exception ex) {
+
+        }
+        try {
+            networkEnabled = lm
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch (Exception ex) {
+        }
+        if (gpsEnabled == false || networkEnabled == false) {
+            result = false;
+        } else {
+            result = true;
+        }
+
+        return result;
+    }
+
+    public static Drawable tintDrawable(Context mContext, int Color, int Drawable) {
+
+        @ColorInt int color = ContextCompat.getColor(mContext, Color);
+        Drawable drawable = ContextCompat.getDrawable(mContext, Drawable);
+        drawable.setTint(color);
+        return drawable;
+    }
+
+    public static Bitmap convertToBitmap(Drawable drawable, int widthPixels, int heightPixels) {
+        Bitmap mutableBitmap = Bitmap.createBitmap(widthPixels, heightPixels, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(mutableBitmap);
+        drawable.setBounds(0, 0, widthPixels, heightPixels);
+        drawable.draw(canvas);
+
+        return mutableBitmap;
     }
 }

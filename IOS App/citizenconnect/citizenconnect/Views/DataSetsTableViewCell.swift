@@ -12,7 +12,9 @@ class DataSetsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var Address: UILabel!
     @IBOutlet weak var Name: UILabel!
-
+    @IBOutlet weak var complainData: UIButton!
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

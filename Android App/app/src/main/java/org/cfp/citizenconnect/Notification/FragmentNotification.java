@@ -44,8 +44,6 @@ import io.realm.RealmResults;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
-import static org.cfp.citizenconnect.Constants.DESCRIPTION;
-import static org.cfp.citizenconnect.Constants.FILE_URL;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
@@ -229,6 +227,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         fullNewsViewFragment.setPosition(position);
         fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
         fullNewsViewFragment.show(getFragmentManager(), "FullScreenNews");
+
 
 
     }
